@@ -9,96 +9,130 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="735.0" prefWidth="872.0" style="-fx-background-color: #34ebe5;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.project2.RegisterController">
+<!--<?import javafx.scene.layout.AnchorPane?>-->
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="877.0" prefWidth="841.0" spacing="20.0" style="-fx-background-color: #34ebe5;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.project2.RegisterController">
    <children>
-      <Label alignment="CENTER" layoutX="81.0" layoutY="14.0" prefHeight="73.0" prefWidth="715.0" text="CREATE AN ACCOUNT FOR NEW STAFF" textFill="RED">
-         <font>
-            <Font name="System Bold" size="35.0" />
-         </font>
-      </Label>
-      <Label layoutX="67.0" layoutY="101.0" prefHeight="30.0" prefWidth="348.0" text="Role: ">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="67.0" layoutY="153.0" prefHeight="30.0" prefWidth="348.0" text="Fullname: ">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtFullname" layoutX="461.0" layoutY="156.0" prefHeight="25.0" prefWidth="348.0" />
-      <Label layoutX="67.0" layoutY="208.0" prefHeight="30.0" prefWidth="348.0" text="Birthday: ">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="67.0" layoutY="257.0" prefHeight="30.0" prefWidth="348.0" text="Gender: ">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Label>
-      <RadioButton fx:id="btnMale" layoutX="467.0" layoutY="259.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="168.0" text="Male">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </RadioButton>
-      <RadioButton fx:id="btnFemale" layoutX="635.0" layoutY="259.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="168.0" text="Female">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </RadioButton>
-      <Label layoutX="67.0" layoutY="306.0" prefHeight="30.0" prefWidth="348.0" text="Address: ">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Label>
-      <TextArea fx:id="txtAddress" layoutX="461.0" layoutY="315.0" prefHeight="100.0" prefWidth="348.0" />
-      <Label layoutX="67.0" layoutY="437.0" prefHeight="30.0" prefWidth="348.0" text="Phone Number: ">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtPhoneNumber" layoutX="461.0" layoutY="440.0" prefHeight="25.0" prefWidth="348.0" />
-      <TextField fx:id="txtEmail" layoutX="461.0" layoutY="494.0" prefHeight="25.0" prefWidth="348.0" />
-      <Label layoutX="67.0" layoutY="491.0" prefHeight="30.0" prefWidth="348.0" text="Email: ">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="67.0" layoutY="540.0" prefHeight="30.0" prefWidth="348.0" text="Password: ">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="67.0" layoutY="596.0" prefHeight="30.0" prefWidth="348.0" text="Password for role to create account: ">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Label>
-      <PasswordField fx:id="txtRolePassword" layoutX="461.0" layoutY="599.0" prefHeight="25.0" prefWidth="348.0" />
-      <PasswordField fx:id="txtPassword" layoutX="461.0" layoutY="543.0" prefHeight="25.0" prefWidth="348.0" />
-      <Button layoutX="461.0" layoutY="649.0" mnemonicParsing="false" onMouseClicked="#switchToLogin" prefHeight="25.0" prefWidth="168.0" style="-fx-background-color: #4ef51b;" text="Reigister" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Button>
-      <Label alignment="TOP_LEFT" layoutX="67.0" layoutY="641.0" onMouseClicked="#switchToLogin" prefHeight="30.0" prefWidth="348.0" text="Have an account?" textFill="RED" underline="true">
-         <font>
-            <Font size="20.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Label>
-      <Label alignment="TOP_LEFT" layoutX="67.0" layoutY="679.0" prefHeight="30.0" prefWidth="348.0" text="Forgot your password?" textFill="RED" underline="true">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <DatePicker fx:id="txtBirthday" layoutX="458.0" layoutY="211.0" prefHeight="25.0" prefWidth="168.0" />
-      <ComboBox fx:id="cbRole" layoutX="461.0" layoutY="104.0" onMouseClicked="#comboBoxRole" prefHeight="25.0" prefWidth="348.0" />
+      <Pane prefHeight="89.0" prefWidth="841.0">
+         <children>
+            <Label layoutX="48.0" layoutY="12.0" prefHeight="54.0" prefWidth="740.0" text="CREATE AN ACCOUNT FOR NEW STAFF" textFill="RED">
+               <font>
+                  <Font name="System Bold" size="40.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane prefHeight="831.0" prefWidth="841.0">
+         <children>
+            <Label layoutX="40.0" layoutY="14.0" prefHeight="44.0" prefWidth="346.0" text="Role: ">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="cbRole" layoutX="442.0" layoutY="14.0" prefHeight="44.0" prefWidth="170.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ComboBox>
+            <Label layoutX="40.0" layoutY="84.0" prefHeight="44.0" prefWidth="346.0" text="Fullname: ">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtFullname" layoutX="442.0" layoutY="84.0" prefHeight="44.0" prefWidth="346.0" />
+            <Label layoutX="40.0" layoutY="160.0" prefHeight="44.0" prefWidth="346.0" text="Birthday: ">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="txtBirthday" layoutX="442.0" layoutY="160.0" prefHeight="44.0" prefWidth="170.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></DatePicker>
+            <Label layoutX="40.0" layoutY="226.0" prefHeight="44.0" prefWidth="346.0" text="Gender: ">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <RadioButton fx:id="btnMale" layoutX="442.0" layoutY="226.0" mnemonicParsing="false" onMouseClicked="#radioButton" prefHeight="44.0" prefWidth="170.0" selected="true" text="Male">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <toggleGroup>
+                  <ToggleGroup fx:id="group" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="btnFemale" layoutX="618.0" layoutY="226.0" mnemonicParsing="false" onMouseClicked="#radioButton" prefHeight="44.0" prefWidth="170.0" text="Female" toggleGroup="$group">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </RadioButton>
+            <Label layoutX="40.0" layoutY="287.0" prefHeight="44.0" prefWidth="346.0" text="Address: ">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="txtAddress" layoutX="442.0" layoutY="287.0" prefHeight="90.0" prefWidth="346.0" />
+            <TextField fx:id="txtEmail" layoutX="442.0" layoutY="486.0" prefHeight="44.0" prefWidth="346.0" />
+            <Label layoutX="40.0" layoutY="486.0" prefHeight="44.0" prefWidth="346.0" text="Email: ">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="txtPassword" layoutX="442.0" layoutY="559.0" prefHeight="44.0" prefWidth="346.0" />
+            <Label layoutX="40.0" layoutY="559.0" prefHeight="44.0" prefWidth="346.0" text="Password: ">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="txtRolePassword" layoutX="442.0" layoutY="632.0" prefHeight="44.0" prefWidth="346.0" />
+            <Label layoutX="40.0" layoutY="632.0" prefHeight="44.0" prefWidth="346.0" text="Password for role to create account: ">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Button layoutX="442.0" layoutY="729.0" mnemonicParsing="false" onAction="#register" prefHeight="25.0" prefWidth="170.0" style="-fx-background-color: #6dfa1b;" text="Reigister" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label layoutX="43.0" layoutY="685.0" onMouseClicked="#switchToLogin" prefHeight="44.0" prefWidth="346.0" text="Have got an account?" textFill="RED" underline="true">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <Label layoutX="43.0" layoutY="729.0" prefHeight="44.0" prefWidth="352.0" text="Forgot your password?" textFill="RED" underline="true">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <Label layoutX="40.0" layoutY="410.0" prefHeight="44.0" prefWidth="346.0" text="Phone number: ">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtPhoneNumber" layoutX="442.0" layoutY="410.0" prefHeight="44.0" prefWidth="346.0" />
+            <RadioButton fx:id="button" layoutX="660.0" layoutY="174.0" mnemonicParsing="false" text="RadioButton" />
+         </children>
+      </Pane>
    </children>
-</AnchorPane>
+</VBox>

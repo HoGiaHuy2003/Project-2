@@ -17,7 +17,7 @@ import java.util.Calendar;
  * @author Admin
  */
 public class Register {
-    private int id;
+    
     private int roleId;
     private String fullname;
     private String birthday;
@@ -35,9 +35,6 @@ public class Register {
     }
 
     public void setCreatedAt(String createdAt) {
-        Date date = (Date) Calendar.getInstance().getTime();
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-        createdAt = dateFormat.format(date);
         this.createdAt = createdAt;
     }
 
@@ -46,21 +43,35 @@ public class Register {
     }
 
     public void setUpdatedAt(String updatedAt) {
-        Date date = (Date) Calendar.getInstance().getTime();
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-        updatedAt = dateFormat.format(date);
         this.updatedAt = updatedAt;
     }
 
     public Register() {
     }
 
-    public int getId() {
-        return id;
+    public Register(String email, String password) {
+        this.email = email;
+        this.password = password;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public Register(int roleId, String fullname, String birthday, String gender, String address, String phoneNumber, String email, String password, String createdAt, String updatedAt) throws NoSuchAlgorithmException {
+        this.roleId = roleId;
+        this.fullname = fullname;
+        this.birthday = birthday;
+        this.gender = gender;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+//        MessageDigest md = MessageDigest.getInstance("MD5");
+//        byte[] hashInBytes = md.digest(password.getBytes(StandardCharsets.UTF_8));
+//        StringBuffer sb = new StringBuffer();
+//        for (byte b : hashInBytes) {
+//            sb.append(String.format("%02x", b));
+//        }
+//        password = sb.toString();
+        this.password = password;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
     public int getRoleId() {
@@ -71,11 +82,24 @@ public class Register {
         this.roleId = roleId;
     }
 
-    public String getRollPassword() {
+    public String getRollPassword() throws NoSuchAlgorithmException {
+//        MessageDigest md = MessageDigest.getInstance("MD5");
+//        byte[] hashInBytes = md.digest(rollPassword.getBytes(StandardCharsets.UTF_8));
+//        StringBuffer sb = new StringBuffer();
+//        for (byte b : hashInBytes) {
+//            sb.append(String.format("%02x", b));
+//        }
+//        this.rollPassword = sb.toString();
         return rollPassword;
     }
 
-    public void setRollPassword(String rollPassword) {
+    public void setRollPassword(String rollPassword) throws NoSuchAlgorithmException {
+//        MessageDigest md = MessageDigest.getInstance("MD5");
+//        byte[] hashInBytes = md.digest(rollPassword.getBytes(StandardCharsets.UTF_8));
+//        StringBuffer sb = new StringBuffer();
+//        for (byte b : hashInBytes) {
+//            sb.append(String.format("%02x", b));
+//        }
         this.rollPassword = rollPassword;
     }
 
@@ -128,16 +152,24 @@ public class Register {
     }
 
     public String getPassword() throws NoSuchAlgorithmException {
-        MessageDigest md = MessageDigest.getInstance("MD5");
-        byte[] hashInBytes = md.digest(password.getBytes(StandardCharsets.UTF_8));
-        StringBuffer sb = new StringBuffer();
-        for(byte b : hashInBytes){
-            sb.append(String.format("%02x", b));
-        }
-        return sb.toString();
+//        MessageDigest md = MessageDigest.getInstance("MD5");
+//        byte[] hashInBytes = md.digest(password.getBytes(StandardCharsets.UTF_8));
+//        StringBuffer sb = new StringBuffer();
+//        for (byte b : hashInBytes) {
+//            sb.append(String.format("%02x", b));
+//        }
+//        this.password = sb.toString();
+        return password;
     }
 
-    public void setPassword(String password){
+    public void setPassword(String password) throws NoSuchAlgorithmException {
+//        MessageDigest md = MessageDigest.getInstance("MD5");
+//        byte[] hashInBytes = md.digest(password.getBytes(StandardCharsets.UTF_8));
+//        StringBuffer sb = new StringBuffer();
+//        for (byte b : hashInBytes) {
+//            sb.append(String.format("%02x", b));
+//        }
+//        password = sb.toString();
         this.password = password;
     }
 }

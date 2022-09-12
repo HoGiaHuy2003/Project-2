@@ -26,7 +26,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Button layoutX="300.0" layoutY="212.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="123.0" style="-fx-background-color: #34ebe5;" text="Login" textFill="WHITE">
+      <Button layoutX="300.0" layoutY="212.0" mnemonicParsing="false" onAction="#login" prefHeight="25.0" prefWidth="123.0" style="-fx-background-color: #34ebe5;" text="Login" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>

@@ -14,10 +14,6 @@ import java.security.NoSuchAlgorithmException;
  */
 public class Role {
 
-    private static int staticId;
-    private static String staticName;
-    private static String staticPassword;
-
     public Role() {
     }
 
@@ -36,45 +32,15 @@ public class Role {
     public String getName() {
         return name;
     }
-
-    public static int getStaticId() {
-        return staticId;
-    }
-
-    public static void setStaticId(int staticId) {
-        Role.staticId = staticId;
-    }
-
-    public static String getStaticName() {
-        return staticName;
-    }
-
-    public static void setStaticName(String staticName) {
-        Role.staticName = staticName;
-    }
-
-    public static String getStaticPassword() throws NoSuchAlgorithmException {
-        MessageDigest md = MessageDigest.getInstance("MD5");
-        byte[] hashInBytes = md.digest(staticPassword.getBytes(StandardCharsets.UTF_8));
-        StringBuffer sb = new StringBuffer();
-        for (byte b : hashInBytes) {
-            sb.append(String.format("%02x", b));
-        }
-        return sb.toString();
-    }
-
-    public static void setStaticPassword(String staticPassword) {
-        Role.staticPassword = staticPassword;
-    }
-
     public String getPassword() throws NoSuchAlgorithmException {
-        MessageDigest md = MessageDigest.getInstance("MD5");
-        byte[] hashInBytes = md.digest(password.getBytes(StandardCharsets.UTF_8));
-        StringBuffer sb = new StringBuffer();
-        for (byte b : hashInBytes) {
-            sb.append(String.format("%02x", b));
-        }
-        return sb.toString();
+//        MessageDigest md = MessageDigest.getInstance("MD5");
+//        byte[] hashInBytes = md.digest(password.getBytes(StandardCharsets.UTF_8));
+//        StringBuffer sb = new StringBuffer();
+//        for (byte b : hashInBytes) {
+//            sb.append(String.format("%02x", b));
+//        }
+//        this.password = sb.toString();
+        return password;
     }
 
     public Role(int id, String name, String password) {
