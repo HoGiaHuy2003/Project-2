@@ -75,6 +75,8 @@ public class StaffEntity extends BaseEntity {
             }
         } catch (SQLException ex) {
             Logger.getLogger(StaffEntity.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            close();
         }
         return staff;
     }
@@ -107,7 +109,7 @@ public class StaffEntity extends BaseEntity {
 
     public static List<Staff> list() {
         List<Staff> list = new Vector<>();
-        
+//        
         open();
         
         String sql = "SELECT Role.name 'role', Staff.fullname, Staff.birthday, Staff.gender, Staff.address, Staff.phone_number, Staff.email, Staff.created_at FROM Staff LEFT JOIN Role ON Staff.role_id = Role.id";
@@ -130,9 +132,11 @@ public class StaffEntity extends BaseEntity {
             }
         } catch (SQLException ex) {
             Logger.getLogger(StaffEntity.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            close();
         }
-//        
-//        ObservableList<Staff> dataList = FXCollections.observableList(list);
+        
+        ObservableList<Staff> dataList = FXCollections.observableList(list);
         
         return list;
     }

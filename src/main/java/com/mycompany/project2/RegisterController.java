@@ -14,6 +14,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -165,12 +166,14 @@ public class RegisterController implements Initializable {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         String createdAt = dateFormat.format(date);
         String updatedAt = createdAt;
+        
+        List<Role> getRoleList = RoleEntity.getRoleList();
 
-        for (int i = 0; i < RoleEntity.getRoleList().size(); i++) {
-            if (RoleEntity.getRoleList().get(i).getName().equals(cbRole.getValue())) {
-                role_id = RoleEntity.getRoleList().get(i).getId();
+        for (int i = 0; i < getRoleList.size(); i++) {
+            if (getRoleList.get(i).getName().equals(cbRole.getValue())) {
+                role_id = getRoleList.get(i).getId();
                 Staff register = new Staff(role_id, fullname, birthday, gender, address, phoneNumber, email, password, createdAt, updatedAt);
-                if (RoleEntity.getRoleList().get(i).getPassword().equals(rollPassword)) {
+                if (getRoleList.get(i).getPassword().equals(rollPassword)) {
                     StaffEntity.insert(register);
                     switchToLogin();
                     break;
