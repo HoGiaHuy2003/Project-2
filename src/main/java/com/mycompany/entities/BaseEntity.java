@@ -37,14 +37,14 @@ public class BaseEntity {
             try {
                 conn.close();
             } catch (SQLException ex) {
-                Logger.getLogger(RegisterEntity.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(StaffEntity.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         if (statement != null) {
             try {
                 statement.close();
             } catch (SQLException ex) {
-                Logger.getLogger(RegisterEntity.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(StaffEntity.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         conn = null;

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="490.0" prefWidth="804.0" style="-fx-background-color: #02e5f5;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.project2.EmployeeController">
+   <children>
+      <Label fx:id="yourName" layoutX="14.0" layoutY="14.0" prefHeight="34.0" prefWidth="283.0" text="Null">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Label>
+      <Label fx:id="yourRole" layoutX="14.0" layoutY="48.0" prefHeight="34.0" prefWidth="283.0" text="Null">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <TreeTableView fx:id="treeTableView" layoutX="14.0" layoutY="135.0" prefHeight="341.0" prefWidth="766.0">
+        <columns>
+          <TreeTableColumn fx:id="role" prefWidth="75.0" text="Role" />
+          <TreeTableColumn fx:id="fullname" prefWidth="75.0" text="Fullname" />
+            <TreeTableColumn fx:id="birthday" prefWidth="75.0" text="Birthday" />
+            <TreeTableColumn fx:id="gender" prefWidth="75.0" text="Gender" />
+            <TreeTableColumn fx:id="address" prefWidth="75.0" text="Address" />
+            <TreeTableColumn fx:id="phoneNumber" prefWidth="102.0" text="Phone Number" />
+            <TreeTableColumn fx:id="email" prefWidth="75.0" text="Email" />
+            <TreeTableColumn fx:id="dateStarted" prefWidth="75.0" text="Date Started" />
+        </columns>
+      </TreeTableView>
+   </children>
+</AnchorPane>

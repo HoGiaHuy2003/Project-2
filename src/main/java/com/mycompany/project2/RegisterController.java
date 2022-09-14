@@ -1,8 +1,8 @@
 package com.mycompany.project2;
 
-import com.mycompany.entities.RegisterEntity;
+import com.mycompany.entities.StaffEntity;
 import com.mycompany.entities.RoleEntity;
-import com.mycompany.models.Register;
+import com.mycompany.models.Staff;
 import com.mycompany.models.Role;
 import java.io.IOException;
 import java.net.URL;
@@ -40,6 +40,11 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 
 public class RegisterController implements Initializable {
+    @FXML 
+    private TextField hello;
+    
+    @FXML 
+    private TextField staff;
 
     @FXML
     private VBox pane_register;
@@ -88,6 +93,12 @@ public class RegisterController implements Initializable {
         }
         radioButton();
 //        comboBoxRole();
+//        hello.setText("Hello " + StaffEntity.findId(LoginController.getStaffId()).getFullname()); // Find name by id from database to insert into textfield
+//        for(int i = 0; i < RoleEntity.getRoleList().size(); i++){
+//            if(RoleEntity.getRoleList().get(i).getId() == LoginController.getRoleId()){
+//                staff.setText("Your role is: " + RoleEntity.getRoleList().get(i).getName().toString());
+//            }
+//        }
     }
 
 //    @FXML
@@ -158,9 +169,9 @@ public class RegisterController implements Initializable {
         for (int i = 0; i < RoleEntity.getRoleList().size(); i++) {
             if (RoleEntity.getRoleList().get(i).getName().equals(cbRole.getValue())) {
                 role_id = RoleEntity.getRoleList().get(i).getId();
-                Register register = new Register(role_id, fullname, birthday, gender, address, phoneNumber, email, password, createdAt, updatedAt);
+                Staff register = new Staff(role_id, fullname, birthday, gender, address, phoneNumber, email, password, createdAt, updatedAt);
                 if (RoleEntity.getRoleList().get(i).getPassword().equals(rollPassword)) {
-                    RegisterEntity.insert(register);
+                    StaffEntity.insert(register);
                     switchToLogin();
                     break;
                 }

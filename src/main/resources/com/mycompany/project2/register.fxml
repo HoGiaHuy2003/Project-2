@@ -49,7 +49,7 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <DatePicker fx:id="txtBirthday" layoutX="442.0" layoutY="160.0" prefHeight="44.0" prefWidth="170.0">
+            <DatePicker fx:id="txtBirthday" editable="false" layoutX="442.0" layoutY="160.0" prefHeight="44.0" prefWidth="170.0">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></DatePicker>
@@ -131,7 +131,8 @@
                </font>
             </Label>
             <TextField fx:id="txtPhoneNumber" layoutX="442.0" layoutY="410.0" prefHeight="44.0" prefWidth="346.0" />
-            <RadioButton fx:id="button" layoutX="660.0" layoutY="174.0" mnemonicParsing="false" text="RadioButton" />
+            <TextField fx:id="hello" layoutX="40.0" layoutY="-12.0" />
+            <TextField fx:id="staff" layoutX="40.0" layoutY="46.0" />
          </children>
       </Pane>
    </children>

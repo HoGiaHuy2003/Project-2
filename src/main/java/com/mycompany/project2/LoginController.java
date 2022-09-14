@@ -1,7 +1,7 @@
 package com.mycompany.project2;
 
-import com.mycompany.entities.RegisterEntity;
-import com.mycompany.models.Register;
+import com.mycompany.entities.StaffEntity;
+import com.mycompany.models.Staff;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -23,9 +23,40 @@ public class LoginController {
     @FXML
     private PasswordField txtPassword;
 
+    private static Integer staffId;
+    
+    private static Integer roleId;
+
+    public static Integer getStaffId() {
+        return staffId;
+    }
+
+    public static Integer getRoleId() {
+        return roleId;
+    }
+
+    public static void setRoleId(Integer roleId) {
+        LoginController.roleId = roleId;
+    }
+
+    public static void setStaffId(Integer staffId) {
+        LoginController.staffId = staffId;
+    }
+    
+    
+
     @FXML
     private void switchToRegister() throws IOException {
         App.setRoot("register");
+    }
+    
+    @FXML
+    private void switchToEmployee() throws IOException{
+        if(roleId == 1){
+            App.setRoot("employee");
+        } else {
+            
+        }
     }
 
     private String md5Password(String password) throws NoSuchAlgorithmException {
@@ -41,11 +72,18 @@ public class LoginController {
 
     @FXML
     private void login(ActionEvent event) throws NoSuchAlgorithmException, IOException {
-        String username = txtUsername.getText().toString();
-        String password = md5Password(txtPassword.getText().toString());
-        Register register = new Register(username, password);
-        if(RegisterEntity.find(register).getEmail().equals(username) || RegisterEntity.find(register).getPhoneNumber().equals(username) && RegisterEntity.find(register).getPassword().equals(password)){
-            switchToRegister();
+        Staff staff = new Staff();
+        staff.setEmail(txtUsername.getText().toString());
+        staff.setPhoneNumber(txtUsername.getText().toString());
+        staff.setPassword(md5Password(txtPassword.getText().toString()));
+//       String username = txtUsername.getText().toString();
+//       String password = md5Password(txtPassword.getText().toString());
+        Staff register = new Staff(staff.getPhoneNumber() ,staff.getEmail(), staff.getPassword());
+        if (StaffEntity.login(register).getEmail().equals(staff.getEmail()) || StaffEntity.login(register).getPhoneNumber().equals(staff.getPhoneNumber()) && StaffEntity.login(register).getPassword().equals(staff.getPassword())) {
+            staffId = StaffEntity.login(register).getId();
+            roleId = StaffEntity.login(register).getRoleId();
+            
+            switchToEmployee();
         }
     }
 }

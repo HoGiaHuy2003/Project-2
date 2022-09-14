@@ -11,14 +11,49 @@ import java.sql.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 
 /**
  *
  * @author Admin
  */
-public class Register {
-    
+public class Staff {
+
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Staff(int id, int roleId, String fullname, String birthday, String gender, String address, String phoneNumber, String email, String password, String rollPassword, String createdAt, String updatedAt) {
+        this.id = id;
+        this.roleId = roleId;
+        this.fullname = fullname;
+        this.birthday = birthday;
+        this.gender = gender;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.password = password;
+        this.rollPassword = rollPassword;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+    }
     private int roleId;
+    private String roleName;
+
+    public String getRoleName() {
+        return roleName;
+    }
+
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
+    }
     private String fullname;
     private String birthday;
     private String gender;
@@ -46,15 +81,22 @@ public class Register {
         this.updatedAt = updatedAt;
     }
 
-    public Register() {
+    public Staff() {
     }
 
-    public Register(String email, String password) {
+    public Staff(String email, String password) {
         this.email = email;
         this.password = password;
     }
 
-    public Register(int roleId, String fullname, String birthday, String gender, String address, String phoneNumber, String email, String password, String createdAt, String updatedAt) throws NoSuchAlgorithmException {
+    public Staff(String phoneNumber, String email, String password) {
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.password = password;
+    }
+
+    public Staff(int id, int roleId, String fullname, String birthday, String gender, String address, String phoneNumber, String email, String password, String createdAt, String updatedAt) {
+        this.id = id;
         this.roleId = roleId;
         this.fullname = fullname;
         this.birthday = birthday;
@@ -62,13 +104,19 @@ public class Register {
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.email = email;
-//        MessageDigest md = MessageDigest.getInstance("MD5");
-//        byte[] hashInBytes = md.digest(password.getBytes(StandardCharsets.UTF_8));
-//        StringBuffer sb = new StringBuffer();
-//        for (byte b : hashInBytes) {
-//            sb.append(String.format("%02x", b));
-//        }
-//        password = sb.toString();
+        this.password = password;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+    }
+
+    public Staff(int roleId, String fullname, String birthday, String gender, String address, String phoneNumber, String email, String password, String createdAt, String updatedAt) throws NoSuchAlgorithmException {
+        this.roleId = roleId;
+        this.fullname = fullname;
+        this.birthday = birthday;
+        this.gender = gender;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
         this.password = password;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;

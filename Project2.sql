@@ -68,7 +68,9 @@ create table Product(
 create table sale_off(
 	product_id int references product(id),
 	quantity int,
-	price float
+	price float,
+	date_start datetime,
+	date_end datetime
 );
 
 create table Comment( 
@@ -99,3 +101,7 @@ create table Order_detail(
 	created_at datetime,
 	updated_at datetime
 );
+
+alter table sale_off add date_end datetime
+
+
