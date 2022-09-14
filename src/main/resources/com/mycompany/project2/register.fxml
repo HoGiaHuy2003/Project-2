@@ -16,9 +16,9 @@
 
 <!--<?import javafx.scene.layout.AnchorPane?>-->
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="877.0" prefWidth="841.0" spacing="20.0" style="-fx-background-color: #34ebe5;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.project2.RegisterController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="727.0" prefWidth="832.0" spacing="20.0" style="-fx-background-color: #43cae6;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.project2.RegisterController">
    <children>
-      <Pane prefHeight="89.0" prefWidth="841.0">
+      <Pane prefHeight="70.0" prefWidth="809.0">
          <children>
             <Label layoutX="48.0" layoutY="12.0" prefHeight="54.0" prefWidth="740.0" text="CREATE AN ACCOUNT FOR NEW STAFF" textFill="RED">
                <font>
@@ -27,38 +27,38 @@
             </Label>
          </children>
       </Pane>
-      <Pane prefHeight="831.0" prefWidth="841.0">
+      <Pane prefHeight="685.0" prefWidth="790.0">
          <children>
-            <Label layoutX="40.0" layoutY="14.0" prefHeight="44.0" prefWidth="346.0" text="Role: ">
+            <Label layoutX="33.0" layoutY="14.0" prefHeight="28.0" prefWidth="346.0" text="Role: ">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <ComboBox fx:id="cbRole" layoutX="442.0" layoutY="14.0" prefHeight="44.0" prefWidth="170.0">
+            <ComboBox fx:id="cbRole" layoutX="442.0" layoutY="14.0" opacity="0.79" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: #40a9d6;">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></ComboBox>
-            <Label layoutX="40.0" layoutY="84.0" prefHeight="44.0" prefWidth="346.0" text="Fullname: ">
+            <Label layoutX="33.0" layoutY="69.0" prefHeight="30.0" prefWidth="346.0" text="Fullname: ">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="txtFullname" layoutX="442.0" layoutY="84.0" prefHeight="44.0" prefWidth="346.0" />
-            <Label layoutX="40.0" layoutY="160.0" prefHeight="44.0" prefWidth="346.0" text="Birthday: ">
+            <TextField fx:id="txtFullname" layoutX="442.0" layoutY="69.0" prefHeight="30.0" prefWidth="346.0" />
+            <Label layoutX="33.0" layoutY="122.0" prefHeight="30.0" prefWidth="346.0" text="Birthday: ">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <DatePicker fx:id="txtBirthday" editable="false" layoutX="442.0" layoutY="160.0" prefHeight="44.0" prefWidth="170.0">
+            <DatePicker fx:id="txtBirthday" editable="false" layoutX="442.0" layoutY="122.0" prefHeight="30.0" prefWidth="170.0">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></DatePicker>
-            <Label layoutX="40.0" layoutY="226.0" prefHeight="44.0" prefWidth="346.0" text="Gender: ">
+            <Label layoutX="33.0" layoutY="174.0" prefHeight="30.0" prefWidth="346.0" text="Gender: ">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <RadioButton fx:id="btnMale" layoutX="442.0" layoutY="226.0" mnemonicParsing="false" onMouseClicked="#radioButton" prefHeight="44.0" prefWidth="170.0" selected="true" text="Male">
+            <RadioButton fx:id="btnMale" layoutX="442.0" layoutY="174.0" mnemonicParsing="false" onMouseClicked="#radioButton" prefHeight="30.0" prefWidth="170.0" selected="true" text="Male">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -69,7 +69,7 @@
                   <ToggleGroup fx:id="group" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="btnFemale" layoutX="618.0" layoutY="226.0" mnemonicParsing="false" onMouseClicked="#radioButton" prefHeight="44.0" prefWidth="170.0" text="Female" toggleGroup="$group">
+            <RadioButton fx:id="btnFemale" layoutX="615.0" layoutY="174.0" mnemonicParsing="false" onMouseClicked="#radioButton" prefHeight="30.0" prefWidth="170.0" text="Female" toggleGroup="$group">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -77,31 +77,31 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </RadioButton>
-            <Label layoutX="40.0" layoutY="287.0" prefHeight="44.0" prefWidth="346.0" text="Address: ">
+            <Label layoutX="33.0" layoutY="250.0" prefHeight="30.0" prefWidth="346.0" text="Address: ">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <TextArea fx:id="txtAddress" layoutX="442.0" layoutY="287.0" prefHeight="90.0" prefWidth="346.0" />
-            <TextField fx:id="txtEmail" layoutX="442.0" layoutY="486.0" prefHeight="44.0" prefWidth="346.0" />
-            <Label layoutX="40.0" layoutY="486.0" prefHeight="44.0" prefWidth="346.0" text="Email: ">
+            <TextArea fx:id="txtAddress" layoutX="442.0" layoutY="226.0" prefHeight="77.0" prefWidth="346.0" />
+            <TextField fx:id="txtEmail" layoutX="442.0" layoutY="385.0" prefHeight="30.0" prefWidth="346.0" />
+            <Label layoutX="33.0" layoutY="385.0" prefHeight="30.0" prefWidth="346.0" text="Email: ">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <PasswordField fx:id="txtPassword" layoutX="442.0" layoutY="559.0" prefHeight="44.0" prefWidth="346.0" />
-            <Label layoutX="40.0" layoutY="559.0" prefHeight="44.0" prefWidth="346.0" text="Password: ">
+            <PasswordField fx:id="txtPassword" layoutX="442.0" layoutY="440.0" prefHeight="30.0" prefWidth="346.0" />
+            <Label layoutX="33.0" layoutY="440.0" prefHeight="30.0" prefWidth="346.0" text="Password: ">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <PasswordField fx:id="txtRolePassword" layoutX="442.0" layoutY="632.0" prefHeight="44.0" prefWidth="346.0" />
-            <Label layoutX="40.0" layoutY="632.0" prefHeight="44.0" prefWidth="346.0" text="Password for role to create account: ">
+            <PasswordField fx:id="txtRolePassword" layoutX="442.0" layoutY="494.0" prefHeight="30.0" prefWidth="346.0" />
+            <Label layoutX="33.0" layoutY="494.0" prefHeight="30.0" prefWidth="346.0" text="Password for role to create account: ">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Button layoutX="442.0" layoutY="729.0" mnemonicParsing="false" onAction="#register" prefHeight="25.0" prefWidth="170.0" style="-fx-background-color: #6dfa1b;" text="Reigister" textFill="WHITE">
+            <Button layoutX="442.0" layoutY="568.0" mnemonicParsing="false" onAction="#register" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: #6dfa1b;" text="Reigister" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -109,30 +109,28 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Label layoutX="43.0" layoutY="685.0" onMouseClicked="#switchToLogin" prefHeight="44.0" prefWidth="346.0" text="Have got an account?" textFill="RED" underline="true">
+            <Label alignment="CENTER" layoutX="46.0" layoutY="574.0" onMouseClicked="#switchToLogin" prefHeight="30.0" prefWidth="346.0" text="Have got an account?" textFill="RED" underline="true">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font name="System Bold Italic" size="19.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
-            <Label layoutX="43.0" layoutY="729.0" prefHeight="44.0" prefWidth="352.0" text="Forgot your password?" textFill="RED" underline="true">
+            <Label alignment="CENTER" layoutX="43.0" layoutY="611.0" prefHeight="30.0" prefWidth="352.0" text="Forgot your password?" textFill="RED" underline="true">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font name="System Bold Italic" size="19.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
-            <Label layoutX="40.0" layoutY="410.0" prefHeight="44.0" prefWidth="346.0" text="Phone number: ">
+            <Label layoutX="33.0" layoutY="335.0" prefHeight="30.0" prefWidth="346.0" text="Phone number: ">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="txtPhoneNumber" layoutX="442.0" layoutY="410.0" prefHeight="44.0" prefWidth="346.0" />
-            <TextField fx:id="hello" layoutX="40.0" layoutY="-12.0" />
-            <TextField fx:id="staff" layoutX="40.0" layoutY="46.0" />
+            <TextField fx:id="txtPhoneNumber" layoutX="442.0" layoutY="327.0" prefHeight="30.0" prefWidth="346.0" />
          </children>
       </Pane>
    </children>
