@@ -17,14 +17,14 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <TreeTableView fx:id="treeTableView" layoutX="14.0" layoutY="135.0" prefHeight="341.0" prefWidth="766.0">
+      <TreeTableView fx:id="treeTableView" layoutX="14.0" layoutY="82.0" prefHeight="391.0" prefWidth="765.0">
         <columns>
           <TreeTableColumn fx:id="role" prefWidth="75.0" text="Role" />
           <TreeTableColumn fx:id="fullname" prefWidth="75.0" text="Fullname" />
             <TreeTableColumn fx:id="birthday" prefWidth="75.0" text="Birthday" />
             <TreeTableColumn fx:id="gender" prefWidth="75.0" text="Gender" />
             <TreeTableColumn fx:id="address" prefWidth="75.0" text="Address" />
-            <TreeTableColumn fx:id="phoneNumber" prefWidth="102.0" text="Phone Number" />
+            <TreeTableColumn fx:id="phoneNumber" prefWidth="96.0" text="Phone Number" />
             <TreeTableColumn fx:id="email" prefWidth="75.0" text="Email" />
             <TreeTableColumn fx:id="dateStarted" prefWidth="75.0" text="Date Started" />
         </columns>

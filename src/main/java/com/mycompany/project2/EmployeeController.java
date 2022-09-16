@@ -12,15 +12,20 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Vector;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
+import javafx.scene.control.TreeTableColumn.CellDataFeatures;
 import javafx.scene.control.TreeTableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TreeItemPropertyValueFactory;
+import javafx.util.Callback;
 
 /**
  * FXML Controller class
@@ -35,6 +40,32 @@ public class EmployeeController implements Initializable {
     @FXML
     private Label yourRole;
 
+//    @FXML
+//    private TableView<Staff> tableview;
+//
+//    @FXML
+//    private TableColumn<Staff, String> role;
+//
+//    @FXML
+//    private TableColumn<Staff, String> fullname;
+//
+//    @FXML
+//    private TableColumn<Staff, String> birthday;
+//
+//    @FXML
+//    private TableColumn<Staff, String> gender;
+//
+//    @FXML
+//    private TableColumn<Staff, String> address;
+//
+//    @FXML
+//    private TableColumn<Staff, String> phoneNumber;
+//
+//    @FXML
+//    private TableColumn<Staff, String> email;
+//
+//    @FXML
+//    private TableColumn<Staff, String> dateStarted;
     @FXML
     private TreeTableView<Staff> treeTableView;
 
@@ -62,12 +93,15 @@ public class EmployeeController implements Initializable {
     @FXML
     private TreeTableColumn<Staff, String> dateStarted;
 
+    private TreeItem<Staff> item;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+
         List<Role> roleList = RoleEntity.getRoleList();
         int roleLogin = LoginController.getRoleId();
         Staff loginId = StaffEntity.findId(LoginController.getStaffId());
@@ -77,22 +111,71 @@ public class EmployeeController implements Initializable {
                 yourRole.setText("Your role is: " + roleList.get(i).getName().toString());
             }
         }
-        
+//        ObservableList<Staff> list = StaffEntity.list();
+//        tableview = new TableView<Staff>();
+//        System.out.println(list.get(0).getFullname());
+
+//        role = new TableColumn<Staff, String>("Role");
+//        fullname = new TableColumn<Staff, String>("Full name");
+//        birthday = new TableColumn<Staff, String>("Birthday");
+//        gender = new TableColumn<Staff, String>("Gender");
+//        address = new TableColumn<Staff, String>("Address");
+//        phoneNumber = new TableColumn<Staff, String>("Phone number");
+//        email = new TableColumn<Staff, String>("Email");
+//        dateStarted = new TableColumn<Staff, String>("Date started");
+//        role.setCellValueFactory(new PropertyValueFactory<>("roleName"));
+//        fullname.setCellValueFactory(new PropertyValueFactory<>("fullname"));
+//        birthday.setCellValueFactory(new PropertyValueFactory<>("birthday"));
+//        gender.setCellValueFactory(new PropertyValueFactory<>("gender"));
+//        address.setCellValueFactory(new PropertyValueFactory<>("address"));
+//        phoneNumber.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
+//        email.setCellValueFactory(new PropertyValueFactory<>("email"));
+//        dateStarted.setCellValueFactory(new PropertyValueFactory<>("createdAt"));
+//        tableview.setItems(list);
+//        System.out.println(role);
         List<Staff> dataList = StaffEntity.list();
-        
-        TreeItem<Staff> item = new TreeItem<Staff>(dataList.get(0));
-        for (int i = 0; i < dataList.size(); i++){
-            role.setCellValueFactory(new TreeItemPropertyValueFactory<Staff, String>(dataList.get(i).getRoleName()));
-            fullname.setCellValueFactory(new TreeItemPropertyValueFactory<Staff, String>(dataList.get(i).getFullname()));
-            birthday.setCellValueFactory(new TreeItemPropertyValueFactory<Staff, String>(dataList.get(i).getBirthday()));
-            gender.setCellValueFactory(new TreeItemPropertyValueFactory<Staff, String>(dataList.get(i).getGender()));
-            address.setCellValueFactory(new TreeItemPropertyValueFactory<Staff, String>(dataList.get(i).getAddress()));
-            phoneNumber.setCellValueFactory(new TreeItemPropertyValueFactory<Staff, String>(dataList.get(i).getPhoneNumber()));
-            email.setCellValueFactory(new TreeItemPropertyValueFactory<Staff, String>(dataList.get(i).getEmail()));
-            dateStarted.setCellValueFactory(new TreeItemPropertyValueFactory<Staff, String>(dataList.get(i).getCreatedAt()));
-            TreeItem<Staff> items = new TreeItem<Staff>(dataList.get(i));
-            item.getChildren().add(items);
+//        var x = new TreeItemPropertyValueFactory<Staff, String>("roleName");
+//         if (x== null){
+//             System.out.println("null");
+//         }
+//         else {
+//             System.out.println("not null");
+//         }
+//         role.setCellValueFactory();
+//           if (new TreeItemPropertyValueFactory<Staff, String>("roleName")!=null){
+//                System.out.println("it is not null");
+//            }
+//            else{
+//                System.out.println("null");
+//            }
+        role.setCellValueFactory(new TreeItemPropertyValueFactory<Staff, String>("rolename"));
+        fullname.setCellValueFactory(new TreeItemPropertyValueFactory<Staff, String>("fullname"));
+        birthday.setCellValueFactory(new TreeItemPropertyValueFactory<Staff, String>("birthday"));
+        gender.setCellValueFactory(new TreeItemPropertyValueFactory<Staff, String>("gender"));
+        address.setCellValueFactory(new TreeItemPropertyValueFactory<Staff, String>("address"));
+        phoneNumber.setCellValueFactory(new TreeItemPropertyValueFactory<Staff, String>("phonenumber"));
+        email.setCellValueFactory(new TreeItemPropertyValueFactory<Staff, String>("email"));
+        dateStarted.setCellValueFactory(new TreeItemPropertyValueFactory<Staff, String>("createdat"));
+//        treeTableView.getColumns().addAll(role, fullname, birthday, gender, address, phoneNumber, email, dateStarted);
+//        item = new TreeItem<Staff>(dataList.get(0));
+        for (int i = 0; i < dataList.size(); i++) {
+//            System.out.println(i);
+//            System.out.println(new TreeItemPropertyValueFactory<Staff, String>("createdAt"));
+//            
+//            TreeItem<Staff> items = new TreeItem<Staff>(dataList.get(i));
+//
+//            item.getChildren().addAll(items);
+            item = new TreeItem<Staff>(dataList.get(i));
+//            System.out.println(dataList.get(i).getRoleName());
+//            System.out.println(dataList.get(i).getFullname());
+//            System.out.println(dataList.get(i).getBirthday());
+//            System.out.println(dataList.get(i).getGender());
+//            System.out.println(dataList.get(i).getAddress());
+//            System.out.println(dataList.get(i).getPhoneNumber());
+//            System.out.println(dataList.get(i).getCreatedAt());
+//        }
+//            System.out.println(item);
+            treeTableView.setRoot(item);
         }
-        treeTableView.setRoot(item);
     }
 }

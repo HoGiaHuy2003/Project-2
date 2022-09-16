@@ -21,64 +21,43 @@ import javafx.scene.control.TextField;
 public class Staff {
 
     private int id;
+    private int roleId;
+    private String rolename;
+    private String fullname;
+    private String birthday;
+    private String gender;
+    private String address;
+    private String phonenumber;
+    private String email;
+    private String password;
+    private String rollPassword;
+    private String createdat;
+    private String updatedat;
 
-    public int getId() {
-        return id;
+    public Staff(String rolename, String fullname, String birthday, String gender, String address, String phonenumber, String email, String createdat) {
+        this.rolename = rolename;
+        this.fullname = fullname;
+        this.birthday = birthday;
+        this.gender = gender;
+        this.address = address;
+        this.phonenumber = phonenumber;
+        this.email = email;
+        this.createdat = createdat;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public Staff(int id, int roleId, String fullname, String birthday, String gender, String address, String phoneNumber, String email, String password, String rollPassword, String createdAt, String updatedAt) {
+    public Staff(int id, int roleId, String fullname, String birthday, String gender, String address, String phonenumber, String email, String password, String rollPassword, String createdat, String updatedat) {
         this.id = id;
         this.roleId = roleId;
         this.fullname = fullname;
         this.birthday = birthday;
         this.gender = gender;
         this.address = address;
-        this.phoneNumber = phoneNumber;
+        this.phonenumber = phonenumber;
         this.email = email;
         this.password = password;
         this.rollPassword = rollPassword;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
-    }
-    private int roleId;
-    private String roleName;
-
-    public String getRoleName() {
-        return roleName;
-    }
-
-    public void setRoleName(String roleName) {
-        this.roleName = roleName;
-    }
-    private String fullname;
-    private String birthday;
-    private String gender;
-    private String address;
-    private String phoneNumber;
-    private String email;
-    private String password;
-    private String rollPassword;
-    private String createdAt;
-    private String updatedAt;
-
-    public String getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(String createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public String getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(String updatedAt) {
-        this.updatedAt = updatedAt;
+        this.createdat = createdat;
+        this.updatedat = updatedat;
     }
 
     public Staff() {
@@ -89,37 +68,45 @@ public class Staff {
         this.password = password;
     }
 
-    public Staff(String phoneNumber, String email, String password) {
-        this.phoneNumber = phoneNumber;
+    public Staff(String phonenumber, String email, String password) {
+        this.phonenumber = phonenumber;
         this.email = email;
         this.password = password;
     }
 
-    public Staff(int id, int roleId, String fullname, String birthday, String gender, String address, String phoneNumber, String email, String password, String createdAt, String updatedAt) {
+    public Staff(int id, int roleId, String fullname, String birthday, String gender, String address, String phonenumber, String email, String password, String createdat, String updatedat) {
         this.id = id;
         this.roleId = roleId;
         this.fullname = fullname;
         this.birthday = birthday;
         this.gender = gender;
         this.address = address;
-        this.phoneNumber = phoneNumber;
+        this.phonenumber = phonenumber;
         this.email = email;
         this.password = password;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
+        this.createdat = createdat;
+        this.updatedat = updatedat;
     }
 
-    public Staff(int roleId, String fullname, String birthday, String gender, String address, String phoneNumber, String email, String password, String createdAt, String updatedAt) throws NoSuchAlgorithmException {
+    public Staff(int roleId, String fullname, String birthday, String gender, String address, String phonenumber, String email, String password, String createdat, String updatedat) throws NoSuchAlgorithmException {
         this.roleId = roleId;
         this.fullname = fullname;
         this.birthday = birthday;
         this.gender = gender;
         this.address = address;
-        this.phoneNumber = phoneNumber;
+        this.phonenumber = phonenumber;
         this.email = email;
         this.password = password;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
+        this.createdat = createdat;
+        this.updatedat = updatedat;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getRoleId() {
@@ -128,6 +115,30 @@ public class Staff {
 
     public void setRoleId(int roleId) {
         this.roleId = roleId;
+    }
+
+    public String getRolename() {
+        return rolename;
+    }
+
+    public void setRolename(String rolename) {
+        this.rolename = rolename;
+    }
+
+    public String getCreatedat() {
+        return createdat;
+    }
+
+    public void setCreatedat(String createdAt) {
+        this.createdat = createdAt;
+    }
+
+    public String getUpdatedat() {
+        return updatedat;
+    }
+
+    public void setUpdatedat(String updatedat) {
+        this.updatedat = updatedat;
     }
 
     public String getRollPassword() throws NoSuchAlgorithmException {
@@ -183,12 +194,12 @@ public class Staff {
         this.address = address;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getPhonenumber() {
+        return phonenumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setPhonenumber(String phonenumber) {
+        this.phonenumber = phonenumber;
     }
 
     public String getEmail() {

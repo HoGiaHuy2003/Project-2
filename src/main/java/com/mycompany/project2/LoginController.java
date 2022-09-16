@@ -74,12 +74,12 @@ public class LoginController {
     private void login(ActionEvent event) throws NoSuchAlgorithmException, IOException {
         Staff staff = new Staff();
         staff.setEmail(txtUsername.getText().toString());
-        staff.setPhoneNumber(txtUsername.getText().toString());
+        staff.setPhonenumber(txtUsername.getText().toString());
         staff.setPassword(md5Password(txtPassword.getText().toString()));
 //       String username = txtUsername.getText().toString();
 //       String password = md5Password(txtPassword.getText().toString());
-        Staff register = new Staff(staff.getPhoneNumber() ,staff.getEmail(), staff.getPassword());
-        if (StaffEntity.login(register).getEmail().equals(staff.getEmail()) || StaffEntity.login(register).getPhoneNumber().equals(staff.getPhoneNumber()) && StaffEntity.login(register).getPassword().equals(staff.getPassword())) {
+        Staff register = new Staff(staff.getPhonenumber() ,staff.getEmail(), staff.getPassword());
+        if (StaffEntity.login(register).getEmail().equals(staff.getEmail()) || StaffEntity.login(register).getPhonenumber().equals(staff.getPhonenumber()) && StaffEntity.login(register).getPassword().equals(staff.getPassword())) {
             staffId = StaffEntity.login(register).getId();
             roleId = StaffEntity.login(register).getRoleId();
             

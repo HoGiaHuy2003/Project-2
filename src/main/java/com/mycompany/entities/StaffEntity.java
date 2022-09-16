@@ -37,11 +37,11 @@ public class StaffEntity extends BaseEntity {
             statement.setString(3, newaccount.getBirthday());
             statement.setString(4, newaccount.getGender());
             statement.setString(5, newaccount.getAddress());
-            statement.setString(6, newaccount.getPhoneNumber());
+            statement.setString(6, newaccount.getPhonenumber());
             statement.setString(7, newaccount.getEmail());
             statement.setString(8, newaccount.getPassword());
-            statement.setString(9, newaccount.getCreatedAt());
-            statement.setString(10, newaccount.getUpdatedAt());
+            statement.setString(9, newaccount.getCreatedat());
+            statement.setString(10, newaccount.getUpdatedat());
 
             statement.execute();
             
@@ -88,7 +88,7 @@ public class StaffEntity extends BaseEntity {
         try {
             statement = conn.prepareStatement(sql);
             statement.setString(1, staff.getEmail());
-            statement.setString(2, staff.getPhoneNumber());
+            statement.setString(2, staff.getPhonenumber());
             statement.setString(3, staff.getPassword());
             
             ResultSet resultSet = statement.executeQuery();
@@ -107,7 +107,7 @@ public class StaffEntity extends BaseEntity {
         return staff;
     }
 
-    public static List<Staff> list() {
+    public static ObservableList<Staff> list() {
         List<Staff> list = new Vector<>();
 //        
         open();
@@ -119,15 +119,15 @@ public class StaffEntity extends BaseEntity {
             
             ResultSet resultSet = statement.executeQuery();
             while(resultSet.next()){
-                Staff staff = new Staff();
-                staff.setFullname(resultSet.getString("fullname"));
-                staff.setBirthday(resultSet.getString("birthday"));
-                staff.setGender(resultSet.getString("gender"));
-                staff.setAddress(resultSet.getString("address"));
-                staff.setPhoneNumber(resultSet.getString("phone_number"));
-                staff.setEmail(resultSet.getString("email"));
-                staff.setCreatedAt(resultSet.getString("created_at"));
-                staff.setRoleName(resultSet.getString("role"));
+                Staff staff = new Staff(resultSet.getString("role"), resultSet.getString("fullname"), resultSet.getString("birthday"), resultSet.getString("gender"), resultSet.getString("address"), resultSet.getString("phone_number"), resultSet.getString("email"), resultSet.getString("created_at"));
+//                staff.setFullname(resultSet.getString("fullname"));
+//                staff.setBirthday(resultSet.getString("birthday"));
+//                staff.setGender(resultSet.getString("gender"));
+//                staff.setAddress(resultSet.getString("address"));
+//                staff.setPhoneNumber(resultSet.getString("phone_number"));
+//                staff.setEmail(resultSet.getString("email"));
+//                staff.setCreatedAt(resultSet.getString("created_at"));
+//                staff.setRoleName(resultSet.getString("role"));
                 list.add(staff);
             }
         } catch (SQLException ex) {
@@ -138,6 +138,6 @@ public class StaffEntity extends BaseEntity {
         
         ObservableList<Staff> dataList = FXCollections.observableList(list);
         
-        return list;
+        return dataList;
     }
 }
