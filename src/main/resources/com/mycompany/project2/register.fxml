@@ -58,7 +58,7 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <RadioButton fx:id="btnMale" layoutX="442.0" layoutY="174.0" mnemonicParsing="false" onMouseClicked="#radioButton" prefHeight="30.0" prefWidth="170.0" selected="true" text="Male">
+            <RadioButton fx:id="btnMale" layoutX="442.0" layoutY="174.0" mnemonicParsing="false" onMouseClicked="#getBtnMale" prefHeight="30.0" prefWidth="170.0" selected="true" text="Male">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -69,7 +69,7 @@
                   <ToggleGroup fx:id="group" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="btnFemale" layoutX="615.0" layoutY="174.0" mnemonicParsing="false" onMouseClicked="#radioButton" prefHeight="30.0" prefWidth="170.0" text="Female" toggleGroup="$group">
+            <RadioButton fx:id="btnFemale" layoutX="615.0" layoutY="174.0" mnemonicParsing="false" onMouseClicked="#getBtnFemale" prefHeight="30.0" prefWidth="170.0" text="Female" toggleGroup="$group">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>

@@ -40,61 +40,61 @@ public class EmployeeController implements Initializable {
     @FXML
     private Label yourRole;
 
-//    @FXML
-//    private TableView<Staff> tableview;
-//
-//    @FXML
-//    private TableColumn<Staff, String> role;
-//
-//    @FXML
-//    private TableColumn<Staff, String> fullname;
-//
-//    @FXML
-//    private TableColumn<Staff, String> birthday;
-//
-//    @FXML
-//    private TableColumn<Staff, String> gender;
-//
-//    @FXML
-//    private TableColumn<Staff, String> address;
-//
-//    @FXML
-//    private TableColumn<Staff, String> phoneNumber;
-//
-//    @FXML
-//    private TableColumn<Staff, String> email;
-//
-//    @FXML
-//    private TableColumn<Staff, String> dateStarted;
     @FXML
-    private TreeTableView<Staff> treeTableView;
+    private TableView<Staff> tableview;
 
     @FXML
-    private TreeTableColumn<Staff, String> role;
+    private TableColumn<Staff, String> role;
 
     @FXML
-    private TreeTableColumn<Staff, String> fullname;
+    private TableColumn<Staff, String> fullname;
 
     @FXML
-    private TreeTableColumn<Staff, String> birthday;
+    private TableColumn<Staff, String> birthday;
 
     @FXML
-    private TreeTableColumn<Staff, String> gender;
+    private TableColumn<Staff, String> gender;
 
     @FXML
-    private TreeTableColumn<Staff, String> address;
+    private TableColumn<Staff, String> address;
 
     @FXML
-    private TreeTableColumn<Staff, String> phoneNumber;
+    private TableColumn<Staff, String> phoneNumber;
 
     @FXML
-    private TreeTableColumn<Staff, String> email;
+    private TableColumn<Staff, String> email;
 
     @FXML
-    private TreeTableColumn<Staff, String> dateStarted;
+    private TableColumn<Staff, String> dateStarted;
+
+//    @FXML
+//    private TreeTableView<Staff> treeTableView;
+//
+//    @FXML
+//    private TreeTableColumn<Staff, String> role;
+//
+//    @FXML
+//    private TreeTableColumn<Staff, String> fullname;
+//
+//    @FXML
+//    private TreeTableColumn<Staff, String> birthday;
+//
+//    @FXML
+//    private TreeTableColumn<Staff, String> gender;
+//
+//    @FXML
+//    private TreeTableColumn<Staff, String> address;
+//
+//    @FXML
+//    private TreeTableColumn<Staff, String> phoneNumber;
+//
+//    @FXML
+//    private TreeTableColumn<Staff, String> email;
+//
+//    @FXML
+//    private TreeTableColumn<Staff, String> dateStarted;
 
     private TreeItem<Staff> item;
-
     /**
      * Initializes the controller class.
      */
@@ -102,80 +102,68 @@ public class EmployeeController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
 
+        getFullname();
+
+        getRoleName();
+
+        setValueForTableView();
+
+    }
+
+    private void getFullname() {
         List<Role> roleList = RoleEntity.getRoleList();
-        int roleLogin = LoginController.getRoleId();
         Staff loginId = StaffEntity.findId(LoginController.getStaffId());
         yourName.setText("Hello " + loginId.getFullname()); // Find name by id from database to insert into textfield
+    }
+
+    private void getRoleName() {
+        List<Role> roleList = RoleEntity.getRoleList();
+        int roleLogin = LoginController.getRoleId();
         for (int i = 0; i < roleList.size(); i++) {
             if (roleList.get(i).getId() == roleLogin) {
                 yourRole.setText("Your role is: " + roleList.get(i).getName().toString());
             }
         }
-//        ObservableList<Staff> list = StaffEntity.list();
-//        tableview = new TableView<Staff>();
-//        System.out.println(list.get(0).getFullname());
+    }
 
-//        role = new TableColumn<Staff, String>("Role");
-//        fullname = new TableColumn<Staff, String>("Full name");
-//        birthday = new TableColumn<Staff, String>("Birthday");
-//        gender = new TableColumn<Staff, String>("Gender");
-//        address = new TableColumn<Staff, String>("Address");
-//        phoneNumber = new TableColumn<Staff, String>("Phone number");
-//        email = new TableColumn<Staff, String>("Email");
-//        dateStarted = new TableColumn<Staff, String>("Date started");
-//        role.setCellValueFactory(new PropertyValueFactory<>("roleName"));
-//        fullname.setCellValueFactory(new PropertyValueFactory<>("fullname"));
-//        birthday.setCellValueFactory(new PropertyValueFactory<>("birthday"));
-//        gender.setCellValueFactory(new PropertyValueFactory<>("gender"));
-//        address.setCellValueFactory(new PropertyValueFactory<>("address"));
-//        phoneNumber.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
-//        email.setCellValueFactory(new PropertyValueFactory<>("email"));
-//        dateStarted.setCellValueFactory(new PropertyValueFactory<>("createdAt"));
-//        tableview.setItems(list);
-//        System.out.println(role);
-        List<Staff> dataList = StaffEntity.list();
-//        var x = new TreeItemPropertyValueFactory<Staff, String>("roleName");
-//         if (x== null){
-//             System.out.println("null");
-//         }
-//         else {
-//             System.out.println("not null");
-//         }
-//         role.setCellValueFactory();
-//           if (new TreeItemPropertyValueFactory<Staff, String>("roleName")!=null){
-//                System.out.println("it is not null");
-//            }
-//            else{
-//                System.out.println("null");
-//            }
-        role.setCellValueFactory(new TreeItemPropertyValueFactory<Staff, String>("rolename"));
-        fullname.setCellValueFactory(new TreeItemPropertyValueFactory<Staff, String>("fullname"));
-        birthday.setCellValueFactory(new TreeItemPropertyValueFactory<Staff, String>("birthday"));
-        gender.setCellValueFactory(new TreeItemPropertyValueFactory<Staff, String>("gender"));
-        address.setCellValueFactory(new TreeItemPropertyValueFactory<Staff, String>("address"));
-        phoneNumber.setCellValueFactory(new TreeItemPropertyValueFactory<Staff, String>("phonenumber"));
-        email.setCellValueFactory(new TreeItemPropertyValueFactory<Staff, String>("email"));
-        dateStarted.setCellValueFactory(new TreeItemPropertyValueFactory<Staff, String>("createdat"));
+    private void setValueForTableView() {
+        ObservableList<Staff> employerList = StaffEntity.employerList();
+
+        ObservableList<Staff> employeeList = StaffEntity.employeeList();
+
+        role.setCellValueFactory(new PropertyValueFactory<>("rolename"));
+        fullname.setCellValueFactory(new PropertyValueFactory<>("fullname"));
+        birthday.setCellValueFactory(new PropertyValueFactory<>("birthday"));
+        gender.setCellValueFactory(new PropertyValueFactory<>("gender"));
+        address.setCellValueFactory(new PropertyValueFactory<>("address"));
+        phoneNumber.setCellValueFactory(new PropertyValueFactory<>("phonenumber"));
+        email.setCellValueFactory(new PropertyValueFactory<>("email"));
+        dateStarted.setCellValueFactory(new PropertyValueFactory<>("createdat"));
+
+        tableview.setItems(employerList);
+
+        tableview.getItems().addAll(employeeList);
+    }
+
+//    private void setValueForTreeTableView() {
+//        role.setCellValueFactory(new TreeItemPropertyValueFactory<Staff, String>("rolename"));
+//        fullname.setCellValueFactory(new TreeItemPropertyValueFactory<Staff, String>("fullname"));
+//        birthday.setCellValueFactory(new TreeItemPropertyValueFactory<Staff, String>("birthday"));
+//        gender.setCellValueFactory(new TreeItemPropertyValueFactory<Staff, String>("gender"));
+//        address.setCellValueFactory(new TreeItemPropertyValueFactory<Staff, String>("address"));
+//        phoneNumber.setCellValueFactory(new TreeItemPropertyValueFactory<Staff, String>("phonenumber"));
+//        email.setCellValueFactory(new TreeItemPropertyValueFactory<Staff, String>("email"));
+//        dateStarted.setCellValueFactory(new TreeItemPropertyValueFactory<Staff, String>("createdat"));
 //        treeTableView.getColumns().addAll(role, fullname, birthday, gender, address, phoneNumber, email, dateStarted);
 //        item = new TreeItem<Staff>(dataList.get(0));
-        for (int i = 0; i < dataList.size(); i++) {
-//            System.out.println(i);
-//            System.out.println(new TreeItemPropertyValueFactory<Staff, String>("createdAt"));
-//            
+//        for (int i = 0; i < dataList.size(); i++) {
 //            TreeItem<Staff> items = new TreeItem<Staff>(dataList.get(i));
-//
+////
 //            item.getChildren().addAll(items);
-            item = new TreeItem<Staff>(dataList.get(i));
-//            System.out.println(dataList.get(i).getRoleName());
-//            System.out.println(dataList.get(i).getFullname());
-//            System.out.println(dataList.get(i).getBirthday());
-//            System.out.println(dataList.get(i).getGender());
-//            System.out.println(dataList.get(i).getAddress());
-//            System.out.println(dataList.get(i).getPhoneNumber());
-//            System.out.println(dataList.get(i).getCreatedAt());
+//            item = new TreeItem<Staff>(dataList.get(i));
+//
 //        }
-//            System.out.println(item);
-            treeTableView.setRoot(item);
-        }
-    }
+//            treeTableView.setRoot(item);
+//        }
+//    }
 }

@@ -41,10 +41,11 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 
 public class RegisterController implements Initializable {
-    @FXML 
+
+    @FXML
     private TextField hello;
-    
-    @FXML 
+
+    @FXML
     private TextField staff;
 
     @FXML
@@ -80,26 +81,21 @@ public class RegisterController implements Initializable {
     @FXML
     private PasswordField txtRolePassword;
 
-    private ToggleGroup group = new ToggleGroup(); //for button
-    
-    private RadioButton button;
+    private RadioButton button = btnMale;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        setUpComboBox();
+        txtBirthday.setValue(LocalDate.now());
+    }
+
+    private void setUpComboBox() {
         ObservableList<Role> list = RoleEntity.getRoleList();
         for (int i = 0; i < list.size(); i++) {
             cbRole.getItems().addAll(list.get(i).getName());
             cbRole.setValue(list.get(i).getName());
             cbRole.getSelectionModel().select(null);
         }
-        radioButton();
-//        comboBoxRole();
-//        hello.setText("Hello " + StaffEntity.findId(LoginController.getStaffId()).getFullname()); // Find name by id from database to insert into textfield
-//        for(int i = 0; i < RoleEntity.getRoleList().size(); i++){
-//            if(RoleEntity.getRoleList().get(i).getId() == LoginController.getRoleId()){
-//                staff.setText("Your role is: " + RoleEntity.getRoleList().get(i).getName().toString());
-//            }
-//        }
     }
 
 //    @FXML
@@ -111,27 +107,31 @@ public class RegisterController implements Initializable {
 //            cbRole.getSelectionModel().select(null);
 //        }
 //    }
-    @FXML
-    private void radioButton() {
-        btnMale = new RadioButton("Male");
-        btnFemale = new RadioButton("Female");
-
-        btnMale.setToggleGroup(group);
-
-        btnFemale.setToggleGroup(group);
+//    @FXML
+//    private void radioButton() {
+//        btnMale = new RadioButton("Male");
+//        btnFemale = new RadioButton("Female");
+//
+//        btnMale.setToggleGroup(group);
+//
+//        btnFemale.setToggleGroup(group);
 //        if (group.getSelectedToggle() == btnMale) {
 //            button = btnMale;
 //        } else if (group.getSelectedToggle() == btnFemale) {
 //            button = btnFemale;
 //        }
+//    }
+    @FXML
+    private void getBtnMale(){
+        button = btnMale;
+    }
+    
+    @FXML
+    private void getBtnFemale(){
+        button = btnFemale;
     }
 
     private String getValueOfRadioButton() {
-//        radioButton();     
-        button = btnMale;
-        if(group.getSelectedToggle() != null){
-            button = (RadioButton) group.getSelectedToggle();
-        }
         return button.getText();
     }
 
@@ -166,7 +166,7 @@ public class RegisterController implements Initializable {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         String createdAt = dateFormat.format(date);
         String updatedAt = createdAt;
-        
+
         List<Role> getRoleList = RoleEntity.getRoleList();
 
         for (int i = 0; i < getRoleList.size(); i++) {

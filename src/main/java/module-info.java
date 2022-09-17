@@ -6,4 +6,6 @@ module com.mycompany.project2 {
 
     opens com.mycompany.project2 to javafx.fxml;
     exports com.mycompany.project2;
+    exports com.mycompany.models;
+    exports com.mycompany.entities;
 }
