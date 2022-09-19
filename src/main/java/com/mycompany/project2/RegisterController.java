@@ -41,16 +41,9 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 
 public class RegisterController implements Initializable {
-
     @FXML
-    private TextField hello;
-
-    @FXML
-    private TextField staff;
-
-    @FXML
-    private VBox pane_register;
-
+    private Label title;
+    
     @FXML
     private ComboBox cbRole;
 
@@ -67,7 +60,7 @@ public class RegisterController implements Initializable {
     private RadioButton btnFemale;
 
     @FXML
-    private TextArea txtAddress;
+    private TextField txtAddress;
 
     @FXML
     private TextField txtPhoneNumber;
@@ -83,10 +76,22 @@ public class RegisterController implements Initializable {
 
     private RadioButton button = btnMale;
 
+    private Staff getEditStaff = StaffEntity.findStaffId(Staff.getEditStaffById());
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setUpComboBox();
         txtBirthday.setValue(LocalDate.now());
+
+        if (Staff.getEditStaffById() != 0) {
+            title.setText("Edit account for user");
+            cbRole.setValue(getEditStaff.getRolename());
+            txtFullname.setText(getEditStaff.getFullname());
+            txtBirthday.setValue(LocalDate.parse(getEditStaff.getBirthday()));
+            txtAddress.setText(getEditStaff.getAddress());
+            txtPhoneNumber.setText(getEditStaff.getPhonenumber());
+            txtEmail.setText(getEditStaff.getEmail());
+        }
     }
 
     private void setUpComboBox() {
@@ -98,6 +103,30 @@ public class RegisterController implements Initializable {
         }
     }
 
+//    @FXML
+//    private void setEditValueForTxtFullName(ActionEvent event) {
+//
+////        txtAddress.setText(getEditStaff);
+//    }
+//
+//    @FXML
+//    private void setEditValueForTxtBirthday(ActionEvent event) {
+//    }
+//
+//    @FXML
+//    private void setEditValueForTxtAddress() {
+//
+//    }
+//
+//    @FXML
+//    private void setEditValueForTxtPhoneNumber(ActionEvent event) {
+//
+//    }
+//
+//    @FXML
+//    private void setEditValueForTxtEmail(ActionEvent event) {
+//
+//    }
 //    @FXML
 //    private void comboBoxRole() {
 //        ObservableList<Role> list = RoleEntity.getRoleList();
@@ -122,12 +151,12 @@ public class RegisterController implements Initializable {
 //        }
 //    }
     @FXML
-    private void getBtnMale(){
+    private void getBtnMale() {
         button = btnMale;
     }
-    
+
     @FXML
-    private void getBtnFemale(){
+    private void getBtnFemale() {
         button = btnFemale;
     }
 
@@ -169,16 +198,37 @@ public class RegisterController implements Initializable {
 
         List<Role> getRoleList = RoleEntity.getRoleList();
 
-        for (int i = 0; i < getRoleList.size(); i++) {
-            if (getRoleList.get(i).getName().equals(cbRole.getValue())) {
-                role_id = getRoleList.get(i).getId();
-                Staff register = new Staff(role_id, fullname, birthday, gender, address, phoneNumber, email, password, createdAt, updatedAt);
-                if (getRoleList.get(i).getPassword().equals(rollPassword)) {
-                    StaffEntity.insert(register);
-                    switchToLogin();
-                    break;
+        if (Staff.getLoginStaffId() == 0) {
+            for (int i = 0; i < getRoleList.size(); i++) {
+                if (getRoleList.get(i).getName().equals(cbRole.getValue())) {
+                    role_id = getRoleList.get(i).getId();
+                    Staff register = new Staff(role_id, fullname, birthday, gender, address, phoneNumber, email, password, createdAt, updatedAt);
+                    if (getRoleList.get(i).getPassword().equals(rollPassword)) {
+                        StaffEntity.insert(register);
+                        switchToLogin();
+                        break;
+                    }
+                }
+            }
+        } else {
+            for (int i = 0; i < getRoleList.size(); i++) {
+                if (getRoleList.get(i).getName().equals(cbRole.getValue())) {
+                    role_id = getRoleList.get(i).getId();
+                    Staff update = new Staff(role_id, fullname, birthday, gender, address, phoneNumber, email, password, createdAt, updatedAt);
+                    update.setId(Staff.getEditStaffById());
+                    if (getRoleList.get(i).getPassword().equals(rollPassword)) {
+                        StaffEntity.update(update);
+                        App.setRoot("employee");
+                        break;
+                    }
                 }
             }
         }
+//            cbRole.setValue(getEditStaff.getRolename());
+//            txtFullname.setText(getEditStaff.getFullname());
+//            txtBirthday.setValue(LocalDate.parse(getEditStaff.getBirthday()));
+//            txtAddress.setText(getEditStaff.getAddress());
+//            txtPhoneNumber.setText(getEditStaff.getPhonenumber());
+//            txtEmail.setText(getEditStaff.getEmail());
     }
 }

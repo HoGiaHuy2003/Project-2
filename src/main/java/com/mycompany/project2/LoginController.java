@@ -23,25 +23,25 @@ public class LoginController {
     @FXML
     private PasswordField txtPassword;
 
-    private static Integer staffId;
-    
-    private static Integer roleId;
-
-    public static Integer getStaffId() {
-        return staffId;
-    }
-
-    public static Integer getRoleId() {
-        return roleId;
-    }
-
-    public static void setRoleId(Integer roleId) {
-        LoginController.roleId = roleId;
-    }
-
-    public static void setStaffId(Integer staffId) {
-        LoginController.staffId = staffId;
-    }
+//    private static Integer staffId;
+//    
+//    private static Integer roleId;
+//
+//    public static Integer getStaffId() {
+//        return staffId;
+//    }
+//
+//    public static Integer getRoleId() {
+//        return roleId;
+//    }
+//
+//    public static void setRoleId(Integer roleId) {
+//        LoginController.roleId = roleId;
+//    }
+//
+//    public static void setStaffId(Integer staffId) {
+//        LoginController.staffId = staffId;
+//    }
     
     
 
@@ -52,7 +52,7 @@ public class LoginController {
     
     @FXML
     private void switchToEmployee() throws IOException{
-        if(roleId == 1){
+        if(Staff.getLoginRoleId() == 1){
             App.setRoot("employee");
         } else {
             App.setRoot("product");
@@ -80,9 +80,11 @@ public class LoginController {
 //       String password = md5Password(txtPassword.getText().toString());
         Staff register = new Staff(staff.getPhonenumber() ,staff.getEmail(), staff.getPassword());
         if (StaffEntity.login(register).getEmail().equals(staff.getEmail()) || StaffEntity.login(register).getPhonenumber().equals(staff.getPhonenumber()) && StaffEntity.login(register).getPassword().equals(staff.getPassword())) {
-            staffId = StaffEntity.login(register).getId();
-            roleId = StaffEntity.login(register).getRoleId();
-            
+            Staff.setLoginStaffId(StaffEntity.login(register).getId());
+            Staff.setLoginRoleId(StaffEntity.login(register).getRoleId());
+            if(Staff.getLoginRoleId() == 2){
+                Staff.setEditStaffById(Staff.getLoginStaffId());
+            }
             switchToEmployee();
         }
     }

@@ -8,14 +8,17 @@ import com.mycompany.entities.RoleEntity;
 import com.mycompany.entities.StaffEntity;
 import com.mycompany.models.Role;
 import com.mycompany.models.Staff;
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Vector;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -67,6 +70,12 @@ public class EmployeeController implements Initializable {
     @FXML
     private TableColumn<Staff, String> dateStarted;
 
+    @FXML
+    private Button btnUpdate;
+
+    @FXML
+    private Button btnDelete;
+
 //    @FXML
 //    private TreeTableView<Staff> treeTableView;
 //
@@ -93,8 +102,8 @@ public class EmployeeController implements Initializable {
 //
 //    @FXML
 //    private TreeTableColumn<Staff, String> dateStarted;
-
     private TreeItem<Staff> item;
+
     /**
      * Initializes the controller class.
      */
@@ -112,13 +121,13 @@ public class EmployeeController implements Initializable {
 
     private void getFullname() {
         List<Role> roleList = RoleEntity.getRoleList();
-        Staff loginId = StaffEntity.findId(LoginController.getStaffId());
+        Staff loginId = StaffEntity.findStaffId(Staff.getLoginStaffId());
         yourName.setText("Hello " + loginId.getFullname()); // Find name by id from database to insert into textfield
     }
 
     private void getRoleName() {
         List<Role> roleList = RoleEntity.getRoleList();
-        int roleLogin = LoginController.getRoleId();
+        int roleLogin = Staff.getLoginRoleId();
         for (int i = 0; i < roleList.size(); i++) {
             if (roleList.get(i).getId() == roleLogin) {
                 yourRole.setText("Your role is: " + roleList.get(i).getName().toString());
@@ -143,6 +152,21 @@ public class EmployeeController implements Initializable {
         tableview.setItems(employerList);
 
         tableview.getItems().addAll(employeeList);
+    }
+
+    @FXML
+    private void btnUpdate(ActionEvent event) throws IOException {
+        ObservableList<Staff> employerList = StaffEntity.employerList();
+
+        ObservableList<Staff> employeeList = StaffEntity.employeeList();
+        for (int i = 0; i < employeeList.size(); i++) {
+            if (tableview.getSelectionModel().getSelectedItem().getId() == employeeList.get(i).getId()) {
+                Staff.setEditStaffById(employeeList.get(i).getId());
+                System.out.println(Staff.getEditStaffById());
+                App.setRoot("register");
+                break;
+            }
+        }
     }
 
 //    private void setValueForTreeTableView() {

@@ -52,26 +52,61 @@ public class StaffEntity extends BaseEntity {
         }
     }
 
-    public static void update(Staff newaccount) {
+    public static void update(Staff updateaccount) throws NoSuchAlgorithmException {
+        open();
 
+        try {
+            String sql = "UPDATE Staff SET role_id = ?, fullname = ?, birthday = ?, gender = ?, address = ?, phone_number = ?, email = ?, password = ?, updated_at = ? WHERE id = ?";
+            statement = conn.prepareStatement(sql);
+
+            statement.setInt(1, updateaccount.getRoleId());
+            statement.setString(2, updateaccount.getFullname());
+            statement.setString(3, updateaccount.getBirthday());
+            statement.setString(4, updateaccount.getGender());
+            statement.setString(5, updateaccount.getAddress());
+            statement.setString(6, updateaccount.getPhonenumber());
+            statement.setString(7, updateaccount.getEmail());
+            statement.setString(8, updateaccount.getPassword());
+            statement.setString(9, updateaccount.getUpdatedat());
+            statement.setInt(10, updateaccount.getId());
+
+            statement.execute();
+        } catch (SQLException ex) {
+            Logger.getLogger(StaffEntity.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            close();
+        }
     }
 
     public static void delete(int id) {
+        open();
+        try {
+            String sql = "DELETE FROM Staff WHERE id = ?";
+            statement = conn.prepareStatement(sql);
 
+            statement.setInt(1, id);
+            
+            statement.execute();
+        } catch (SQLException ex) {
+            Logger.getLogger(StaffEntity.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            close();
+        }
     }
 
-    public static Staff findId(int role_id) {
+    public static Staff findStaffId(int staff_id) {
         Staff staff = null;
         open();
 
-        String sql = "SELECT * FROM Staff WHERE id = ?";
+        String sql = "SELECT Staff.*, Role.name 'role' FROM Staff LEFT JOIN Role ON Staff.role_id = Role.id WHERE Staff.id = ?";
         try {
             statement = conn.prepareStatement(sql);
-            statement.setInt(1, role_id);
+            statement.setInt(1, staff_id);
 
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 staff = new Staff(resultSet.getInt("id"), resultSet.getInt("role_id"), resultSet.getString("fullname"), resultSet.getString("birthday"), resultSet.getString("gender"), resultSet.getString("address"), resultSet.getString("phone_number"), resultSet.getString("email"), resultSet.getString("password"), resultSet.getString("created_at"), resultSet.getString("updated_at"));
+                staff.setRolename(resultSet.getString("role"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(StaffEntity.class.getName()).log(Level.SEVERE, null, ex);
@@ -112,7 +147,7 @@ public class StaffEntity extends BaseEntity {
         ObservableList<Staff> list = FXCollections.observableArrayList();
         open();
 
-        String sql = "SELECT Role.name 'role', Staff.fullname, Staff.birthday, Staff.gender, Staff.address, Staff.phone_number, Staff.email, Staff.created_at FROM Staff LEFT JOIN Role ON Staff.role_id = Role.id WHERE Role.name = 'Employer'";
+        String sql = "SELECT Staff.id, Role.name 'role', Staff.fullname, Staff.birthday, Staff.gender, Staff.address, Staff.phone_number, Staff.email, Staff.created_at FROM Staff LEFT JOIN Role ON Staff.role_id = Role.id WHERE Role.name = 'Employer'";
 
         try {
             statement = conn.prepareStatement(sql);
@@ -128,6 +163,7 @@ public class StaffEntity extends BaseEntity {
 //                staff.setEmail(resultSet.getString("email"));
 //                staff.setCreatedAt(resultSet.getString("created_at"));
 //                staff.setRoleName(resultSet.getString("role"));
+                staff.setId(resultSet.getInt("id"));
                 list.add(staff);
             }
         } catch (SQLException ex) {
@@ -145,7 +181,7 @@ public class StaffEntity extends BaseEntity {
         ObservableList<Staff> list = FXCollections.observableArrayList();
         open();
 
-        String sql = "SELECT Role.name 'role', Staff.fullname, Staff.birthday, Staff.gender, Staff.address, Staff.phone_number, Staff.email, Staff.created_at FROM Staff LEFT JOIN Role ON Staff.role_id = Role.id WHERE Role.name = 'Employee'";
+        String sql = "SELECT Staff.id, Role.name 'role', Staff.fullname, Staff.birthday, Staff.gender, Staff.address, Staff.phone_number, Staff.email, Staff.created_at FROM Staff LEFT JOIN Role ON Staff.role_id = Role.id WHERE Role.name = 'Employee'";
 
         try {
             statement = conn.prepareStatement(sql);
@@ -161,6 +197,7 @@ public class StaffEntity extends BaseEntity {
 //                staff.setEmail(resultSet.getString("email"));
 //                staff.setCreatedAt(resultSet.getString("created_at"));
 //                staff.setRoleName(resultSet.getString("role"));
+                staff.setId(resultSet.getInt("id"));
                 list.add(staff);
             }
         } catch (SQLException ex) {
@@ -173,4 +210,25 @@ public class StaffEntity extends BaseEntity {
         return list;
     }
 
+    public static Staff findByEmailOrPhoneNumber(String email, String phoneNumber) {
+        Staff staff = null;
+        open();
+
+        String sql = "SELECT Staff.*, Role.name 'role' FROM Staff LEFT JOIN Role ON Staff.role_id = Role.id WHERE email = ? OR phone_number = ?";
+        try {
+            statement = conn.prepareStatement(sql);
+            statement.setString(1, email);
+            statement.setString(2, phoneNumber);
+
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                staff = new Staff(resultSet.getInt("id"), resultSet.getInt("role_id"), resultSet.getString("role"), resultSet.getString("fullname"), resultSet.getString("birthday"), resultSet.getString("gender"), resultSet.getString("address"), resultSet.getString("phone_number"), resultSet.getString("email"), resultSet.getString("updated_at"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(StaffEntity.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            close();
+        }
+        return staff;
+    }
 }

@@ -33,6 +33,37 @@ public class Staff {
     private String rollPassword;
     private String createdat;
     private String updatedat;
+    
+    private static int editStaffById;
+
+    public static int getEditStaffById() {
+        return editStaffById;
+    }
+
+    public static void setEditStaffById(int editStaffById) {
+        Staff.editStaffById = editStaffById;
+    }
+    
+    private static Integer loginRoleId; // Role id of person who login
+    
+    private static Integer loginStaffId; //Id person who login
+
+    public static Integer getLoginStaffId() {
+        return loginStaffId;
+    }
+
+    public static void setLoginStaffId(Integer loginStaffId) {
+        Staff.loginStaffId = loginStaffId;
+    }
+
+    public static Integer getLoginRoleId() {
+        return loginRoleId;
+    }
+
+    public static void setLoginRoleId(Integer loginRoleId) {
+        Staff.loginRoleId = loginRoleId;
+    }
+
 
     public Staff(String rolename, String fullname, String birthday, String gender, String address, String phonenumber, String email, String createdat) {
         this.rolename = rolename;
@@ -72,6 +103,19 @@ public class Staff {
         this.phonenumber = phonenumber;
         this.email = email;
         this.password = password;
+    }
+
+    public Staff(int id, int roleId, String rolename, String fullname, String birthday, String gender, String address, String phonenumber, String email, String updatedat) {
+        this.id = id;
+        this.roleId = roleId;
+        this.rolename = rolename;
+        this.fullname = fullname;
+        this.birthday = birthday;
+        this.gender = gender;
+        this.address = address;
+        this.phonenumber = phonenumber;
+        this.email = email;
+        this.updatedat = updatedat;
     }
 
     public Staff(int id, int roleId, String fullname, String birthday, String gender, String address, String phonenumber, String email, String password, String createdat, String updatedat) {
