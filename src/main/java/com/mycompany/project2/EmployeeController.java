@@ -168,7 +168,7 @@ public class EmployeeController implements Initializable {
         for (int i = 0; i < staffList.size(); i++) {
             if (tableview.getSelectionModel().getSelectedItem().getId() == staffList.get(i).getId()) {
                 Staff.setEditStaffById(staffList.get(i).getId());
-                System.out.println(Staff.getEditStaffById());
+//                System.out.println(Staff.getEditStaffById());
                 App.setRoot("register");
                 break;
             }
@@ -194,14 +194,14 @@ public class EmployeeController implements Initializable {
 
         } else if (option.get() == ButtonType.OK) {
             StaffEntity.delete(Staff.getEditStaffById());
-            role.setCellValueFactory(new PropertyValueFactory<>("rolename"));
-            fullname.setCellValueFactory(new PropertyValueFactory<>("fullname"));
-            birthday.setCellValueFactory(new PropertyValueFactory<>("birthday"));
-            gender.setCellValueFactory(new PropertyValueFactory<>("gender"));
-            address.setCellValueFactory(new PropertyValueFactory<>("address"));
-            phoneNumber.setCellValueFactory(new PropertyValueFactory<>("phonenumber"));
-            email.setCellValueFactory(new PropertyValueFactory<>("email"));
-            dateStarted.setCellValueFactory(new PropertyValueFactory<>("createdat"));
+//            role.setCellValueFactory(new PropertyValueFactory<>("rolename"));
+//            fullname.setCellValueFactory(new PropertyValueFactory<>("fullname"));
+//            birthday.setCellValueFactory(new PropertyValueFactory<>("birthday"));
+//            gender.setCellValueFactory(new PropertyValueFactory<>("gender"));
+//            address.setCellValueFactory(new PropertyValueFactory<>("address"));
+//            phoneNumber.setCellValueFactory(new PropertyValueFactory<>("phonenumber"));
+//            email.setCellValueFactory(new PropertyValueFactory<>("email"));
+//            dateStarted.setCellValueFactory(new PropertyValueFactory<>("createdat"));
 
             tableview.getItems().remove(tableview.getSelectionModel().getSelectedItem());
         } else if (option.get() == ButtonType.OK) {
@@ -219,6 +219,11 @@ public class EmployeeController implements Initializable {
     @FXML
     private void switchToProduct() throws IOException {
         App.setRoot("product");
+    }
+    
+    @FXML
+    private void manageCustomer() throws IOException{
+        App.setRoot("managecustomer");
     }
 
 //    private void setValueForTreeTableView() {

@@ -80,17 +80,19 @@ public class RegisterController implements Initializable {
     
     @FXML
     private Label cancelOrSwitchToLogin;
+    
+    @FXML
+    private Button btnSave;
 
-    private RadioButton button = btnMale;
+    private RadioButton button;
 
     private Staff getEditStaff = StaffEntity.findStaffId(Staff.getEditStaffById());
     
-    
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setUpComboBox();
         txtBirthday.setValue(LocalDate.now());
+        button = btnMale;
 
         if (Staff.getEditStaffById() != 0) {
             title.setText("Edit account for user");
@@ -102,6 +104,7 @@ public class RegisterController implements Initializable {
             txtAddress.setText(getEditStaff.getAddress());
             txtPhoneNumber.setText(getEditStaff.getPhonenumber());
             txtEmail.setText(getEditStaff.getEmail());
+            btnSave.setText("Save");
         }
     }
 

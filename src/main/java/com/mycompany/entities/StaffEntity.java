@@ -107,6 +107,7 @@ public class StaffEntity extends BaseEntity {
             while (resultSet.next()) {
                 staff = new Staff(resultSet.getInt("id"), resultSet.getInt("role_id"), resultSet.getString("fullname"), resultSet.getString("birthday"), resultSet.getString("gender"), resultSet.getString("address"), resultSet.getString("phone_number"), resultSet.getString("email"), resultSet.getString("password"), resultSet.getString("created_at"), resultSet.getString("updated_at"));
                 staff.setRolename(resultSet.getString("role"));
+                break;
             }
         } catch (SQLException ex) {
             Logger.getLogger(StaffEntity.class.getName()).log(Level.SEVERE, null, ex);

@@ -99,7 +99,7 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Button layoutX="442.0" layoutY="568.0" mnemonicParsing="false" onAction="#register" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: #6dfa1b;" text="Reigister" textFill="WHITE">
+            <Button fx:id="btnSave" layoutX="442.0" layoutY="568.0" mnemonicParsing="false" onAction="#register" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: #6dfa1b;" text="Reigister" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
