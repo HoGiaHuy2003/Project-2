@@ -32,6 +32,8 @@
             </columns>
         </TableView>
       <Button fx:id="btnUpdate" layoutX="708.0" layoutY="33.0" mnemonicParsing="false" onAction="#btnUpdate" text="Edit Information" />
-      <Button layoutX="869.0" layoutY="33.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="109.0" text="Button" />
+      <Button fx:id="btnDelete" layoutX="869.0" layoutY="33.0" mnemonicParsing="false" onAction="#btnDelete" prefHeight="30.0" prefWidth="109.0" text="Delete Acccout" />
+      <Button layoutX="543.0" layoutY="33.0" mnemonicParsing="false" onAction="#logout" prefHeight="30.0" prefWidth="109.0" text="Logout" />
+      <Button layoutX="357.0" layoutY="33.0" mnemonicParsing="false" onAction="#switchToProduct" prefHeight="30.0" prefWidth="139.0" text="Manage Product" />
     </children>
 </AnchorPane>

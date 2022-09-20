@@ -11,6 +11,7 @@ import com.mycompany.models.Staff;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.Vector;
 import javafx.beans.value.ObservableValue;
@@ -18,7 +19,10 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -159,14 +163,62 @@ public class EmployeeController implements Initializable {
         ObservableList<Staff> employerList = StaffEntity.employerList();
 
         ObservableList<Staff> employeeList = StaffEntity.employeeList();
-        for (int i = 0; i < employeeList.size(); i++) {
-            if (tableview.getSelectionModel().getSelectedItem().getId() == employeeList.get(i).getId()) {
-                Staff.setEditStaffById(employeeList.get(i).getId());
+
+        ObservableList<Staff> staffList = StaffEntity.list();
+        for (int i = 0; i < staffList.size(); i++) {
+            if (tableview.getSelectionModel().getSelectedItem().getId() == staffList.get(i).getId()) {
+                Staff.setEditStaffById(staffList.get(i).getId());
                 System.out.println(Staff.getEditStaffById());
                 App.setRoot("register");
                 break;
             }
         }
+    }
+
+    @FXML
+    private void btnDelete(ActionEvent event) throws IOException {
+        ObservableList<Staff> staffList = StaffEntity.list();
+        for (int i = 0; i < staffList.size(); i++) {
+            if (tableview.getSelectionModel().getSelectedItem().getId() == staffList.get(i).getId()) {
+                Staff.setEditStaffById(staffList.get(i).getId());
+                break;
+            }
+        }
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setTitle("Delete this staff: ");
+        alert.setHeaderText("Are you sure want to delete this staff?");
+
+        Optional<ButtonType> option = alert.showAndWait();
+
+        if (option.get() == null) {
+
+        } else if (option.get() == ButtonType.OK) {
+            StaffEntity.delete(Staff.getEditStaffById());
+            role.setCellValueFactory(new PropertyValueFactory<>("rolename"));
+            fullname.setCellValueFactory(new PropertyValueFactory<>("fullname"));
+            birthday.setCellValueFactory(new PropertyValueFactory<>("birthday"));
+            gender.setCellValueFactory(new PropertyValueFactory<>("gender"));
+            address.setCellValueFactory(new PropertyValueFactory<>("address"));
+            phoneNumber.setCellValueFactory(new PropertyValueFactory<>("phonenumber"));
+            email.setCellValueFactory(new PropertyValueFactory<>("email"));
+            dateStarted.setCellValueFactory(new PropertyValueFactory<>("createdat"));
+
+            tableview.getItems().remove(tableview.getSelectionModel().getSelectedItem());
+        } else if (option.get() == ButtonType.OK) {
+
+        }
+    }
+
+    @FXML
+    private void logout(ActionEvent event) throws IOException {
+        Staff.setLoginStaffId(0);
+
+        App.setRoot("login");
+    }
+
+    @FXML
+    private void switchToProduct() throws IOException {
+        App.setRoot("product");
     }
 
 //    private void setValueForTreeTableView() {

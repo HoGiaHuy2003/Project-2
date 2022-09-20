@@ -107,7 +107,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Label alignment="CENTER" layoutX="46.0" layoutY="574.0" onMouseClicked="#switchToLogin" prefHeight="30.0" prefWidth="346.0" text="Have got an account?" textFill="RED" underline="true">
+            <Label fx:id="cancelOrSwitchToLogin" alignment="CENTER" layoutX="46.0" layoutY="574.0" onMouseClicked="#switchToLoginOrEmployee" prefHeight="30.0" prefWidth="346.0" text="Have got an account?" textFill="RED" underline="true">
                <font>
                   <Font name="System Bold Italic" size="19.0" />
                </font>
@@ -115,7 +115,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
-            <Label alignment="CENTER" layoutX="43.0" layoutY="611.0" prefHeight="30.0" prefWidth="352.0" text="Forgot your password?" textFill="RED" underline="true">
+            <Label fx:id="forgotPassword" alignment="CENTER" layoutX="43.0" layoutY="611.0" prefHeight="30.0" prefWidth="352.0" text="Forgot your password?" textFill="RED" underline="true">
                <font>
                   <Font name="System Bold Italic" size="19.0" />
                </font>

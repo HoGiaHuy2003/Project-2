@@ -85,7 +85,7 @@ public class StaffEntity extends BaseEntity {
             statement = conn.prepareStatement(sql);
 
             statement.setInt(1, id);
-            
+
             statement.execute();
         } catch (SQLException ex) {
             Logger.getLogger(StaffEntity.class.getName()).log(Level.SEVERE, null, ex);
@@ -140,6 +140,39 @@ public class StaffEntity extends BaseEntity {
         }
 
         return staff;
+    }
+
+    public static ObservableList<Staff> list() {
+        ObservableList<Staff> list = FXCollections.observableArrayList();
+        open();
+
+        String sql = "SELECT Staff.id, Role.name 'role', Staff.fullname, Staff.birthday, Staff.gender, Staff.address, Staff.phone_number, Staff.email, Staff.created_at FROM Staff LEFT JOIN Role ON Staff.role_id = Role.id";
+
+        try {
+            statement = conn.prepareStatement(sql);
+
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                Staff staff = new Staff(resultSet.getString("role"), resultSet.getString("fullname"), resultSet.getString("birthday"), resultSet.getString("gender"), resultSet.getString("address"), resultSet.getString("phone_number"), resultSet.getString("email"), resultSet.getString("created_at"));
+//                staff.setFullname(resultSet.getString("fullname"));
+//                staff.setBirthday(resultSet.getString("birthday"));
+//                staff.setGender(resultSet.getString("gender"));
+//                staff.setAddress(resultSet.getString("address"));
+//                staff.setPhoneNumber(resultSet.getString("phone_number"));
+//                staff.setEmail(resultSet.getString("email"));
+//                staff.setCreatedAt(resultSet.getString("created_at"));
+//                staff.setRoleName(resultSet.getString("role"));
+                staff.setId(resultSet.getInt("id"));
+                list.add(staff);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(StaffEntity.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            close();
+        }
+
+//        ObservableList<Staff> dataList = FXCollections.observableList(list);
+        return list;
     }
 
     public static ObservableList<Staff> employerList() {

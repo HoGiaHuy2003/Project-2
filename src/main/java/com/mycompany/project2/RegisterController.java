@@ -41,9 +41,10 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 
 public class RegisterController implements Initializable {
+
     @FXML
     private Label title;
-    
+
     @FXML
     private ComboBox cbRole;
 
@@ -73,10 +74,18 @@ public class RegisterController implements Initializable {
 
     @FXML
     private PasswordField txtRolePassword;
+    
+    @FXML
+    private Label forgotPassword;
+    
+    @FXML
+    private Label cancelOrSwitchToLogin;
 
     private RadioButton button = btnMale;
 
     private Staff getEditStaff = StaffEntity.findStaffId(Staff.getEditStaffById());
+    
+    
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -85,6 +94,8 @@ public class RegisterController implements Initializable {
 
         if (Staff.getEditStaffById() != 0) {
             title.setText("Edit account for user");
+            cancelOrSwitchToLogin.setText("Cancel");
+            forgotPassword.setText(null);
             cbRole.setValue(getEditStaff.getRolename());
             txtFullname.setText(getEditStaff.getFullname());
             txtBirthday.setValue(LocalDate.parse(getEditStaff.getBirthday()));
@@ -165,8 +176,12 @@ public class RegisterController implements Initializable {
     }
 
     @FXML
-    private void switchToLogin() throws IOException {
-        App.setRoot("login");
+    private void switchToLoginOrEmployee() throws IOException {
+        if (Staff.getEditStaffById() == 0) {
+            App.setRoot("login");
+        } else {
+            App.setRoot("employee");
+        }
     }
 
     private String md5Password(String password) throws NoSuchAlgorithmException {
@@ -198,14 +213,14 @@ public class RegisterController implements Initializable {
 
         List<Role> getRoleList = RoleEntity.getRoleList();
 
-        if (Staff.getLoginStaffId() == 0) {
+        if (Staff.getLoginStaffId() == null) {
             for (int i = 0; i < getRoleList.size(); i++) {
                 if (getRoleList.get(i).getName().equals(cbRole.getValue())) {
                     role_id = getRoleList.get(i).getId();
                     Staff register = new Staff(role_id, fullname, birthday, gender, address, phoneNumber, email, password, createdAt, updatedAt);
                     if (getRoleList.get(i).getPassword().equals(rollPassword)) {
                         StaffEntity.insert(register);
-                        switchToLogin();
+                        switchToLoginOrEmployee();
                         break;
                     }
                 }
@@ -218,7 +233,7 @@ public class RegisterController implements Initializable {
                     update.setId(Staff.getEditStaffById());
                     if (getRoleList.get(i).getPassword().equals(rollPassword)) {
                         StaffEntity.update(update);
-                        App.setRoot("employee");
+                        switchToLoginOrEmployee();
                         break;
                     }
                 }
