@@ -244,25 +244,25 @@ public class StaffEntity extends BaseEntity {
         return list;
     }
 
-    public static Staff findByEmailOrPhoneNumber(String email, String phoneNumber) {
-        Staff staff = null;
-        open();
-
-        String sql = "SELECT Staff.*, Role.name 'role' FROM Staff LEFT JOIN Role ON Staff.role_id = Role.id WHERE email = ? OR phone_number = ?";
-        try {
-            statement = conn.prepareStatement(sql);
-            statement.setString(1, email);
-            statement.setString(2, phoneNumber);
-
-            ResultSet resultSet = statement.executeQuery();
-            while (resultSet.next()) {
-                staff = new Staff(resultSet.getInt("id"), resultSet.getInt("role_id"), resultSet.getString("role"), resultSet.getString("fullname"), resultSet.getString("birthday"), resultSet.getString("gender"), resultSet.getString("address"), resultSet.getString("phone_number"), resultSet.getString("email"), resultSet.getString("updated_at"));
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(StaffEntity.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            close();
-        }
-        return staff;
-    }
+//    public static Staff findByEmailOrPhoneNumber(String email, String phoneNumber) {
+//        Staff staff = null;
+//        open();
+//
+//        String sql = "SELECT Staff.*, Role.name 'role' FROM Staff LEFT JOIN Role ON Staff.role_id = Role.id WHERE email = ? OR phone_number = ?";
+//        try {
+//            statement = conn.prepareStatement(sql);
+//            statement.setString(1, email);
+//            statement.setString(2, phoneNumber);
+//
+//            ResultSet resultSet = statement.executeQuery();
+//            while (resultSet.next()) {
+//                staff = new Staff(resultSet.getInt("id"), resultSet.getInt("role_id"), resultSet.getString("role"), resultSet.getString("fullname"), resultSet.getString("birthday"), resultSet.getString("gender"), resultSet.getString("address"), resultSet.getString("phone_number"), resultSet.getString("email"), resultSet.getString("updated_at"));
+//            }
+//        } catch (SQLException ex) {
+//            Logger.getLogger(StaffEntity.class.getName()).log(Level.SEVERE, null, ex);
+//        } finally {
+//            close();
+//        }
+//        return staff;
+//    }
 }

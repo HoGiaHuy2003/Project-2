@@ -51,7 +51,7 @@ public class EmployeeController implements Initializable {
     private TableView<Staff> tableview;
 
     @FXML
-    private TableColumn<Staff, String> role;
+    private TableColumn<Role, String> role;
 
     @FXML
     private TableColumn<Staff, String> fullname;
@@ -144,7 +144,7 @@ public class EmployeeController implements Initializable {
 
         ObservableList<Staff> employeeList = StaffEntity.employeeList();
 
-        role.setCellValueFactory(new PropertyValueFactory<>("rolename"));
+        role.setCellValueFactory(new PropertyValueFactory<>("name"));
         fullname.setCellValueFactory(new PropertyValueFactory<>("fullname"));
         birthday.setCellValueFactory(new PropertyValueFactory<>("birthday"));
         gender.setCellValueFactory(new PropertyValueFactory<>("gender"));

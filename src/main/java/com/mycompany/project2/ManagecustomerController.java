@@ -71,6 +71,9 @@ public class ManagecustomerController implements Initializable {
     private Button btnDelete;
 
     @FXML
+    private Button switchToEmployee;
+
+    @FXML
     private void btnUpdate() throws IOException {
         ObservableList<Customer> customerList = CustomerEntity.customerList();
         for (int i = 0; i < customerList.size(); i++) {
@@ -97,8 +100,7 @@ public class ManagecustomerController implements Initializable {
         alert.setHeaderText("Are you sure want to delete this customer?");
 
         Optional<ButtonType> option = alert.showAndWait();
-        if(option.get() == ButtonType.OK){
-            
+        if (option.get() == ButtonType.OK) {
             tableview.getItems().remove(tableview.getSelectionModel().getSelectedItem());
         }
     }
@@ -114,6 +116,8 @@ public class ManagecustomerController implements Initializable {
         getRoleName();
 
         setValueForTableView();
+
+        blockManageEmployee();
     }
 
     private void getFullname() {
@@ -145,6 +149,12 @@ public class ManagecustomerController implements Initializable {
         tableview.setItems(customerList);
     }
 
+    private void blockManageEmployee() {
+        if (Staff.getLoginRoleId() != 1) {
+            switchToEmployee.setDisable(true);
+        }
+    }
+
     @FXML
     private void newCustomer() throws IOException {
         App.setRoot("customer");
@@ -168,7 +178,14 @@ public class ManagecustomerController implements Initializable {
     }
 
     @FXML
-    private void switchToCustomer() throws IOException {
-        App.setRoot("customer");
+    private void chooseCustomer() throws IOException {
+        ObservableList<Customer> customerList = CustomerEntity.customerList();
+        for (int i = 0; i < customerList.size(); i++) {
+            if (tableview.getSelectionModel().getSelectedItem().getId() == customerList.get(i).getId()) {
+                Customer.setValueOfCustomerId(customerList.get(i).getId());
+                break;
+            }
+        }
+        App.setRoot("product");
     }
 }
