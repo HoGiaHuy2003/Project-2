@@ -5,43 +5,72 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1b4a75;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.project2.ProductController">
-   <children>
-      <Label layoutX="22.0" layoutY="14.0" text="Product" textAlignment="CENTER" textFill="#4fe387">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Label>
-      <TableView layoutX="12.0" layoutY="44.0" prefHeight="289.0" prefWidth="576.0" style="-fx-background-color: #1b4a75;">
-        <columns>
-          <TableColumn editable="false" prefWidth="33.60000419616699" style="-fx-background-color: #fcb603;" text="ID" />
-          <TableColumn editable="false" prefWidth="73.59998321533203" style="-fx-background-color: #fcb603;" text="Category_id" />
-            <TableColumn editable="false" prefWidth="89.60003662109375" style="-fx-background-color: #fcb603;" text="Title" />
-            <TableColumn editable="false" prefWidth="53.5999755859375" style="-fx-background-color: #fcb603;" text="Price" />
-            <TableColumn editable="false" prefWidth="58.39996337890625" style="-fx-background-color: #fcb603;" text="Quantity" />
-            <TableColumn editable="false" prefWidth="111.20001220703125" style="-fx-background-color: #fcb603;" text="Seleable_number" />
-            <TableColumn editable="false" prefWidth="70.39996337890625" style="-fx-background-color: #fcb603;" text="Description" />
-            <TableColumn editable="false" prefWidth="83.20001220703125" style="-fx-background-color: #fcb603;" text="Thumbnail" />
-        </columns>
-      </TableView>
-      <Button layoutX="22.0" layoutY="358.0" mnemonicParsing="false" onAction="#loadcategory" style="-fx-background-color: #89eb34;" text="Category" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="OPEN_HAND" />
-         </cursor>
-      </Button>
-      <Button layoutX="96.0" layoutY="358.0" mnemonicParsing="false" onAction="#loadproduct" style="-fx-background-color: red;" text="Product" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="OPEN_HAND" />
-         </cursor>
-      </Button>
-   </children>
-</AnchorPane>
+<BorderPane prefHeight="532.0" prefWidth="999.0" style="-fx-background-color: #1b4a75;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <VBox prefHeight="532.0" prefWidth="874.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="53.0" prefWidth="600.0">
+               <children>
+                  <Label prefHeight="30.0" prefWidth="886.0" text="Product" textAlignment="CENTER" textFill="#4fe387">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="422.0" prefWidth="848.0">
+               <children>
+                  <TableView prefHeight="422.0" prefWidth="886.0" style="-fx-background-color: #1b4a75;">
+                     <columns>
+                        <TableColumn editable="false" prefWidth="33.60000419616699" style="-fx-background-color: #fcb603;" text="ID" />
+                        <TableColumn editable="false" prefWidth="73.59998321533203" style="-fx-background-color: #fcb603;" text="Category_id" />
+                        <TableColumn editable="false" prefWidth="107.19998168945312" style="-fx-background-color: #fcb603;" text="Title" />
+                        <TableColumn editable="false" prefWidth="78.40005493164062" style="-fx-background-color: #fcb603;" text="Price" />
+                        <TableColumn editable="false" prefWidth="107.20001220703125" style="-fx-background-color: #fcb603;" text="Quantity" />
+                        <TableColumn editable="false" prefWidth="116.00006103515625" style="-fx-background-color: #fcb603;" text="Seleable_number" />
+                        <TableColumn editable="false" prefWidth="164.79998779296875" style="-fx-background-color: #fcb603;" text="Description" />
+                        <TableColumn editable="false" prefWidth="203.20001220703125" style="-fx-background-color: #fcb603;" text="Thumbnail" />
+                     </columns>
+                  </TableView>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="54.0" prefWidth="600.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="911.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="54.0" prefWidth="132.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#loadproduct" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: red;" text="Product" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="OPEN_HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="54.0" prefWidth="126.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#loadcategory" prefHeight="26.0" prefWidth="97.0" style="-fx-background-color: #89eb34;" text="Category" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="OPEN_HAND" />
+                                 </cursor>
+                              </Button>
+                           </children></HBox>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
