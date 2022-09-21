@@ -29,12 +29,8 @@ public class LoginController {
     }
     
     @FXML
-    private void switchToEmployee() throws IOException{
-        if(Staff.getLoginRoleId() == 1){
-            App.setRoot("employee");
-        } else {
-            App.setRoot("managecustomer");
-        }
+    private void switchToManageCustomer() throws IOException{
+        App.setRoot("managecustomer");
     }
 
     private String md5Password(String password) throws NoSuchAlgorithmException {
@@ -61,7 +57,7 @@ public class LoginController {
             if(Staff.getLoginRoleId() == 2){
                 Staff.setEditStaffById(Staff.getLoginStaffId());
             }
-            switchToEmployee();
+            switchToManageCustomer();
         }
     }
 }

@@ -189,4 +189,36 @@ public class ManagecustomerController implements Initializable {
         }
         App.setRoot("product");
     }
+
+    @FXML
+    private void btnUpdateAccount(ActionEvent event) throws IOException {
+        Staff.setEditStaffById(Staff.getLoginStaffId());
+        App.setRoot("register");
+    }
+
+    @FXML
+    private void btnDeleteAccount(ActionEvent event) throws IOException {
+        Staff.setEditStaffById(Staff.getLoginStaffId());
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Delete this staff: ");
+        alert.setHeaderText("Are you sure want to delete this staff?");
+
+        Optional<ButtonType> option = alert.showAndWait();
+
+        if (option.get() == null) {
+
+        } else if (option.get() == ButtonType.OK) {
+            if (Staff.getEditStaffById() == Staff.getLoginStaffId()) {
+                Staff.setLoginStaffId(0);
+                Staff.setEditStaffById(0);
+            }
+            StaffEntity.delete(Staff.getEditStaffById());
+            tableview.getItems().remove(tableview.getSelectionModel().getSelectedItem());
+            if (Staff.getLoginStaffId() == 0) {
+                App.setRoot("login");
+            }
+        } else if (option.get() == ButtonType.OK) {
+
+        }
+    }
 }

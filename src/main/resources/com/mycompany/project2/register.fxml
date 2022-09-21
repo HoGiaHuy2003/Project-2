@@ -157,7 +157,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="53.0" prefWidth="839.0">
                <children>
-                  <Label fx:id="cancelOrSwitchToLogin" alignment="CENTER" onMouseClicked="#switchToLoginOrEmployee" prefHeight="30.0" prefWidth="215.0" text="Have got an account?" textFill="RED" underline="true">
+                  <Label fx:id="cancelOrSwitchToLogin" alignment="CENTER" onMouseClicked="#switchToLoginOrManageCustomer" prefHeight="30.0" prefWidth="215.0" text="Have got an account?" textFill="RED" underline="true">
                      <font>
                         <Font name="System Bold Italic" size="19.0" />
                      </font>

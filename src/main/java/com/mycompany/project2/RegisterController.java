@@ -179,11 +179,11 @@ public class RegisterController implements Initializable {
     }
 
     @FXML
-    private void switchToLoginOrEmployee() throws IOException {
+    private void switchToLoginOrManageCustomer() throws IOException {
         if (Staff.getEditStaffById() == 0) {
             App.setRoot("login");
         } else {
-            App.setRoot("employee");
+            App.setRoot("managecustomer");
         }
     }
 
@@ -222,7 +222,7 @@ public class RegisterController implements Initializable {
                     Staff register = new Staff(role_id, fullname, birthday, gender, address, phoneNumber, email, password, createdAt, updatedAt);
                     if (getRoleList.get(i).getPassword().equals(rollPassword)) {
                         StaffEntity.insert(register);
-                        switchToLoginOrEmployee();
+                        switchToLoginOrManageCustomer();
                         break;
                     }
                 }
@@ -235,7 +235,7 @@ public class RegisterController implements Initializable {
                     update.setId(Staff.getEditStaffById());
                     if (getRoleList.get(i).getPassword().equals(rollPassword)) {
                         StaffEntity.update(update);
-                        switchToLoginOrEmployee();
+                        switchToLoginOrManageCustomer();
                         break;
                     }
                 }

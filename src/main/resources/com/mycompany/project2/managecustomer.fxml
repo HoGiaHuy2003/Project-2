@@ -37,5 +37,7 @@
       <Button fx:id="switchToEmployee" layoutX="14.0" layoutY="487.0" mnemonicParsing="false" onAction="#switchToEmployee" prefHeight="30.0" prefWidth="139.0" text="Manage Employee" />
       <Button layoutX="454.0" layoutY="35.0" mnemonicParsing="false" onAction="#newCustomer" prefHeight="30.0" prefWidth="125.0" text="New Customer" />
       <Button layoutX="298.0" layoutY="35.0" mnemonicParsing="false" onAction="#chooseCustomer" prefHeight="30.0" prefWidth="125.0" text="Choose Customer" />
+      <Button layoutX="361.0" layoutY="487.0" mnemonicParsing="false" onAction="#btnUpdateAccount" prefHeight="30.0" prefWidth="125.0" text="Edit Your Account" />
+      <Button layoutX="517.0" layoutY="487.0" mnemonicParsing="false" onAction="#btnDeleteAccount" prefHeight="30.0" prefWidth="139.0" text="Delete Your Account" />
     </children>
 </AnchorPane>
