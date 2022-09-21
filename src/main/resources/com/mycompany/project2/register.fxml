@@ -82,7 +82,7 @@
                   </Label>
                   <HBox alignment="CENTER" prefHeight="82.0" prefWidth="305.0">
                      <children>
-                        <RadioButton fx:id="btnMale1" mnemonicParsing="false" onMouseClicked="#getBtnMale" prefHeight="30.0" prefWidth="170.0" selected="true" text="Male">
+                        <RadioButton fx:id="btnMale" mnemonicParsing="false" onAction="#getBtnMale" onMouseClicked="#getBtnMale" prefHeight="30.0" prefWidth="170.0" selected="true" text="Male">
                            <font>
                               <Font name="System Bold" size="20.0" />
                            </font>
@@ -90,13 +90,10 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                            <toggleGroup>
-                              <ToggleGroup fx:id="group1" />
+                              <ToggleGroup fx:id="group" />
                            </toggleGroup>
                         </RadioButton>
-                        <RadioButton fx:id="btnFemale1" mnemonicParsing="false" onMouseClicked="#getBtnFemale" prefHeight="30.0" prefWidth="170.0" text="Female">
-                           <toggleGroup>
-                              <ToggleGroup fx:id="group1" />
-                           </toggleGroup>
+                        <RadioButton fx:id="btnFemale" mnemonicParsing="false" onAction="#getBtnFemale" onMouseClicked="#getBtnFemale" prefHeight="30.0" prefWidth="170.0" text="Female" toggleGroup="$group">
                            <font>
                               <Font name="System Bold" size="20.0" />
                            </font>

@@ -18,11 +18,9 @@ import javafx.scene.control.TextField;
  *
  * @author Admin
  */
-public class Staff extends Role{
+public class Staff extends Role {
 
     private int id;
-//    private int roleId;
-    private String rolename;
     private String fullname;
     private String birthday;
     private String gender;
@@ -30,42 +28,17 @@ public class Staff extends Role{
     private String phonenumber;
     private String email;
     private String password;
-//    private String rollPassword;
     private String createdat;
     private String updatedat;
-    
-    private static int editStaffById;
 
-    public static int getEditStaffById() {
-        return editStaffById;
-    }
+    private static int editStaffById; // Select id of staff who need to be editted
 
-    public static void setEditStaffById(int editStaffById) {
-        Staff.editStaffById = editStaffById;
-    }
-    
-    private static Integer loginRoleId; // Role id of person who login
-    
-    private static Integer loginStaffId; //Id person who login
+    private static Integer loginRoleId; // Role id of staff who login
 
-    public static Integer getLoginStaffId() {
-        return loginStaffId;
-    }
+    private static Integer loginStaffId; //Id staff who login
 
-    public static void setLoginStaffId(Integer loginStaffId) {
-        Staff.loginStaffId = loginStaffId;
-    }
-
-    public static Integer getLoginRoleId() {
-        return loginRoleId;
-    }
-
-    public static void setLoginRoleId(Integer loginRoleId) {
-        Staff.loginRoleId = loginRoleId;
-    }
-
-    public Staff(String name, String fullname, String birthday, String gender, String address, String phonenumber, String email, String createdat) {
-        super(name);
+    public Staff(String roleName, String fullname, String birthday, String gender, String address, String phonenumber, String email, String createdat) {
+        super(roleName);
         this.fullname = fullname;
         this.birthday = birthday;
         this.gender = gender;
@@ -74,34 +47,7 @@ public class Staff extends Role{
         this.email = email;
         this.createdat = createdat;
     }
-
-
-//    public Staff(String rolename, String fullname, String birthday, String gender, String address, String phonenumber, String email, String createdat) {
-//        this.rolename = rolename;
-//        this.fullname = fullname;
-//        this.birthday = birthday;
-//        this.gender = gender;
-//        this.address = address;
-//        this.phonenumber = phonenumber;
-//        this.email = email;
-//        this.createdat = createdat;
-//    }
-//
-//    public Staff(int id, int roleId, String fullname, String birthday, String gender, String address, String phonenumber, String email, String password, String rollPassword, String createdat, String updatedat) {
-//        this.id = id;
-//        this.roleId = roleId;
-//        this.fullname = fullname;
-//        this.birthday = birthday;
-//        this.gender = gender;
-//        this.address = address;
-//        this.phonenumber = phonenumber;
-//        this.email = email;
-//        this.password = password;
-//        this.rollPassword = rollPassword;
-//        this.createdat = createdat;
-//        this.updatedat = updatedat;
-//    }
-
+    
     public Staff() {
     }
 
@@ -116,22 +62,9 @@ public class Staff extends Role{
         this.password = password;
     }
 
-//    public Staff(int id, int roleId, String rolename, String fullname, String birthday, String gender, String address, String phonenumber, String email, String updatedat) {
-//        this.id = id;
-//        this.roleId = roleId;
-//        this.rolename = rolename;
-//        this.fullname = fullname;
-//        this.birthday = birthday;
-//        this.gender = gender;
-//        this.address = address;
-//        this.phonenumber = phonenumber;
-//        this.email = email;
-//        this.updatedat = updatedat;
-//    }
-
     public Staff(int id, int roleId, String fullname, String birthday, String gender, String address, String phonenumber, String email, String password, String createdat, String updatedat) {
+        super(roleId);
         this.id = id;
-        super.setId(roleId);
         this.fullname = fullname;
         this.birthday = birthday;
         this.gender = gender;
@@ -143,7 +76,7 @@ public class Staff extends Role{
         this.updatedat = updatedat;
     }
 
-    public Staff(int roleId, String fullname, String birthday, String gender, String address, String phonenumber, String email, String password, String createdat, String updatedat) throws NoSuchAlgorithmException {
+    public Staff(int roleId, String fullname, String birthday, String gender, String address, String phonenumber, String email, String password, String createdat, String updatedat) {
         super(roleId);
         this.fullname = fullname;
         this.birthday = birthday;
@@ -156,68 +89,13 @@ public class Staff extends Role{
         this.updatedat = updatedat;
     }
 
-    @Override
     public int getId() {
         return id;
     }
 
-    @Override
     public void setId(int id) {
         this.id = id;
     }
-
-    public int getRoleId() {
-        return super.getId();
-    }
-
-    public void setRoleId(int roleId) {
-        super.setId(roleId);
-    }
-
-    public String getRolename() {
-        return rolename;
-    }
-
-    public void setRolename(String rolename) {
-        this.rolename = rolename;
-    }
-
-    public String getCreatedat() {
-        return createdat;
-    }
-
-    public void setCreatedat(String createdAt) {
-        this.createdat = createdAt;
-    }
-
-    public String getUpdatedat() {
-        return updatedat;
-    }
-
-    public void setUpdatedat(String updatedat) {
-        this.updatedat = updatedat;
-    }
-
-//    public String getRollPassword() throws NoSuchAlgorithmException {
-////        MessageDigest md = MessageDigest.getInstance("MD5");
-////        byte[] hashInBytes = md.digest(rollPassword.getBytes(StandardCharsets.UTF_8));
-////        StringBuffer sb = new StringBuffer();
-////        for (byte b : hashInBytes) {
-////            sb.append(String.format("%02x", b));
-////        }
-////        this.rollPassword = sb.toString();
-//        return rollPassword;
-//    }
-//
-//    public void setRollPassword(String rollPassword) throws NoSuchAlgorithmException {
-////        MessageDigest md = MessageDigest.getInstance("MD5");
-////        byte[] hashInBytes = md.digest(rollPassword.getBytes(StandardCharsets.UTF_8));
-////        StringBuffer sb = new StringBuffer();
-////        for (byte b : hashInBytes) {
-////            sb.append(String.format("%02x", b));
-////        }
-//        this.rollPassword = rollPassword;
-//    }
 
     public String getFullname() {
         return fullname;
@@ -267,27 +145,53 @@ public class Staff extends Role{
         this.email = email;
     }
 
-    @Override
-    public String getPassword() throws NoSuchAlgorithmException {
-//        MessageDigest md = MessageDigest.getInstance("MD5");
-//        byte[] hashInBytes = md.digest(password.getBytes(StandardCharsets.UTF_8));
-//        StringBuffer sb = new StringBuffer();
-//        for (byte b : hashInBytes) {
-//            sb.append(String.format("%02x", b));
-//        }
-//        this.password = sb.toString();
+    public String getPassword() {
         return password;
     }
 
-    @Override
-    public void setPassword(String password){
-//        MessageDigest md = MessageDigest.getInstance("MD5");
-//        byte[] hashInBytes = md.digest(password.getBytes(StandardCharsets.UTF_8));
-//        StringBuffer sb = new StringBuffer();
-//        for (byte b : hashInBytes) {
-//            sb.append(String.format("%02x", b));
-//        }
-//        password = sb.toString();
+    public void setPassword(String password) {
         this.password = password;
     }
+
+    public String getCreatedat() {
+        return createdat;
+    }
+
+    public void setCreatedat(String createdat) {
+        this.createdat = createdat;
+    }
+
+    public String getUpdatedat() {
+        return updatedat;
+    }
+
+    public void setUpdatedat(String updatedat) {
+        this.updatedat = updatedat;
+    }
+
+    public static int getEditStaffById() {
+        return editStaffById;
+    }
+
+    public static void setEditStaffById(int editStaffById) {
+        Staff.editStaffById = editStaffById;
+    }
+
+    public static Integer getLoginRoleId() {
+        return loginRoleId;
+    }
+
+    public static void setLoginRoleId(Integer loginRoleId) {
+        Staff.loginRoleId = loginRoleId;
+    }
+
+    public static Integer getLoginStaffId() {
+        return loginStaffId;
+    }
+
+    public static void setLoginStaffId(Integer loginStaffId) {
+        Staff.loginStaffId = loginStaffId;
+    }
+    
+    
 }

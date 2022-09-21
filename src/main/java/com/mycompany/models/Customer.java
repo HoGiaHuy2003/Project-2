@@ -19,7 +19,7 @@ public class Customer {
     private String createdAt;
     private String updatedAt;
     
-    private static Integer ValueOfCustomerId;
+    private static Integer ValueOfCustomerId; // Select id of customer who need to be editted
     
     public static Integer getValueOfCustomerId() {
         return ValueOfCustomerId;

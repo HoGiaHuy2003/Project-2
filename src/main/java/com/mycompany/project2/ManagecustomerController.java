@@ -101,6 +101,7 @@ public class ManagecustomerController implements Initializable {
 
         Optional<ButtonType> option = alert.showAndWait();
         if (option.get() == ButtonType.OK) {
+            CustomerEntity.delete(Customer.getValueOfCustomerId());
             tableview.getItems().remove(tableview.getSelectionModel().getSelectedItem());
         }
     }
@@ -130,8 +131,8 @@ public class ManagecustomerController implements Initializable {
         List<Role> roleList = RoleEntity.getRoleList();
         int roleLogin = Staff.getLoginRoleId();
         for (int i = 0; i < roleList.size(); i++) {
-            if (roleList.get(i).getId() == roleLogin) {
-                yourRole.setText("Your role is: " + roleList.get(i).getName().toString());
+            if (roleList.get(i).getRoleId() == roleLogin) {
+                yourRole.setText("Your role is: " + roleList.get(i).getRoleName().toString());
             }
         }
     }

@@ -13,52 +13,47 @@ import java.security.NoSuchAlgorithmException;
  * @author Admin
  */
 public class Role {
+    
+    private int roleId;
+    private String roleName;
+    private String password;
 
     public Role() {
     }
 
-    public Role(String name) {
-        this.name = name;
+    public int getRoleId() {
+        return roleId;
     }
 
-    private int id;
-    private String name;
-    private String password;
-
-    public int getId() {
-        return id;
+    public void setRoleId(int roleId) {
+        this.roleId = roleId;
     }
 
-    public Role(int id) {
-        this.id = id;
+    public Role(int roleId) {
+        this.roleId = roleId;
     }
 
-    public String getName() {
-        return name;
+//    }
+    public Role(String roleName) {
+        this.roleName = roleName;
     }
-    public String getPassword() throws NoSuchAlgorithmException {
-//        MessageDigest md = MessageDigest.getInstance("MD5");
-//        byte[] hashInBytes = md.digest(password.getBytes(StandardCharsets.UTF_8));
-//        StringBuffer sb = new StringBuffer();
-//        for (byte b : hashInBytes) {
-//            sb.append(String.format("%02x", b));
-//        }
-//        this.password = sb.toString();
+
+    public String getRoleName() {
+        return roleName;
+    }
+
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
+    }
+
+    public String getPassword(){
         return password;
     }
 
-    public Role(int id, String name, String password) {
-        this.id = id;
-        this.name = name;
+    public Role(int roleId, String roleName, String password) {
+        this.roleId = roleId;
+        this.roleName = roleName;
         this.password = password;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public void setPassword(String password) {
