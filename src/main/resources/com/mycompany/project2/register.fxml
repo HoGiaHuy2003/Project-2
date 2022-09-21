@@ -9,128 +9,192 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<!--<?import javafx.scene.layout.AnchorPane?>-->
-
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="727.0" prefWidth="832.0" spacing="20.0" style="-fx-background-color: #43cae6;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.project2.RegisterController">
-   <children>
-      <Pane prefHeight="70.0" prefWidth="809.0">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #43cae6;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.project2.RegisterController">
+   <center>
+      <VBox prefHeight="596.0" prefWidth="784.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="title" layoutX="48.0" layoutY="12.0" prefHeight="54.0" prefWidth="740.0" text="CREATE AN ACCOUNT FOR NEW STAFF" textFill="RED">
-               <font>
-                  <Font name="System Bold" size="40.0" />
-               </font>
-            </Label>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="title" prefHeight="54.0" prefWidth="740.0" text="CREATE AN ACCOUNT FOR NEW STAFF" textFill="RED">
+                     <font>
+                        <Font name="System Bold" size="40.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="69.0" prefWidth="839.0">
+               <children>
+                  <Label prefHeight="30.0" prefWidth="239.0" text="Role: ">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER" prefHeight="52.0" prefWidth="401.0">
+                     <children>
+                        <ComboBox fx:id="cbRole" opacity="0.79" prefHeight="30.0" prefWidth="204.0" style="-fx-background-color: #40a9d6;">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ComboBox>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="57.0" prefWidth="839.0">
+               <children>
+                  <Label prefHeight="30.0" prefWidth="337.0" text="Fullname: ">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtFullname" prefHeight="30.0" prefWidth="303.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="54.0" prefWidth="839.0">
+               <children>
+                  <Label prefHeight="30.0" prefWidth="207.0" text="Birthday: ">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER" prefHeight="78.0" prefWidth="434.0">
+                     <children>
+                        <DatePicker fx:id="txtBirthday" editable="false" prefHeight="30.0" prefWidth="176.0">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </DatePicker>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="45.0" prefWidth="839.0">
+               <children>
+                  <Label prefHeight="30.0" prefWidth="336.0" text="Gender: ">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER" prefHeight="82.0" prefWidth="305.0">
+                     <children>
+                        <RadioButton fx:id="btnMale1" mnemonicParsing="false" onMouseClicked="#getBtnMale" prefHeight="30.0" prefWidth="170.0" selected="true" text="Male">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="group1" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="btnFemale1" mnemonicParsing="false" onMouseClicked="#getBtnFemale" prefHeight="30.0" prefWidth="170.0" text="Female">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="group1" />
+                           </toggleGroup>
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </RadioButton>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="61.0" prefWidth="839.0">
+               <children>
+                  <Label prefHeight="30.0" prefWidth="337.0" text="Address: ">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtAddress" prefHeight="30.0" prefWidth="303.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="839.0">
+               <children>
+                  <Label prefHeight="30.0" prefWidth="338.0" text="Phone number: ">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtPhoneNumber" prefHeight="30.0" prefWidth="303.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="58.0" prefWidth="839.0">
+               <children>
+                  <Label prefHeight="30.0" prefWidth="339.0" text="Email: ">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtEmail" prefHeight="30.0" prefWidth="303.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="48.0" prefWidth="839.0">
+               <children>
+                  <Label prefHeight="30.0" prefWidth="340.0" text="Password: ">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <PasswordField fx:id="txtPassword" prefHeight="30.0" prefWidth="303.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="58.0" prefWidth="839.0">
+               <children>
+                  <Label prefHeight="30.0" prefWidth="345.0" text="Password for role to create account: ">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <PasswordField fx:id="txtRolePassword" prefHeight="30.0" prefWidth="303.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="53.0" prefWidth="839.0">
+               <children>
+                  <Label fx:id="cancelOrSwitchToLogin" alignment="CENTER" onMouseClicked="#switchToLoginOrEmployee" prefHeight="30.0" prefWidth="215.0" text="Have got an account?" textFill="RED" underline="true">
+                     <font>
+                        <Font name="System Bold Italic" size="19.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Label>
+                  <HBox alignment="CENTER" prefHeight="58.0" prefWidth="406.0">
+                     <children>
+                        <Button fx:id="btnSave" mnemonicParsing="false" onAction="#register" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: #6dfa1b;" text="Reigister" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="63.0" prefWidth="839.0">
+               <children>
+                  <Label fx:id="forgotPassword" prefHeight="30.0" prefWidth="615.0" text="Forgot your password?" textFill="RED" underline="true">
+                     <font>
+                        <Font name="System Bold Italic" size="19.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Label>
+               </children>
+            </HBox>
          </children>
-      </Pane>
-      <Pane prefHeight="685.0" prefWidth="790.0">
-         <children>
-            <Label layoutX="33.0" layoutY="14.0" prefHeight="28.0" prefWidth="346.0" text="Role: ">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Label>
-            <ComboBox fx:id="cbRole" layoutX="442.0" layoutY="14.0" opacity="0.79" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: #40a9d6;">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></ComboBox>
-            <Label layoutX="33.0" layoutY="69.0" prefHeight="30.0" prefWidth="346.0" text="Fullname: ">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Label>
-            <TextField fx:id="txtFullname" layoutX="442.0" layoutY="69.0" prefHeight="30.0" prefWidth="346.0" />
-            <Label layoutX="33.0" layoutY="122.0" prefHeight="30.0" prefWidth="346.0" text="Birthday: ">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Label>
-            <DatePicker fx:id="txtBirthday" editable="false" layoutX="442.0" layoutY="122.0" prefHeight="30.0" prefWidth="170.0">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></DatePicker>
-            <Label layoutX="33.0" layoutY="174.0" prefHeight="30.0" prefWidth="346.0" text="Gender: ">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Label>
-            <RadioButton fx:id="btnMale" layoutX="442.0" layoutY="174.0" mnemonicParsing="false" onMouseClicked="#getBtnMale" prefHeight="30.0" prefWidth="170.0" selected="true" text="Male">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <toggleGroup>
-                  <ToggleGroup fx:id="group" />
-               </toggleGroup>
-            </RadioButton>
-            <RadioButton fx:id="btnFemale" layoutX="615.0" layoutY="174.0" mnemonicParsing="false" onMouseClicked="#getBtnFemale" prefHeight="30.0" prefWidth="170.0" text="Female" toggleGroup="$group">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </RadioButton>
-            <Label layoutX="33.0" layoutY="250.0" prefHeight="30.0" prefWidth="346.0" text="Address: ">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Label>
-            <TextField fx:id="txtEmail" layoutX="442.0" layoutY="385.0" prefHeight="30.0" prefWidth="346.0" />
-            <Label layoutX="33.0" layoutY="385.0" prefHeight="30.0" prefWidth="346.0" text="Email: ">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Label>
-            <PasswordField fx:id="txtPassword" layoutX="442.0" layoutY="440.0" prefHeight="30.0" prefWidth="346.0" />
-            <Label layoutX="33.0" layoutY="440.0" prefHeight="30.0" prefWidth="346.0" text="Password: ">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Label>
-            <PasswordField fx:id="txtRolePassword" layoutX="442.0" layoutY="494.0" prefHeight="30.0" prefWidth="346.0" />
-            <Label layoutX="33.0" layoutY="494.0" prefHeight="30.0" prefWidth="346.0" text="Password for role to create account: ">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Label>
-            <Button fx:id="btnSave" layoutX="442.0" layoutY="568.0" mnemonicParsing="false" onAction="#register" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: #6dfa1b;" text="Reigister" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Label fx:id="cancelOrSwitchToLogin" alignment="CENTER" layoutX="46.0" layoutY="574.0" onMouseClicked="#switchToLoginOrEmployee" prefHeight="30.0" prefWidth="346.0" text="Have got an account?" textFill="RED" underline="true">
-               <font>
-                  <Font name="System Bold Italic" size="19.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Label>
-            <Label fx:id="forgotPassword" alignment="CENTER" layoutX="43.0" layoutY="611.0" prefHeight="30.0" prefWidth="352.0" text="Forgot your password?" textFill="RED" underline="true">
-               <font>
-                  <Font name="System Bold Italic" size="19.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Label>
-            <Label layoutX="33.0" layoutY="335.0" prefHeight="30.0" prefWidth="346.0" text="Phone number: ">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Label>
-            <TextField fx:id="txtPhoneNumber" layoutX="442.0" layoutY="327.0" prefHeight="30.0" prefWidth="346.0" />
-            <TextField fx:id="txtAddress" layoutX="442.0" layoutY="253.0" prefHeight="30.0" prefWidth="346.0" />
-         </children>
-      </Pane>
-   </children>
-</VBox>
+      </VBox>
+   </center>
+</BorderPane>
