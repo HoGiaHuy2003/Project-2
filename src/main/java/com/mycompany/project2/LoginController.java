@@ -23,28 +23,6 @@ public class LoginController {
     @FXML
     private PasswordField txtPassword;
 
-//    private static Integer staffId;
-//    
-//    private static Integer roleId;
-//
-//    public static Integer getStaffId() {
-//        return staffId;
-//    }
-//
-//    public static Integer getRoleId() {
-//        return roleId;
-//    }
-//
-//    public static void setRoleId(Integer roleId) {
-//        LoginController.roleId = roleId;
-//    }
-//
-//    public static void setStaffId(Integer staffId) {
-//        LoginController.staffId = staffId;
-//    }
-    
-    
-
     @FXML
     private void switchToRegister() throws IOException {
         App.setRoot("register");
@@ -76,12 +54,10 @@ public class LoginController {
         staff.setEmail(txtUsername.getText().toString());
         staff.setPhonenumber(txtUsername.getText().toString());
         staff.setPassword(md5Password(txtPassword.getText().toString()));
-//       String username = txtUsername.getText().toString();
-//       String password = md5Password(txtPassword.getText().toString());
-        Staff register = new Staff(staff.getPhonenumber() ,staff.getEmail(), staff.getPassword());
-        if (StaffEntity.login(register).getEmail().equals(staff.getEmail()) || StaffEntity.login(register).getPhonenumber().equals(staff.getPhonenumber()) && StaffEntity.login(register).getPassword().equals(staff.getPassword())) {
-            Staff.setLoginStaffId(StaffEntity.login(register).getId());
-            Staff.setLoginRoleId(StaffEntity.login(register).getRoleId());
+//        Staff register = new Staff(staff.getPhonenumber() ,staff.getEmail(), staff.getPassword());
+        if (StaffEntity.login(staff).getEmail().equals(staff.getEmail()) || StaffEntity.login(staff).getPhonenumber().equals(staff.getPhonenumber()) && StaffEntity.login(staff).getPassword().equals(staff.getPassword())) {
+            Staff.setLoginStaffId(StaffEntity.login(staff).getId());
+            Staff.setLoginRoleId(StaffEntity.login(staff).getRoleId());
             if(Staff.getLoginRoleId() == 2){
                 Staff.setEditStaffById(Staff.getLoginStaffId());
             }

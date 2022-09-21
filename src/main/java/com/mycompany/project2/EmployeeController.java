@@ -133,8 +133,8 @@ public class EmployeeController implements Initializable {
         List<Role> roleList = RoleEntity.getRoleList();
         int roleLogin = Staff.getLoginRoleId();
         for (int i = 0; i < roleList.size(); i++) {
-            if (roleList.get(i).getId() == roleLogin) {
-                yourRole.setText("Your role is: " + roleList.get(i).getName().toString());
+            if (roleList.get(i).getRoleId() == roleLogin) {
+                yourRole.setText("Your role is: " + roleList.get(i).getRoleName().toString());
             }
         }
     }
@@ -144,7 +144,7 @@ public class EmployeeController implements Initializable {
 
         ObservableList<Staff> employeeList = StaffEntity.employeeList();
 
-        role.setCellValueFactory(new PropertyValueFactory<>("name"));
+        role.setCellValueFactory(new PropertyValueFactory<>("roleName"));
         fullname.setCellValueFactory(new PropertyValueFactory<>("fullname"));
         birthday.setCellValueFactory(new PropertyValueFactory<>("birthday"));
         gender.setCellValueFactory(new PropertyValueFactory<>("gender"));
@@ -194,15 +194,6 @@ public class EmployeeController implements Initializable {
 
         } else if (option.get() == ButtonType.OK) {
             StaffEntity.delete(Staff.getEditStaffById());
-//            role.setCellValueFactory(new PropertyValueFactory<>("rolename"));
-//            fullname.setCellValueFactory(new PropertyValueFactory<>("fullname"));
-//            birthday.setCellValueFactory(new PropertyValueFactory<>("birthday"));
-//            gender.setCellValueFactory(new PropertyValueFactory<>("gender"));
-//            address.setCellValueFactory(new PropertyValueFactory<>("address"));
-//            phoneNumber.setCellValueFactory(new PropertyValueFactory<>("phonenumber"));
-//            email.setCellValueFactory(new PropertyValueFactory<>("email"));
-//            dateStarted.setCellValueFactory(new PropertyValueFactory<>("createdat"));
-
             tableview.getItems().remove(tableview.getSelectionModel().getSelectedItem());
         } else if (option.get() == ButtonType.OK) {
 

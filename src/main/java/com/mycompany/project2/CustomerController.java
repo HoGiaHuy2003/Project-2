@@ -78,15 +78,12 @@ public class CustomerController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-//        if(Customer.getValueOfCustomerId() != null){
-//            title.setText("Edit customer");
-//            switchToProduct.setText("Cancel");
-//            txtFullname.setText(string);
-//        }
         button = btnMale;
         txtBirthday.setValue(LocalDate.now());
-
+        setUpdatedCustomer();
+    }
+    
+    private void setUpdatedCustomer() {
         if (Customer.getValueOfCustomerId() != null) {
             title.setText("Update customer");
             txtFullname.setText(CustomerEntity.findCustomerId(Customer.getValueOfCustomerId()).getFullname());

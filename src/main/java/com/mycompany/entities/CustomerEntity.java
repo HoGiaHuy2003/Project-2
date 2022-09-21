@@ -58,15 +58,30 @@ public class CustomerEntity extends BaseEntity {
             statement.setString(6, customer.getEmail());
             statement.setString(7, customer.getCreatedAt());
             statement.setInt(8, customer.getId());
-            
+
             statement.execute();
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(CustomerEntity.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-     public static Customer findCustomerId(int customer_id) {
+
+    public static void delete(int id) {
+        open();
+
+        try {
+            String sql = "DELETE FROM customer WHERE id = ?";
+            statement = conn.prepareStatement(sql);
+            
+            statement.setInt(1, id);
+            
+            statement.execute();
+        } catch (SQLException ex) {
+            Logger.getLogger(CustomerEntity.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public static Customer findCustomerId(int customer_id) {
         Customer customer = null;
         open();
 

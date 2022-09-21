@@ -98,7 +98,7 @@ public class RegisterController implements Initializable {
             title.setText("Edit account for user");
             cancelOrSwitchToLogin.setText("Cancel");
             forgotPassword.setText(null);
-            cbRole.setValue(getEditStaff.getRolename());
+            cbRole.setValue(getEditStaff.getRoleName());
             txtFullname.setText(getEditStaff.getFullname());
             txtBirthday.setValue(LocalDate.parse(getEditStaff.getBirthday()));
             txtAddress.setText(getEditStaff.getAddress());
@@ -111,8 +111,8 @@ public class RegisterController implements Initializable {
     private void setUpComboBox() {
         ObservableList<Role> list = RoleEntity.getRoleList();
         for (int i = 0; i < list.size(); i++) {
-            cbRole.getItems().addAll(list.get(i).getName());
-            cbRole.setValue(list.get(i).getName());
+            cbRole.getItems().addAll(list.get(i).getRoleName());
+            cbRole.setValue(list.get(i).getRoleName());
             cbRole.getSelectionModel().select(null);
         }
     }
@@ -200,7 +200,6 @@ public class RegisterController implements Initializable {
 
     @FXML
     private void register(ActionEvent event) throws NoSuchAlgorithmException, IOException {
-        int role_id = 0;
         String fullname = txtFullname.getText().toString();
         String birthday = txtBirthday.getValue().toString();
         String gender = getValueOfRadioButton();
@@ -218,8 +217,8 @@ public class RegisterController implements Initializable {
 
         if (Staff.getLoginStaffId() == null) {
             for (int i = 0; i < getRoleList.size(); i++) {
-                if (getRoleList.get(i).getName().equals(cbRole.getValue())) {
-                    role_id = getRoleList.get(i).getId();
+                if (getRoleList.get(i).getRoleName().equals(cbRole.getValue())) {
+                    int role_id = getRoleList.get(i).getRoleId();
                     Staff register = new Staff(role_id, fullname, birthday, gender, address, phoneNumber, email, password, createdAt, updatedAt);
                     if (getRoleList.get(i).getPassword().equals(rollPassword)) {
                         StaffEntity.insert(register);
@@ -230,8 +229,8 @@ public class RegisterController implements Initializable {
             }
         } else {
             for (int i = 0; i < getRoleList.size(); i++) {
-                if (getRoleList.get(i).getName().equals(cbRole.getValue())) {
-                    role_id = getRoleList.get(i).getId();
+                if (getRoleList.get(i).getRoleName().equals(cbRole.getValue())) {
+                    int role_id = getRoleList.get(i).getRoleId();
                     Staff update = new Staff(role_id, fullname, birthday, gender, address, phoneNumber, email, password, createdAt, updatedAt);
                     update.setId(Staff.getEditStaffById());
                     if (getRoleList.get(i).getPassword().equals(rollPassword)) {
