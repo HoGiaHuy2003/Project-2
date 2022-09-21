@@ -208,11 +208,11 @@ public class ManagecustomerController implements Initializable {
         if (option.get() == null) {
 
         } else if (option.get() == ButtonType.OK) {
+            StaffEntity.delete(Staff.getEditStaffById());
             if (Staff.getEditStaffById() == Staff.getLoginStaffId()) {
                 Staff.setLoginStaffId(0);
                 Staff.setEditStaffById(0);
             }
-            StaffEntity.delete(Staff.getEditStaffById());
             tableview.getItems().remove(tableview.getSelectionModel().getSelectedItem());
             if (Staff.getLoginStaffId() == 0) {
                 App.setRoot("login");

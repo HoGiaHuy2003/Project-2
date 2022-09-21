@@ -193,12 +193,13 @@ public class EmployeeController implements Initializable {
         if (option.get() == null) {
 
         } else if (option.get() == ButtonType.OK) {
+            StaffEntity.delete(Staff.getEditStaffById());
             if (Staff.getEditStaffById() == Staff.getLoginStaffId()) {
                 Staff.setLoginStaffId(0);
+                Staff.setEditStaffById(0);
             }
-            StaffEntity.delete(Staff.getEditStaffById());
             tableview.getItems().remove(tableview.getSelectionModel().getSelectedItem());
-            if(Staff.getLoginStaffId() == 0){
+            if (Staff.getLoginStaffId() == 0) {
                 App.setRoot("login");
             }
         } else if (option.get() == ButtonType.OK) {
@@ -209,7 +210,8 @@ public class EmployeeController implements Initializable {
     @FXML
     private void logout(ActionEvent event) throws IOException {
         Staff.setLoginStaffId(0);
-        if (Staff.getLoginStaffId() == 0) {
+        Staff.setEditStaffById(0);
+        if (Staff.getLoginStaffId() == Staff.getEditStaffById()) {
             App.setRoot("login");
         }
     }
