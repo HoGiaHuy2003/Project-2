@@ -13,12 +13,26 @@ import java.security.NoSuchAlgorithmException;
  * @author Admin
  */
 public class Role {
-    
+
     private int roleId;
     private String roleName;
     private String password;
 
     public Role() {
+    }
+
+    public Role(int roleId) {
+        this.roleId = roleId;
+    }
+
+    public Role(String roleName) {
+        this.roleName = roleName;
+    }
+    
+    public Role(int roleId, String roleName, String password) {
+        this.roleId = roleId;
+        this.roleName = roleName;
+        this.password = password;
     }
 
     public int getRoleId() {
@@ -29,15 +43,6 @@ public class Role {
         this.roleId = roleId;
     }
 
-    public Role(int roleId) {
-        this.roleId = roleId;
-    }
-
-//    }
-    public Role(String roleName) {
-        this.roleName = roleName;
-    }
-
     public String getRoleName() {
         return roleName;
     }
@@ -46,14 +51,8 @@ public class Role {
         this.roleName = roleName;
     }
 
-    public String getPassword(){
+    public String getPassword() {
         return password;
-    }
-
-    public Role(int roleId, String roleName, String password) {
-        this.roleId = roleId;
-        this.roleName = roleName;
-        this.password = password;
     }
 
     public void setPassword(String password) {
