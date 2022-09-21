@@ -55,7 +55,7 @@ public class LoginController {
         if(Staff.getLoginRoleId() == 1){
             App.setRoot("employee");
         } else {
-            App.setRoot("product");
+            App.setRoot("managecustomer");
         }
     }
 

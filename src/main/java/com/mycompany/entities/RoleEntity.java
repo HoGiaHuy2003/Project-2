@@ -26,10 +26,9 @@ public class RoleEntity extends BaseEntity {
         List<Role> list = new Vector<>();
 
         open();
-        
-        String sql = "SELECT * FROM role";
-        
+
         try {
+            String sql = "SELECT * FROM role";
             statement = conn.prepareStatement(sql);
 
             ResultSet resultSet = statement.executeQuery(sql);
