@@ -215,7 +215,7 @@ public class RegisterController implements Initializable {
 
         List<Role> getRoleList = RoleEntity.getRoleList();
 
-        if (Staff.getLoginStaffId() == null) {
+        if (Staff.getEditStaffById() == 0) {
             for (int i = 0; i < getRoleList.size(); i++) {
                 if (getRoleList.get(i).getRoleName().equals(cbRole.getValue())) {
                     int role_id = getRoleList.get(i).getRoleId();
@@ -232,7 +232,7 @@ public class RegisterController implements Initializable {
                 if (getRoleList.get(i).getRoleName().equals(cbRole.getValue())) {
                     int role_id = getRoleList.get(i).getRoleId();
                     Staff update = new Staff(role_id, fullname, birthday, gender, address, phoneNumber, email, password, createdAt, updatedAt);
-                    update.setId(Staff.getEditStaffById());
+                    update.setStaffId(Staff.getEditStaffById());
                     if (getRoleList.get(i).getPassword().equals(rollPassword)) {
                         StaffEntity.update(update);
                         switchToLoginOrManageCustomer();

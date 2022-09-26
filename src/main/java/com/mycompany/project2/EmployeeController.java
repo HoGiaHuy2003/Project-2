@@ -4,8 +4,10 @@
  */
 package com.mycompany.project2;
 
+import com.mycompany.entities.IncomeEntity;
 import com.mycompany.entities.RoleEntity;
 import com.mycompany.entities.StaffEntity;
+import com.mycompany.models.Income;
 import com.mycompany.models.Role;
 import com.mycompany.models.Staff;
 import java.io.IOException;
@@ -158,6 +160,12 @@ public class EmployeeController implements Initializable {
         tableview.getItems().addAll(employeeList);
     }
 
+//    @FXML
+//    private void setNullForSelectionModel(){
+//        if(tableview.getSelectionModel().getSelectedItem() != null){
+//            tableview.setSelectionModel(null);
+//        }
+//    }
     @FXML
     private void btnUpdate(ActionEvent event) throws IOException {
         ObservableList<Staff> employerList = StaffEntity.employerList();
@@ -166,8 +174,8 @@ public class EmployeeController implements Initializable {
 
         ObservableList<Staff> staffList = StaffEntity.list();
         for (int i = 0; i < staffList.size(); i++) {
-            if (tableview.getSelectionModel().getSelectedItem().getId() == staffList.get(i).getId()) {
-                Staff.setEditStaffById(staffList.get(i).getId());
+            if (tableview.getSelectionModel().getSelectedItem().getStaffId() == staffList.get(i).getStaffId()) {
+                Staff.setEditStaffById(staffList.get(i).getStaffId());
 //                System.out.println(Staff.getEditStaffById());
                 App.setRoot("register");
                 break;
@@ -179,8 +187,8 @@ public class EmployeeController implements Initializable {
     private void btnDelete(ActionEvent event) throws IOException {
         ObservableList<Staff> staffList = StaffEntity.list();
         for (int i = 0; i < staffList.size(); i++) {
-            if (tableview.getSelectionModel().getSelectedItem().getId() == staffList.get(i).getId()) {
-                Staff.setEditStaffById(staffList.get(i).getId());
+            if (tableview.getSelectionModel().getSelectedItem().getStaffId() == staffList.get(i).getStaffId()) {
+                Staff.setEditStaffById(staffList.get(i).getStaffId());
                 break;
             }
         }
@@ -193,13 +201,14 @@ public class EmployeeController implements Initializable {
         if (option.get() == null) {
 
         } else if (option.get() == ButtonType.OK) {
+            IncomeEntity.delete(Staff.getEditStaffById());
             StaffEntity.delete(Staff.getEditStaffById());
             if (Staff.getEditStaffById() == Staff.getLoginStaffId()) {
-                Staff.setLoginStaffId(0);
+                Staff.setLoginStaffId(null);
                 Staff.setEditStaffById(0);
             }
             tableview.getItems().remove(tableview.getSelectionModel().getSelectedItem());
-            if (Staff.getLoginStaffId() == 0) {
+            if (Staff.getLoginStaffId() == null) {
                 App.setRoot("login");
             }
         } else if (option.get() == ButtonType.OK) {
@@ -208,12 +217,28 @@ public class EmployeeController implements Initializable {
     }
 
     @FXML
-    private void logout(ActionEvent event) throws IOException {
-        Staff.setLoginStaffId(0);
-        Staff.setEditStaffById(0);
-        if (Staff.getLoginStaffId() == Staff.getEditStaffById()) {
-            App.setRoot("login");
+    private void showIncome(ActionEvent event) throws IOException {
+        ObservableList<Staff> staffList = StaffEntity.list();
+        for (int i = 0; i < staffList.size(); i++) {
+            if (tableview.getSelectionModel().getSelectedItem() == null) {
+                Staff.setEditStaffById(0);
+                App.setRoot("income");
+            }
+            if (tableview.getSelectionModel().getSelectedItem().getStaffId() == staffList.get(i).getStaffId()) {
+                Staff.setEditStaffById(staffList.get(i).getStaffId());
+//                System.out.println(Staff.getEditStaffById());
+                App.setRoot("income");
+                break;
+            }
         }
+    }
+
+    @FXML
+    private void logout(ActionEvent event) throws IOException {
+        Staff.setLoginStaffId(null);
+        Staff.setEditStaffById(0);
+        
+        App.setRoot("login");
     }
 
     @FXML

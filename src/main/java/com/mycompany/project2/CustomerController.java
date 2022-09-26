@@ -22,6 +22,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 
 /**
  * FXML Controller class
@@ -58,6 +59,8 @@ public class CustomerController implements Initializable {
 
     @FXML
     private Label switchToManageCustomer;
+    @FXML
+    private ToggleGroup group;
 
     @FXML
     private void getBtnMale() {

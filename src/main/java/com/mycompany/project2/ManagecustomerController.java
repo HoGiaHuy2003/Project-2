@@ -163,7 +163,8 @@ public class ManagecustomerController implements Initializable {
 
     @FXML
     private void logout(ActionEvent event) throws IOException {
-        Staff.setLoginStaffId(0);
+        Staff.setLoginStaffId(null);
+        Staff.setEditStaffById(0);
 
         App.setRoot("login");
     }
@@ -210,11 +211,11 @@ public class ManagecustomerController implements Initializable {
         } else if (option.get() == ButtonType.OK) {
             StaffEntity.delete(Staff.getEditStaffById());
             if (Staff.getEditStaffById() == Staff.getLoginStaffId()) {
-                Staff.setLoginStaffId(0);
+                Staff.setLoginStaffId(null);
                 Staff.setEditStaffById(0);
             }
             tableview.getItems().remove(tableview.getSelectionModel().getSelectedItem());
-            if (Staff.getLoginStaffId() == 0) {
+            if (Staff.getLoginStaffId() == null) {
                 App.setRoot("login");
             }
         } else if (option.get() == ButtonType.OK) {

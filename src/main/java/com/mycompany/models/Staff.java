@@ -20,7 +20,7 @@ import javafx.scene.control.TextField;
  */
 public class Staff extends Role {
 
-    private int id;
+    private int staffId;
     private String fullname;
     private String birthday;
     private String gender;
@@ -51,6 +51,11 @@ public class Staff extends Role {
     public Staff() {
     }
 
+    public Staff(int staffId, String fullname) {
+        this.staffId = staffId;
+        this.fullname = fullname;
+    }
+
     public Staff(String email, String password) {
         this.email = email;
         this.password = password;
@@ -62,9 +67,9 @@ public class Staff extends Role {
         this.password = password;
     }
 
-    public Staff(int id, int roleId, String fullname, String birthday, String gender, String address, String phonenumber, String email, String password, String createdat, String updatedat) {
+    public Staff(int staffId, int roleId, String fullname, String birthday, String gender, String address, String phonenumber, String email, String password, String createdat, String updatedat) {
         super(roleId);
-        this.id = id;
+        this.staffId = staffId;
         this.fullname = fullname;
         this.birthday = birthday;
         this.gender = gender;
@@ -89,12 +94,12 @@ public class Staff extends Role {
         this.updatedat = updatedat;
     }
 
-    public int getId() {
-        return id;
+    public int getStaffId() {
+        return staffId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setStaffId(int staffId) {
+        this.staffId = staffId;
     }
 
     public String getFullname() {

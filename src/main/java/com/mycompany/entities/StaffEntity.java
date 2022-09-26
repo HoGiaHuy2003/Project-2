@@ -68,7 +68,7 @@ public class StaffEntity extends BaseEntity {
             statement.setString(7, updateaccount.getEmail());
             statement.setString(8, updateaccount.getPassword());
             statement.setString(9, updateaccount.getUpdatedat());
-            statement.setInt(10, updateaccount.getId());
+            statement.setInt(10, updateaccount.getStaffId());
 
             statement.execute();
         } catch (SQLException ex) {
@@ -130,7 +130,7 @@ public class StaffEntity extends BaseEntity {
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 staff = new Staff(resultSet.getString("phone_number"), resultSet.getString("email"), resultSet.getString("password"));
-                staff.setId(resultSet.getInt("id"));
+                staff.setStaffId(resultSet.getInt("id"));
                 staff.setRoleId(resultSet.getInt("role_id"));
                 break;
             }
@@ -163,7 +163,7 @@ public class StaffEntity extends BaseEntity {
 //                staff.setEmail(resultSet.getString("email"));
 //                staff.setCreatedAt(resultSet.getString("created_at"));
 //                staff.setRoleName(resultSet.getString("role"));
-                staff.setId(resultSet.getInt("id"));
+                staff.setStaffId(resultSet.getInt("id"));
                 list.add(staff);
             }
         } catch (SQLException ex) {
@@ -197,7 +197,7 @@ public class StaffEntity extends BaseEntity {
 //                staff.setEmail(resultSet.getString("email"));
 //                staff.setCreatedAt(resultSet.getString("created_at"));
 //                staff.setRoleName(resultSet.getString("role"));
-                staff.setId(resultSet.getInt("id"));
+                staff.setStaffId(resultSet.getInt("id"));
                 list.add(staff);
             }
         } catch (SQLException ex) {
@@ -231,7 +231,7 @@ public class StaffEntity extends BaseEntity {
 //                staff.setEmail(resultSet.getString("email"));
 //                staff.setCreatedAt(resultSet.getString("created_at"));
 //                staff.setRoleName(resultSet.getString("role"));
-                staff.setId(resultSet.getInt("id"));
+                staff.setStaffId(resultSet.getInt("id"));
                 list.add(staff);
             }
         } catch (SQLException ex) {

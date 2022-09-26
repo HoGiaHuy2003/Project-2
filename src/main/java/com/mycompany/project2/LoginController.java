@@ -52,7 +52,7 @@ public class LoginController {
         staff.setPassword(md5Password(txtPassword.getText().toString()));
 //        Staff register = new Staff(staff.getPhonenumber() ,staff.getEmail(), staff.getPassword());
         if (StaffEntity.login(staff).getEmail().equals(staff.getEmail()) || StaffEntity.login(staff).getPhonenumber().equals(staff.getPhonenumber()) && StaffEntity.login(staff).getPassword().equals(staff.getPassword())) {
-            Staff.setLoginStaffId(StaffEntity.login(staff).getId());
+            Staff.setLoginStaffId(StaffEntity.login(staff).getStaffId());
             Staff.setLoginRoleId(StaffEntity.login(staff).getRoleId());
             if(Staff.getLoginRoleId() == 2){
                 Staff.setEditStaffById(Staff.getLoginStaffId());

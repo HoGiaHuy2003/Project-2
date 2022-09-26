@@ -31,7 +31,7 @@
             </columns>
         </TableView>
       <Button fx:id="btnUpdate" layoutX="744.0" layoutY="33.0" mnemonicParsing="false" onAction="#btnUpdate" prefHeight="34.0" prefWidth="98.0" text="Edit Customer" />
-      <Button fx:id="btnDelete" layoutX="863.0" layoutY="33.0" mnemonicParsing="false" onAction="#btnDelete" prefHeight="30.0" prefWidth="115.0" text="Delete Customer" />
+      <Button fx:id="btnDelete" layoutX="863.0" layoutY="33.0" mnemonicParsing="false" onAction="#btnDelete" prefHeight="34.0" prefWidth="115.0" text="Delete Customer" />
       <Button layoutX="607.0" layoutY="35.0" mnemonicParsing="false" onAction="#logout" prefHeight="30.0" prefWidth="109.0" text="Logout" />
       <Button layoutX="186.0" layoutY="487.0" mnemonicParsing="false" onAction="#switchToProduct" prefHeight="30.0" prefWidth="139.0" text="Manage Product" />
       <Button fx:id="switchToEmployee" layoutX="14.0" layoutY="487.0" mnemonicParsing="false" onAction="#switchToEmployee" prefHeight="30.0" prefWidth="139.0" text="Manage Employee" />

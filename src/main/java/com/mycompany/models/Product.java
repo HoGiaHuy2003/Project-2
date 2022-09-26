@@ -13,7 +13,7 @@ public class Product extends Category{
     private String titie;
     private float price;
     private int quantity;
-    private int seleableNumber;
+//    private int seleableNumber;
     private String description;
     private String thumbnail;
     private String createdAt;
@@ -51,13 +51,13 @@ public class Product extends Category{
         this.quantity = quantity;
     }
 
-    public int getSeleableNumber() {
-        return seleableNumber;
-    }
-
-    public void setSeleableNumber(int seleableNumber) {
-        this.seleableNumber = seleableNumber;
-    }
+//    public int getSeleableNumber() {
+//        return seleableNumber;
+//    }
+//
+//    public void setSeleableNumber(int seleableNumber) {
+//        this.seleableNumber = seleableNumber;
+//    }
 
     public String getDescription() {
         return description;

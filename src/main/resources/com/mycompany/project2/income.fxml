@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="546.0" prefWidth="1094.0" style="-fx-background-color: #02e5f5;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.project2.IncomeController">
+    <children>
+        <Label fx:id="yourName" layoutX="14.0" layoutY="14.0" prefHeight="34.0" prefWidth="283.0" text="Null">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+        </Label>
+        <Label fx:id="yourRole" layoutX="14.0" layoutY="48.0" prefHeight="34.0" prefWidth="283.0" text="Null">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+        </Label>
+        <TableView fx:id="tableview" editable="true" layoutX="14.0" layoutY="82.0" prefHeight="391.0" prefWidth="1078.0" tableMenuButtonVisible="true">
+            <columns>
+                <TableColumn fx:id="fullname" prefWidth="106.0" text="Fullname" />
+                <TableColumn fx:id="salary" prefWidth="84.0" text="Salary" />
+                <TableColumn fx:id="overtime" prefWidth="88.0" text="Overtime" />
+                <TableColumn fx:id="retroactivePay" prefWidth="103.0" text="Retroactive Pay" />
+                <TableColumn fx:id="commissions" prefWidth="113.0" text="Commissions" />
+                <TableColumn fx:id="bonus" prefWidth="106.0" text="Bonus" />
+                <TableColumn fx:id="tips" prefWidth="105.0" text="Tips" />
+            <TableColumn fx:id="penalty" prefWidth="107.0" text="Penalty" />
+                <TableColumn fx:id="createdAt" prefWidth="123.0" text="Created At" />
+            <TableColumn fx:id="updatedAt" prefWidth="142.0" text="Updated At" />
+            </columns>
+        </TableView>
+      <Button fx:id="btnUpdate" layoutX="689.0" layoutY="33.0" mnemonicParsing="false" onAction="#btnUpdate" prefHeight="30.0" prefWidth="102.0" text="Edit" />
+      <Button fx:id="btnDelete" layoutX="833.0" layoutY="33.0" mnemonicParsing="false" onAction="#btnDelete" prefHeight="30.0" prefWidth="109.0" text="Delete" />
+      <Button layoutX="543.0" layoutY="33.0" mnemonicParsing="false" onAction="#logout" prefHeight="30.0" prefWidth="109.0" text="Logout" />
+      <Button layoutX="14.0" layoutY="502.0" mnemonicParsing="false" onAction="#switchToProduct" prefHeight="30.0" prefWidth="139.0" text="Manage Product" />
+      <Button layoutX="188.0" layoutY="502.0" mnemonicParsing="false" onAction="#manageCustomer" prefHeight="30.0" prefWidth="139.0" text="Manage Customer" />
+      <Button layoutX="364.0" layoutY="502.0" mnemonicParsing="false" onAction="#switchToEmployee" prefHeight="30.0" prefWidth="139.0" text="Manage Employee" />
+      <Button layoutX="982.0" layoutY="31.0" mnemonicParsing="false" onAction="#showAll" prefHeight="34.0" prefWidth="109.0" text="Show All" />
+    </children>
+</AnchorPane>
