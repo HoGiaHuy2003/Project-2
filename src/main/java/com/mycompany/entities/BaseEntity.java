@@ -24,7 +24,7 @@ public class BaseEntity {
     static Connection conn = null;
     static PreparedStatement statement = null;
 
-    protected static void open() {
+    static void open() {
         try {
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + DATABASE, USERNAME, PASSWORD);
         } catch (SQLException ex) {
@@ -32,7 +32,7 @@ public class BaseEntity {
         }
     }
 
-    protected static void close() {
+    static void close() {
         if (conn != null) {
             try {
                 conn.close();

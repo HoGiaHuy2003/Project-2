@@ -75,6 +75,9 @@ public class EmployeeController implements Initializable {
 
     @FXML
     private TableColumn<Staff, String> dateStarted;
+    
+    @FXML
+    private TableColumn<Staff, Float> totalIncome;
 
     @FXML
     private Button btnUpdate;
@@ -145,6 +148,8 @@ public class EmployeeController implements Initializable {
         ObservableList<Staff> employerList = StaffEntity.employerList();
 
         ObservableList<Staff> employeeList = StaffEntity.employeeList();
+        
+//        ObservableList<Staff> total = StaffEntity.totalIncome();
 
         role.setCellValueFactory(new PropertyValueFactory<>("roleName"));
         fullname.setCellValueFactory(new PropertyValueFactory<>("fullname"));
@@ -154,7 +159,8 @@ public class EmployeeController implements Initializable {
         phoneNumber.setCellValueFactory(new PropertyValueFactory<>("phonenumber"));
         email.setCellValueFactory(new PropertyValueFactory<>("email"));
         dateStarted.setCellValueFactory(new PropertyValueFactory<>("createdat"));
-
+//        totalIncome.setCellValueFactory((Callback<TableColumn.CellDataFeatures<Staff, Float>, ObservableValue<Float>>) total);
+        
         tableview.setItems(employerList);
 
         tableview.getItems().addAll(employeeList);

@@ -144,6 +144,7 @@ public class StaffEntity extends BaseEntity {
     }
 
     public static ObservableList<Staff> list() {
+//        List<Staff> list = new Vector();
         ObservableList<Staff> list = FXCollections.observableArrayList();
         open();
 
@@ -243,6 +244,30 @@ public class StaffEntity extends BaseEntity {
 //        ObservableList<Staff> dataList = FXCollections.observableList(list);
         return list;
     }
+    
+    
+//    public static ObservableList<Staff> totalIncome() {
+//        List<Staff> totalIncome = new Vector<>();
+//        open();
+//
+//        try {
+//            String sql = "SELECT staff.fullname, (salary_wages) + (overtime_wages) + (retroactive_pay) + (commissions) + (bonus) + (tips) - (penalty) 'total income' FROM staff LEFT JOIN income ON staff.id = income.staff_id;";
+//            statement = conn.prepareStatement(sql);
+//
+//            ResultSet resultSet = statement.executeQuery();
+//            while (resultSet.next()) {
+//                Staff income = new Staff(resultSet.getFloat("total income"));
+//                totalIncome.add(income);
+//            }
+//        } catch (SQLException ex) {
+//            Logger.getLogger(IncomeEntity.class.getName()).log(Level.SEVERE, null, ex);
+//        } finally {
+//            close();
+//        }
+//
+//        ObservableList<Staff> dataList = FXCollections.observableList(totalIncome);
+//        return dataList;
+//    }
 
 //    public static Staff findByEmailOrPhoneNumber(String email, String phoneNumber) {
 //        Staff staff = null;

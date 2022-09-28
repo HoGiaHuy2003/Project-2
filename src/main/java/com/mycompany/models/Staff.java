@@ -30,6 +30,11 @@ public class Staff extends Role {
     private String password;
     private String createdat;
     private String updatedat;
+    private Float totalIncome;
+
+    public Staff(Float totalIncome) {
+        this.totalIncome = totalIncome;
+    }
 
     private static int editStaffById; // Select id of staff who need to be editted
 
@@ -156,6 +161,14 @@ public class Staff extends Role {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Float getTotalIncome() {
+        return totalIncome;
+    }
+
+    public void setTotalIncome(Float totalIncome) {
+        this.totalIncome = totalIncome;
     }
 
     public String getCreatedat() {

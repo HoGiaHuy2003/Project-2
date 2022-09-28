@@ -8,7 +8,8 @@ package com.mycompany.models;
  *
  * @author Admin
  */
-public class Income extends Staff{
+public class Income extends Staff {
+
     private Float salaryWages;
     private Float overtimeWages;
     private Float retroactivePay;
@@ -106,6 +107,4 @@ public class Income extends Staff{
     public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
     }
-
-    
 }

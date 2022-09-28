@@ -8,12 +8,13 @@ package com.mycompany.models;
  *
  * @author Admin
  */
-public class Product extends Category{
+public class Product extends Category {
+
     private int id;
     private String titie;
     private float price;
     private int quantity;
-//    private int seleableNumber;
+    private int seleableNumber;
     private String description;
     private String thumbnail;
     private String createdAt;
@@ -51,13 +52,13 @@ public class Product extends Category{
         this.quantity = quantity;
     }
 
-//    public int getSeleableNumber() {
-//        return seleableNumber;
-//    }
-//
-//    public void setSeleableNumber(int seleableNumber) {
-//        this.seleableNumber = seleableNumber;
-//    }
+    public int getSeleableNumber() {
+        return seleableNumber;
+    }
+
+    public void setSeleableNumber(int seleableNumber) {
+        this.seleableNumber = seleableNumber;
+    }
 
     public String getDescription() {
         return description;
@@ -92,5 +93,18 @@ public class Product extends Category{
     }
 
     public Product() {
+    }
+
+    public Product(int id, int categoryId, String titie, float price, int quantity, int seleableNumber, String description, String thumbnail, String createdAt, String updatedAt) {
+        super(categoryId);
+        this.id = id;
+        this.titie = titie;
+        this.price = price;
+        this.quantity = quantity;
+        this.seleableNumber = seleableNumber;
+        this.description = description;
+        this.thumbnail = thumbnail;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 }

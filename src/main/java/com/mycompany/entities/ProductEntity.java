@@ -5,6 +5,7 @@
 package com.mycompany.entities;
 
 import com.mycompany.models.Product;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -40,20 +41,48 @@ public class ProductEntity extends BaseEntity {
         }
     }
 
-    public static void updateSelebaleNumber(Product product) {
+    public static void update(Product product) {
         open();
-
         try {
-            String sql = "UPDATE Product SET seleable_number = seleable_number + 1 WHERE id = ?";
+            String sql = "UPDATE Product SET category_id = ?, title = ?, price = ?, quantity = ?, description = ?, thumbnail = ?, updated_at = ? WHERE id = ?";
             statement = conn.prepareStatement(sql);
-            
-            statement.setInt(1, product.getId());
-            
+
+            statement.setInt(1, product.getCategoryId());
+            statement.setString(2, product.getTitie());
+            statement.setFloat(3, product.getPrice());
+            statement.setInt(4, product.getQuantity());
+            statement.setString(5, product.getDescription());
+            statement.setString(6, product.getThumbnail());
+            statement.setString(7, product.getUpdatedAt());
+            statement.setInt(8, product.getId());
+
             statement.execute();
         } catch (SQLException ex) {
             Logger.getLogger(ProductEntity.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             close();
         }
+    }
+
+    public static Product findProduct(int id) {
+        Product product = null;
+        open();
+
+        try {
+            String sql = "SELECT * FROM Product WHERE id = ?";
+            statement = conn.prepareStatement(sql);
+            
+            statement.setInt(1, id);
+            ResultSet resultSet = statement.executeQuery();
+            while(resultSet.next()){
+                product = new Product(resultSet.getInt("id"), resultSet.getInt("category_id"), resultSet.getString("title"), resultSet.getFloat("price"), resultSet.getInt("quantity"), resultSet.getInt("seleable_number"), resultSet.getString("description"), resultSet.getString("thumbnail"), resultSet.getString("created_at"), resultSet.getString("updated_at"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductEntity.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            close();
+        }
+        
+        return product;
     }
 }
