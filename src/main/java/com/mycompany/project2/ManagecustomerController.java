@@ -222,4 +222,9 @@ public class ManagecustomerController implements Initializable {
 
         }
     }
+
+    @FXML
+    private void showIncome() throws IOException {
+        App.setRoot("income");
+    }
 }
