@@ -235,6 +235,7 @@ public class RegisterController implements Initializable {
                     update.setStaffId(Staff.getEditStaffById());
                     if (getRoleList.get(i).getPassword().equals(rollPassword)) {
                         StaffEntity.update(update);
+                        Staff.setEditStaffById(Staff.getLoginStaffId());
                         switchToLoginOrManageCustomer();
                         break;
                     }

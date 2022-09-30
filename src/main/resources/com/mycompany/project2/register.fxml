@@ -11,13 +11,15 @@
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #43cae6;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.project2.RegisterController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="810.0" prefWidth="1315.0" style="-fx-background-color: #43cae6;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.project2.RegisterController">
    <center>
-      <VBox prefHeight="596.0" prefWidth="784.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="596.0" prefWidth="784.0" stylesheets="@style.css" BorderPane.alignment="CENTER">
          <children>
+            <Pane prefHeight="38.0" prefWidth="1315.0" />
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Label fx:id="title" prefHeight="54.0" prefWidth="740.0" text="CREATE AN ACCOUNT FOR NEW STAFF" textFill="RED">
@@ -36,7 +38,7 @@
                   </Label>
                   <HBox alignment="CENTER" prefHeight="52.0" prefWidth="401.0">
                      <children>
-                        <ComboBox fx:id="cbRole" opacity="0.79" prefHeight="30.0" prefWidth="204.0" style="-fx-background-color: #40a9d6;">
+                        <ComboBox fx:id="cbRole" opacity="0.79" prefHeight="30.0" prefWidth="204.0" style="-fx-background-color: #40a9d6;" styleClass="comboBox">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -52,7 +54,7 @@
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtFullname" prefHeight="30.0" prefWidth="303.0" />
+                  <TextField fx:id="txtFullname" prefHeight="30.0" prefWidth="303.0" styleClass="add-btn" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="54.0" prefWidth="839.0">
@@ -112,7 +114,7 @@
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtAddress" prefHeight="30.0" prefWidth="303.0" />
+                  <TextField fx:id="txtAddress" prefHeight="30.0" prefWidth="303.0" styleClass="add-btn" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="839.0">
@@ -122,7 +124,7 @@
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtPhoneNumber" prefHeight="30.0" prefWidth="303.0" />
+                  <TextField fx:id="txtPhoneNumber" prefHeight="30.0" prefWidth="303.0" styleClass="add-btn" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="58.0" prefWidth="839.0">
@@ -132,7 +134,7 @@
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtEmail" prefHeight="30.0" prefWidth="303.0" />
+                  <TextField fx:id="txtEmail" prefHeight="30.0" prefWidth="303.0" styleClass="add-btn" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="48.0" prefWidth="839.0">
@@ -142,7 +144,7 @@
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <PasswordField fx:id="txtPassword" prefHeight="30.0" prefWidth="303.0" />
+                  <PasswordField fx:id="txtPassword" prefHeight="30.0" prefWidth="303.0" styleClass="add-btn" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="58.0" prefWidth="839.0">
@@ -152,7 +154,7 @@
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <PasswordField fx:id="txtRolePassword" prefHeight="30.0" prefWidth="303.0" />
+                  <PasswordField fx:id="txtRolePassword" prefHeight="30.0" prefWidth="303.0" styleClass="add-btn" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="53.0" prefWidth="839.0">
@@ -167,7 +169,7 @@
                   </Label>
                   <HBox alignment="CENTER" prefHeight="58.0" prefWidth="406.0">
                      <children>
-                        <Button fx:id="btnSave" mnemonicParsing="false" onAction="#register" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: #6dfa1b;" text="Reigister" textFill="WHITE">
+                        <Button fx:id="btnSave" mnemonicParsing="false" onAction="#register" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: #6dfa1b;" styleClass="add-btn" text="Reigister" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="20.0" />
                            </font>

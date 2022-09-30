@@ -99,6 +99,9 @@ public class EmployeeController implements Initializable {
 
     @FXML
     private Button btnDelete;
+    
+    @FXML
+    private Button switchToEmployee;
 
 //    @FXML
 //    private TreeTableView<Staff> treeTableView;
@@ -150,6 +153,8 @@ public class EmployeeController implements Initializable {
         getEmail();
 
         setValueForTableView();
+        
+        blockManageEmployee();
 
     }
 
@@ -219,6 +224,12 @@ public class EmployeeController implements Initializable {
         tableview.setItems(employerList);
 
         tableview.getItems().addAll(employeeList);
+    }
+    
+    private void blockManageEmployee() {
+        if (Staff.getLoginRoleId() != 1) {
+            switchToEmployee.setDisable(true);
+        }
     }
 
 //    @FXML

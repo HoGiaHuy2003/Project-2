@@ -217,7 +217,7 @@
                   <Pane prefHeight="23.0" prefWidth="240.0" />
                   <HBox alignment="CENTER" prefHeight="22.0" prefWidth="240.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#switchToEmployee" prefHeight="22.0" prefWidth="190.0" styleClass="fruit-item" text="Staff">
+                        <Button fx:id="switchToEmployee" mnemonicParsing="false" onAction="#switchToEmployee" prefHeight="22.0" prefWidth="190.0" styleClass="fruit-item" text="Staff">
                            <font>
                               <Font name="System Bold Italic" size="20.0" />
                            </font>

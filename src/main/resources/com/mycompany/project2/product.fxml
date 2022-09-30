@@ -59,7 +59,7 @@
             </VBox>
          </center>
          <left>
-            <VBox prefHeight="810.0" prefWidth="240.0" style="-fx-background-color: lightblue;" BorderPane.alignment="CENTER">
+            <VBox prefHeight="810.0" prefWidth="240.0" style="-fx-background-color: lightblue;" stylesheets="@style.css" BorderPane.alignment="CENTER">
                <children>
                   <HBox alignment="CENTER" prefHeight="187.0" prefWidth="240.0" styleClass="search-box" stylesheets="@style.css">
                      <children>
@@ -75,7 +75,7 @@
                      <children>
                         <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="190.0" styleClass="fruit-item" stylesheets="@style.css" text="Product">
                            <font>
-                              <Font name="System Bold" size="24.0" />
+                              <Font name="System Bold Italic" size="20.0" />
                            </font>
                            <cursor>
                               <Cursor fx:constant="HAND" />
@@ -88,7 +88,7 @@
                      <children>
                         <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="190.0" styleClass="fruit-item" stylesheets="@style.css" text="Category">
                            <font>
-                              <Font name="System Bold" size="24.0" />
+                              <Font name="System Bold Italic" size="20.0" />
                            </font>
                            <cursor>
                               <Cursor fx:constant="HAND" />
@@ -99,9 +99,9 @@
                   <Pane prefHeight="23.0" prefWidth="240.0" />
                   <HBox alignment="CENTER" prefHeight="22.0" prefWidth="240.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="190.0" styleClass="fruit-item" stylesheets="@style.css" text="Customer">
+                        <Button mnemonicParsing="false" onAction="#manageCustomer" prefHeight="22.0" prefWidth="190.0" styleClass="fruit-item" stylesheets="@style.css" text="Customer">
                            <font>
-                              <Font name="System Bold" size="24.0" />
+                              <Font name="System Bold Italic" size="20.0" />
                            </font>
                            <cursor>
                               <Cursor fx:constant="HAND" />
@@ -114,7 +114,7 @@
                      <children>
                         <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="190.0" styleClass="fruit-item" stylesheets="@style.css" text="Order">
                            <font>
-                              <Font name="System Bold" size="24.0" />
+                              <Font name="System Bold Italic" size="20.0" />
                            </font>
                            <cursor>
                               <Cursor fx:constant="HAND" />
@@ -125,9 +125,9 @@
                   <Pane prefHeight="23.0" prefWidth="240.0" />
                   <HBox alignment="CENTER" prefHeight="22.0" prefWidth="240.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="190.0" styleClass="fruit-item" stylesheets="@style.css" text="Staff">
+                        <Button fx:id="switchToEmployee" mnemonicParsing="false" onAction="#switchToEmployee" prefHeight="22.0" prefWidth="190.0" styleClass="fruit-item" stylesheets="@style.css" text="Staff">
                            <font>
-                              <Font name="System Bold" size="24.0" />
+                              <Font name="System Bold Italic" size="20.0" />
                            </font>
                            <cursor>
                               <Cursor fx:constant="HAND" />
@@ -138,9 +138,9 @@
                   <Pane prefHeight="23.0" prefWidth="240.0" />
                   <HBox alignment="CENTER" prefHeight="22.0" prefWidth="240.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="190.0" styleClass="fruit-item" stylesheets="@style.css" text="Income">
+                        <Button mnemonicParsing="false" onAction="#showIncome" prefHeight="51.0" prefWidth="190.0" styleClass="fruit-item" stylesheets="@style.css" text="Income">
                            <font>
-                              <Font name="System Bold" size="24.0" />
+                              <Font name="System Bold Italic" size="20.0" />
                            </font>
                            <cursor>
                               <Cursor fx:constant="HAND" />
@@ -151,9 +151,9 @@
                   <Pane prefHeight="23.0" prefWidth="240.0" />
                   <HBox alignment="CENTER" prefHeight="22.0" prefWidth="240.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#logout" prefHeight="51.0" prefWidth="190.0" styleClass="fruit-item" stylesheets="@style.css" text="Exit">
+                        <Button mnemonicParsing="false" onAction="#logout" prefHeight="51.0" prefWidth="190.0" styleClass="fruit-item" stylesheets="@style.css" text="Logout">
                            <font>
-                              <Font name="System Bold" size="24.0" />
+                              <Font name="System Bold Italic" size="20.0" />
                            </font>
                            <cursor>
                               <Cursor fx:constant="HAND" />

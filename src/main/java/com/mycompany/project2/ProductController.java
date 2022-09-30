@@ -15,6 +15,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 /**
@@ -44,6 +45,9 @@ public class ProductController implements Initializable {
 
     @FXML
     private Label yourEmail;
+    
+    @FXML
+    private Button switchToEmployee;
 
     /**
      * Initializes the controller class.
@@ -64,6 +68,8 @@ public class ProductController implements Initializable {
         getPhone();
 
         getEmail();
+        
+        blockManageEmployee();
     }    
 
      private void getFullname() {
@@ -117,6 +123,27 @@ public class ProductController implements Initializable {
         Staff.setEditStaffById(0);
 
         App.setRoot("login");
+    }
+    
+    private void blockManageEmployee() {
+        if (Staff.getLoginRoleId() != 1) {
+            switchToEmployee.setDisable(true);
+        }
+    }
+    
+    @FXML
+    private void switchToEmployee() throws IOException {
+        App.setRoot("employee");
+    }
+    
+    @FXML
+    private void showIncome() throws IOException {
+        App.setRoot("income");
+    }
+    
+    @FXML
+    private void manageCustomer() throws IOException {
+        App.setRoot("managecustomer");
     }
 
     

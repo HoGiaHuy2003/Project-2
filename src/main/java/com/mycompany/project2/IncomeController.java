@@ -76,8 +76,12 @@ public class IncomeController implements Initializable {
 
     @FXML
     private Button btnUpdate;
+    
     @FXML
-    private Button btnDelete;
+    private Button showAll;
+    
+    @FXML
+    private Button switchToEmployee;
 
     /**
      * Initializes the controller class.
@@ -101,7 +105,9 @@ public class IncomeController implements Initializable {
 
         setValueForTableView();
 //
-//        blockManageEmployee();
+        blockManageEmployee();
+        
+        disableChangingInformation();
     }
 
     private void getFullname() {
@@ -200,10 +206,23 @@ public class IncomeController implements Initializable {
             }
         }
     }
-
-    @FXML
-    private void btnDelete(ActionEvent event) {
+    
+    private void blockManageEmployee() {
+        if (Staff.getLoginRoleId() != 1) {
+            switchToEmployee.setDisable(true);
+        }
     }
+    
+    private void disableChangingInformation() {
+        if (Staff.getLoginRoleId() == 2) {
+            btnUpdate.setDisable(true);
+            showAll.setDisable(true);
+        }
+    }
+
+//    @FXML
+//    private void btnDelete(ActionEvent event) {
+//    }
 
     @FXML
     private void logout(ActionEvent event) throws IOException {
