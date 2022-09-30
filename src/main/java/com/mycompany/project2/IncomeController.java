@@ -36,6 +36,21 @@ public class IncomeController implements Initializable {
     private Label yourName;
     @FXML
     private Label yourRole;
+    
+    @FXML
+    private Label yourBirthday;
+
+    @FXML
+    private Label yourGender;
+
+    @FXML
+    private Label yourAddress;
+
+    @FXML
+    private Label yourPhone;
+
+    @FXML
+    private Label yourEmail;
     @FXML
     private TableView<Income> tableview;
     @FXML
@@ -73,6 +88,16 @@ public class IncomeController implements Initializable {
         getFullname();
 
         getRoleName();
+        
+        getBirthday();
+
+        getGender();
+
+        getAddress();
+
+        getPhone();
+
+        getEmail();
 
         setValueForTableView();
 //
@@ -82,7 +107,7 @@ public class IncomeController implements Initializable {
     private void getFullname() {
         List<Role> roleList = RoleEntity.getRoleList();
         Staff loginId = StaffEntity.findStaffId(Staff.getLoginStaffId());
-        yourName.setText("Hello " + loginId.getFullname()); // Find name by id from database to insert into textfield
+        yourName.setText("  Fullname: " + loginId.getFullname()); // Find name by id from database to insert into textfield
     }
 
     private void getRoleName() {
@@ -90,9 +115,39 @@ public class IncomeController implements Initializable {
         int roleLogin = Staff.getLoginRoleId();
         for (int i = 0; i < roleList.size(); i++) {
             if (roleList.get(i).getRoleId() == roleLogin) {
-                yourRole.setText("Your role is: " + roleList.get(i).getRoleName().toString());
+                yourRole.setText("Role: " + roleList.get(i).getRoleName().toString());
             }
         }
+    }
+    
+     private void getBirthday() {
+        List<Role> roleList = RoleEntity.getRoleList();
+        Staff loginId = StaffEntity.findStaffId(Staff.getLoginStaffId());
+        yourBirthday.setText("  Birthday: " + loginId.getBirthday());
+    }
+
+    private void getGender() {
+        List<Role> roleList = RoleEntity.getRoleList();
+        Staff loginId = StaffEntity.findStaffId(Staff.getLoginStaffId());
+        yourGender.setText("  Gender: " + loginId.getGender());  
+    }
+
+    private void getAddress() {
+        List<Role> roleList = RoleEntity.getRoleList();
+        Staff loginId = StaffEntity.findStaffId(Staff.getLoginStaffId());
+        yourAddress.setText("  Address: " + loginId.getAddress()); 
+    }
+
+    private void getPhone() {
+        List<Role> roleList = RoleEntity.getRoleList();
+        Staff loginId = StaffEntity.findStaffId(Staff.getLoginStaffId());
+        yourPhone.setText("  PhoneNumber: 0" + loginId.getPhonenumber()); 
+    }
+
+    private void getEmail() {
+        List<Role> roleList = RoleEntity.getRoleList();
+        Staff loginId = StaffEntity.findStaffId(Staff.getLoginStaffId());
+        yourEmail.setText("  Email: " + loginId.getEmail()); 
     }
 
     private void setValueForTableView() {
