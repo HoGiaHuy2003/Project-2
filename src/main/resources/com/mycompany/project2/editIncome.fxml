@@ -7,13 +7,15 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="669.0" prefWidth="761.0" style="-fx-background-color: #43cae6;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.project2.EditIncomeController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="810.0" prefWidth="1515.0" style="-fx-background-color: #43cae6;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.project2.EditIncomeController">
     <center>
-        <VBox prefHeight="451.0" prefWidth="761.0" BorderPane.alignment="CENTER">
+        <VBox prefHeight="451.0" prefWidth="761.0" stylesheets="@style.css" BorderPane.alignment="CENTER">
             <children>
+            <Pane prefHeight="54.0" prefWidth="1315.0" />
                 <HBox alignment="CENTER" prefHeight="78.0" prefWidth="600.0">
                     <children>
                         <Label fx:id="title" alignment="CENTER" contentDisplay="CENTER" prefHeight="54.0" prefWidth="740.0" text="Manage Income" textFill="RED">
@@ -32,7 +34,7 @@
                         </Label>
                         <HBox alignment="CENTER_LEFT" prefHeight="62.0" prefWidth="346.0">
                             <children>
-                                <ComboBox fx:id="staffName" prefHeight="34.0" prefWidth="179.0" />
+                                <ComboBox fx:id="staffName" prefHeight="34.0" prefWidth="179.0" styleClass="comboBox" />
                             </children>
                         </HBox>
                     </children>
@@ -46,69 +48,69 @@
                         </Label>
                         <HBox alignment="CENTER" prefHeight="59.0" prefWidth="349.0">
                      <children>
-                        <TextField fx:id="txtSalary" prefHeight="36.0" prefWidth="349.0" text="0" />
+                        <TextField fx:id="txtSalary" prefHeight="36.0" prefWidth="349.0" styleClass="add-btn" text="0" />
                      </children>
                         </HBox>
                     </children>
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="62.0" prefWidth="762.0">
                     <children>
-                        <Label prefHeight="30.0" prefWidth="306.0" text="Overtime Wages">
+                        <Label prefHeight="30.0" prefWidth="301.0" text="Overtime Wages">
                             <font>
                                 <Font name="System Bold" size="20.0" />
                             </font>
                         </Label>
-                        <TextField fx:id="txtOvertimeWages" prefHeight="35.0" prefWidth="342.0" text="0" />
+                        <TextField fx:id="txtOvertimeWages" prefHeight="35.0" prefWidth="349.0" styleClass="add-btn" text="0" />
                     </children>
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="62.0" prefWidth="762.0">
                     <children>
-                        <Label prefHeight="30.0" prefWidth="307.0" text="Retroactive Pay: ">
+                        <Label prefHeight="30.0" prefWidth="301.0" text="Retroactive Pay: ">
                             <font>
                                 <Font name="System Bold" size="20.0" />
                             </font>
                         </Label>
-                        <TextField fx:id="txtRetroactivePay" prefHeight="30.0" prefWidth="345.0" text="0" />
+                        <TextField fx:id="txtRetroactivePay" prefHeight="30.0" prefWidth="349.0" styleClass="add-btn" text="0" />
                     </children>
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="62.0" prefWidth="762.0">
                     <children>
-                        <Label prefHeight="30.0" prefWidth="306.0" text="Commissions:">
+                        <Label prefHeight="30.0" prefWidth="301.0" text="Commissions:">
                             <font>
                                 <Font name="System Bold" size="20.0" />
                             </font>
                         </Label>
-                        <TextField fx:id="txtCommissions" prefHeight="30.0" prefWidth="346.0" text="0" />
+                        <TextField fx:id="txtCommissions" prefHeight="30.0" prefWidth="349.0" styleClass="add-btn" text="0" />
                     </children>
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="62.0" prefWidth="762.0">
                     <children>
-                        <Label prefHeight="30.0" prefWidth="309.0" text="Bonus: ">
+                        <Label prefHeight="30.0" prefWidth="301.0" text="Bonus: ">
                             <font>
                                 <Font name="System Bold" size="20.0" />
                             </font>
                         </Label>
-                        <TextField fx:id="txtBonus" prefHeight="30.0" prefWidth="346.0" text="0" />
+                        <TextField fx:id="txtBonus" prefHeight="30.0" prefWidth="349.0" styleClass="add-btn" text="0" />
                     </children>
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="62.0" prefWidth="762.0">
                     <children>
-                        <Label prefHeight="30.0" prefWidth="309.0" text="Tips: ">
+                        <Label prefHeight="30.0" prefWidth="301.0" text="Tips: ">
                             <font>
                                 <Font name="System Bold" size="20.0" />
                             </font>
                         </Label>
-                        <TextField fx:id="txtTips" prefHeight="30.0" prefWidth="346.0" text="0" />
+                        <TextField fx:id="txtTips" prefHeight="30.0" prefWidth="349.0" styleClass="add-btn" text="0" />
                     </children>
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="77.0" prefWidth="761.0">
                     <children>
-                        <Label prefHeight="30.0" prefWidth="309.0" text="Penalty: ">
+                        <Label prefHeight="30.0" prefWidth="301.0" text="Penalty: ">
                             <font>
                                 <Font name="System Bold" size="20.0" />
                             </font>
                         </Label>
-                        <TextField fx:id="txtPenalty" prefHeight="36.0" prefWidth="341.0" text="0" />
+                        <TextField fx:id="txtPenalty" prefHeight="36.0" prefWidth="349.0" styleClass="add-btn" text="0" />
                     </children>
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="105.0" prefWidth="761.0">
@@ -121,9 +123,9 @@
                                 <Cursor fx:constant="HAND" />
                             </cursor>
                         </Label>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="332.0">
+                        <HBox alignment="CENTER" prefHeight="106.0" prefWidth="316.0">
                             <children>
-                                <Button mnemonicParsing="false" onAction="#save" prefHeight="43.0" prefWidth="154.0" style="-fx-background-color: #6dfa1b;" text="Save" textFill="WHITE">
+                                <Button alignment="CENTER" mnemonicParsing="false" onAction="#save" prefHeight="43.0" prefWidth="154.0" style="-fx-background-color: #6dfa1b;" styleClass="add-btn" text="Save" textFill="WHITE">
                                     <font>
                                         <Font name="System Bold" size="20.0" />
                                     </font>
@@ -131,7 +133,7 @@
                                         <Cursor fx:constant="HAND" />
                                     </cursor>
                                 </Button>
-                                <HBox prefHeight="100.0" prefWidth="133.0" />
+                                <HBox prefHeight="106.0" prefWidth="158.0" />
                             </children>
                         </HBox>
                     </children>

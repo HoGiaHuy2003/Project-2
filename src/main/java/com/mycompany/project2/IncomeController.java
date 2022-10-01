@@ -36,6 +36,21 @@ public class IncomeController implements Initializable {
     private Label yourName;
     @FXML
     private Label yourRole;
+    
+    @FXML
+    private Label yourBirthday;
+
+    @FXML
+    private Label yourGender;
+
+    @FXML
+    private Label yourAddress;
+
+    @FXML
+    private Label yourPhone;
+
+    @FXML
+    private Label yourEmail;
     @FXML
     private TableView<Income> tableview;
     @FXML
@@ -61,8 +76,12 @@ public class IncomeController implements Initializable {
 
     @FXML
     private Button btnUpdate;
+    
     @FXML
-    private Button btnDelete;
+    private Button showAll;
+    
+    @FXML
+    private Button switchToEmployee;
 
     /**
      * Initializes the controller class.
@@ -73,16 +92,28 @@ public class IncomeController implements Initializable {
         getFullname();
 
         getRoleName();
+        
+        getBirthday();
+
+        getGender();
+
+        getAddress();
+
+        getPhone();
+
+        getEmail();
 
         setValueForTableView();
 //
-//        blockManageEmployee();
+        blockManageEmployee();
+        
+        disableChangingInformation();
     }
 
     private void getFullname() {
         List<Role> roleList = RoleEntity.getRoleList();
         Staff loginId = StaffEntity.findStaffId(Staff.getLoginStaffId());
-        yourName.setText("Hello " + loginId.getFullname()); // Find name by id from database to insert into textfield
+        yourName.setText("  Fullname: " + loginId.getFullname()); // Find name by id from database to insert into textfield
     }
 
     private void getRoleName() {
@@ -90,9 +121,39 @@ public class IncomeController implements Initializable {
         int roleLogin = Staff.getLoginRoleId();
         for (int i = 0; i < roleList.size(); i++) {
             if (roleList.get(i).getRoleId() == roleLogin) {
-                yourRole.setText("Your role is: " + roleList.get(i).getRoleName().toString());
+                yourRole.setText("Role: " + roleList.get(i).getRoleName().toString());
             }
         }
+    }
+    
+     private void getBirthday() {
+        List<Role> roleList = RoleEntity.getRoleList();
+        Staff loginId = StaffEntity.findStaffId(Staff.getLoginStaffId());
+        yourBirthday.setText("  Birthday: " + loginId.getBirthday());
+    }
+
+    private void getGender() {
+        List<Role> roleList = RoleEntity.getRoleList();
+        Staff loginId = StaffEntity.findStaffId(Staff.getLoginStaffId());
+        yourGender.setText("  Gender: " + loginId.getGender());  
+    }
+
+    private void getAddress() {
+        List<Role> roleList = RoleEntity.getRoleList();
+        Staff loginId = StaffEntity.findStaffId(Staff.getLoginStaffId());
+        yourAddress.setText("  Address: " + loginId.getAddress()); 
+    }
+
+    private void getPhone() {
+        List<Role> roleList = RoleEntity.getRoleList();
+        Staff loginId = StaffEntity.findStaffId(Staff.getLoginStaffId());
+        yourPhone.setText("  PhoneNumber: 0" + loginId.getPhonenumber()); 
+    }
+
+    private void getEmail() {
+        List<Role> roleList = RoleEntity.getRoleList();
+        Staff loginId = StaffEntity.findStaffId(Staff.getLoginStaffId());
+        yourEmail.setText("  Email: " + loginId.getEmail()); 
     }
 
     private void setValueForTableView() {
@@ -145,10 +206,23 @@ public class IncomeController implements Initializable {
             }
         }
     }
-
-    @FXML
-    private void btnDelete(ActionEvent event) {
+    
+    private void blockManageEmployee() {
+        if (Staff.getLoginRoleId() != 1) {
+            switchToEmployee.setDisable(true);
+        }
     }
+    
+    private void disableChangingInformation() {
+        if (Staff.getLoginRoleId() == 2) {
+            btnUpdate.setDisable(true);
+            showAll.setDisable(true);
+        }
+    }
+
+//    @FXML
+//    private void btnDelete(ActionEvent event) {
+//    }
 
     @FXML
     private void logout(ActionEvent event) throws IOException {
@@ -161,6 +235,10 @@ public class IncomeController implements Initializable {
     @FXML
     private void switchToProduct() throws IOException {
         App.setRoot("product");
+    }
+    @FXML
+    private void switchToCategory() throws IOException {
+        App.setRoot("category");
     }
 
     @FXML

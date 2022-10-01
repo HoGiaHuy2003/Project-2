@@ -9,13 +9,15 @@
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="761.0" style="-fx-background-color: #43cae6;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.project2.CustomerController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="810.0" prefWidth="1515.0" style="-fx-background-color: #43cae6;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.project2.CustomerController">
    <center>
-      <VBox prefHeight="451.0" prefWidth="622.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="451.0" prefWidth="622.0" stylesheets="@style.css" BorderPane.alignment="CENTER">
          <children>
+            <Pane prefHeight="117.0" prefWidth="1315.0" />
             <HBox alignment="CENTER" prefHeight="78.0" prefWidth="600.0">
                <children>
                   <Label fx:id="title" alignment="CENTER" contentDisplay="CENTER" prefHeight="54.0" prefWidth="740.0" text="New Customer" textFill="RED">
@@ -32,7 +34,7 @@
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtFullname" prefHeight="30.0" prefWidth="346.0" />
+                  <TextField fx:id="txtFullname" prefHeight="30.0" prefWidth="346.0" styleClass="add-btn" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="62.0" prefWidth="762.0">
@@ -91,7 +93,7 @@
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtAddress" prefHeight="30.0" prefWidth="346.0" />
+                  <TextField fx:id="txtAddress" prefHeight="30.0" prefWidth="346.0" styleClass="add-btn" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="62.0" prefWidth="762.0">
@@ -101,7 +103,7 @@
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtPhoneNumber" prefHeight="30.0" prefWidth="346.0" />
+                  <TextField fx:id="txtPhoneNumber" prefHeight="30.0" prefWidth="353.0" styleClass="add-btn" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="62.0" prefWidth="762.0">
@@ -111,7 +113,7 @@
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtEmail" prefHeight="30.0" prefWidth="346.0" />
+                  <TextField fx:id="txtEmail" prefHeight="30.0" prefWidth="346.0" styleClass="add-btn" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -126,7 +128,7 @@
                   </Label>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="332.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#save" prefHeight="43.0" prefWidth="154.0" style="-fx-background-color: #6dfa1b;" text="Save" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#save" prefHeight="43.0" prefWidth="154.0" style="-fx-background-color: #6dfa1b;" styleClass="add-btn" text="Save" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="20.0" />
                            </font>

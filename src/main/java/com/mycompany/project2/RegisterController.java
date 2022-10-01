@@ -95,7 +95,7 @@ public class RegisterController implements Initializable {
         button = btnMale;
 
         if (Staff.getEditStaffById() != 0) {
-            title.setText("Edit account for user");
+            title.setText("                 Edit account for user");
             cancelOrSwitchToLogin.setText("Cancel");
             forgotPassword.setText(null);
             cbRole.setValue(getEditStaff.getRoleName());
@@ -235,6 +235,7 @@ public class RegisterController implements Initializable {
                     update.setStaffId(Staff.getEditStaffById());
                     if (getRoleList.get(i).getPassword().equals(rollPassword)) {
                         StaffEntity.update(update);
+                        Staff.setEditStaffById(Staff.getLoginStaffId());
                         switchToLoginOrManageCustomer();
                         break;
                     }

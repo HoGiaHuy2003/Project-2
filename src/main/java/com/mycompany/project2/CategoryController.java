@@ -6,49 +6,64 @@ package com.mycompany.project2;
 
 import com.mycompany.entities.RoleEntity;
 import com.mycompany.entities.StaffEntity;
+import com.mycompany.models.Category;
 import com.mycompany.models.Role;
 import com.mycompany.models.Staff;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 /**
  * FXML Controller class
  *
- * @author Admin
+ * @author DELL
  */
-public class ProductController implements Initializable {
+public class CategoryController implements Initializable {
 
     @FXML
-    private Label yourName;
-
-    @FXML
-    private Label yourRole;
-
-    @FXML
-    private Label yourBirthday;
-
-    @FXML
-    private Label yourGender;
-
-    @FXML
-    private Label yourAddress;
-
-    @FXML
-    private Label yourPhone;
-
-    @FXML
-    private Label yourEmail;
-
+    private TableView<Category> tableview;
     @FXML
     private Button switchToEmployee;
-
+    @FXML
+    private TableColumn<Category, Integer> columnID;
+    @FXML
+    private TableColumn<Category, String> columnTiltle;
+    @FXML
+    private TableColumn<Category, Float> columnPrice;
+    @FXML
+    private TableColumn<Category, Integer> columnQuantity;
+    @FXML
+    private TableColumn<Category, Integer> columnSeleable;
+   
+    @FXML
+    private Label yourRole;
+    @FXML
+    private Label yourName;
+    @FXML
+    private Label yourBirthday;
+    @FXML
+    private Label yourGender;
+    @FXML
+    private Label yourAddress;
+    @FXML
+    private Label yourPhone;
+    @FXML
+    private Label yourEmail;
+    
+    @FXML
+    private ComboBox cbCategory;
+    
     /**
      * Initializes the controller class.
      */
@@ -68,10 +83,10 @@ public class ProductController implements Initializable {
         getPhone();
 
         getEmail();
-
         blockManageEmployee();
-    }
-
+    }    
+    
+    
     private void getFullname() {
         List<Role> roleList = RoleEntity.getRoleList();
         Staff loginId = StaffEntity.findStaffId(Staff.getLoginStaffId());
@@ -117,39 +132,38 @@ public class ProductController implements Initializable {
         Staff loginId = StaffEntity.findStaffId(Staff.getLoginStaffId());
         yourEmail.setText("  Email: " + loginId.getEmail());
     }
-
+    
     @FXML
-    private void logout(ActionEvent event) throws IOException {
-        Staff.setLoginStaffId(null);
-        Staff.setEditStaffById(0);
-
-        App.setRoot("login");
+    private void manageCustomer(ActionEvent event) throws IOException {
+        App.setRoot("managecustomer");
     }
-
+    
     private void blockManageEmployee() {
         if (Staff.getLoginRoleId() != 1) {
             switchToEmployee.setDisable(true);
         }
+    }
+    @FXML
+    private void logout(ActionEvent event) throws IOException {
+        Staff.setLoginStaffId(null);
+        Staff.setEditStaffById(0);
+        
+        App.setRoot("login");
+    }
+    
+    @FXML
+    private void switchToProduct() throws IOException {
+        App.setRoot("product");
     }
 
     @FXML
     private void switchToEmployee() throws IOException {
         App.setRoot("employee");
     }
-
-    @FXML
+    
+     @FXML
     private void showIncome() throws IOException {
         App.setRoot("income");
-    }
-
-    @FXML
-    private void manageCustomer() throws IOException {
-        App.setRoot("managecustomer");
-    }
-
-    @FXML
-    private void switchToCategory() throws IOException {
-        App.setRoot("category");
     }
 
 }
