@@ -7,6 +7,8 @@ package com.mycompany.entities;
 import com.mycompany.models.Product;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -85,4 +87,12 @@ public class ProductEntity extends BaseEntity {
         
         return product;
     }
+//    
+//    public static List<Product> productList(){
+//        List<Product> = new Vector<>();
+//        
+//        open();
+//        
+//        String sql = "SELECT "
+//    }
 }

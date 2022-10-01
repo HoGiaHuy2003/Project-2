@@ -215,6 +215,7 @@ public class ManagecustomerController implements Initializable {
 
     @FXML
     private void newCustomer() throws IOException {
+        Customer.setValueOfCustomerId(null);
         App.setRoot("customer");
     }
 

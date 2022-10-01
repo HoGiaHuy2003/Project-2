@@ -89,7 +89,7 @@ public class CustomerController implements Initializable {
     
     private void setUpdatedCustomer() {
         if (Customer.getValueOfCustomerId() != null) {
-            title.setText("Update customer");
+            title.setText("Update Customer");
             txtFullname.setText(CustomerEntity.findCustomerId(Customer.getValueOfCustomerId()).getFullname());
             txtBirthday.setValue(LocalDate.parse(CustomerEntity.findCustomerId(Customer.getValueOfCustomerId()).getBirthday()));
             txtAddress.setText(CustomerEntity.findCustomerId(Customer.getValueOfCustomerId()).getAddress());
