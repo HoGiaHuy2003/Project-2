@@ -5,9 +5,11 @@
 package com.mycompany.project2;
 
 import com.mycompany.entities.CustomerEntity;
+import com.mycompany.entities.OrderEntity;
 import com.mycompany.entities.RoleEntity;
 import com.mycompany.entities.StaffEntity;
 import com.mycompany.models.Customer;
+import com.mycompany.models.Order;
 import com.mycompany.models.Role;
 import com.mycompany.models.Staff;
 import java.io.IOException;
@@ -188,6 +190,14 @@ public class ManagecustomerController implements Initializable {
                 break;
             }
         }
+        List<Order> orderList = OrderEntity.orderList();
+        for (int i = 0; i < orderList.size(); i++) {
+            if (orderList.get(i).getCustomerId() == Customer.getValueOfCustomerId() && orderList.get(i).getStaffId() == Staff.getLoginStaffId()) {
+                App.setRoot("product");
+                return;
+            }
+        }
+        OrderEntity.insert();
         App.setRoot("product");
     }
 
