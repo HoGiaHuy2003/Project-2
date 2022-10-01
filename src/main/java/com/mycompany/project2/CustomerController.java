@@ -6,6 +6,7 @@ package com.mycompany.project2;
 
 import com.mycompany.entities.CustomerEntity;
 import com.mycompany.models.Customer;
+import com.mycompany.models.Staff;
 import java.io.IOException;
 import java.net.URL;
 import java.text.DateFormat;
@@ -126,6 +127,29 @@ public class CustomerController implements Initializable {
     @FXML
     private void switchToManageCustomer() throws IOException {
         App.setRoot("managecustomer");
+    }
+    
+    @FXML
+    private void switchToCategory() throws IOException {
+        App.setRoot("category");
+    }
+    
+    @FXML
+    private void switchToProduct() throws IOException {
+        App.setRoot("product");
+    }
+
+    @FXML
+    private void switchToEmployee() throws IOException {
+        App.setRoot("employee");
+    }
+    
+    @FXML
+    private void logout(ActionEvent event) throws IOException {
+        Staff.setLoginStaffId(null);
+        Staff.setEditStaffById(0);
+        
+        App.setRoot("login");
     }
 
 }

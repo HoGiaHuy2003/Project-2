@@ -236,6 +236,10 @@ public class IncomeController implements Initializable {
     private void switchToProduct() throws IOException {
         App.setRoot("product");
     }
+    @FXML
+    private void switchToCategory() throws IOException {
+        App.setRoot("category");
+    }
 
     @FXML
     private void switchToEmployee() throws IOException {

@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="810.0" prefWidth="1315.0" style="-fx-background-color: #02e5f5;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.project2.EmployeeController">
+<AnchorPane id="AnchorPane" prefHeight="810.0" prefWidth="1515.0" style="-fx-background-color: #02e5f5;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.project2.EmployeeController">
     <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
@@ -44,7 +44,7 @@
                   <Pane prefHeight="23.0" prefWidth="240.0" />
                   <HBox alignment="CENTER" prefHeight="22.0" prefWidth="240.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="190.0" styleClass="fruit-item" text="Category">
+                        <Button mnemonicParsing="false" onAction="#switchToCategory" prefHeight="22.0" prefWidth="190.0" styleClass="fruit-item" text="Category">
                            <font>
                               <Font name="System Bold Italic" size="20.0" />
                            </font>

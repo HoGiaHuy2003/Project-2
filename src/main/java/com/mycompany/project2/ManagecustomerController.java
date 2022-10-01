@@ -233,6 +233,11 @@ public class ManagecustomerController implements Initializable {
     private void switchToEmployee() throws IOException {
         App.setRoot("employee");
     }
+    
+    @FXML
+    private void switchToCategory() throws IOException {
+        App.setRoot("category");
+    }
 
     @FXML
     private void chooseCustomer() throws IOException {

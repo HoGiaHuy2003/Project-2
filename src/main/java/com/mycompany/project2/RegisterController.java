@@ -95,7 +95,7 @@ public class RegisterController implements Initializable {
         button = btnMale;
 
         if (Staff.getEditStaffById() != 0) {
-            title.setText("Edit account for user");
+            title.setText("                 Edit account for user");
             cancelOrSwitchToLogin.setText("Cancel");
             forgotPassword.setText(null);
             cbRole.setValue(getEditStaff.getRoleName());
