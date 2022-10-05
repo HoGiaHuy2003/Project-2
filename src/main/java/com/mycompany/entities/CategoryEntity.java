@@ -19,7 +19,7 @@ import javafx.collections.ObservableList;
  * @author Admin
  */
 public class CategoryEntity extends BaseEntity {
-    public static ObservableList<Category> getCategoryList() {
+    public static List<Category> getCategoryList() {
         List<Category> categoryList = new Vector<>();
 
         open();

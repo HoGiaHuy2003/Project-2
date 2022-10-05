@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -22,11 +24,11 @@ public class ProductEntity extends BaseEntity {
         open();
 
         try {
-            String sql = "INSERT INTO Product (category_id, title, price, quantity, seleable_number, description, thumbnail, created_at, updated_at), VALUES(?, ?, ?, ?, 0, ?, ?, ?, ?)";
+            String sql = "INSERT INTO Product (category_id, title, price, quantity, seleable_number, description, thumbnail, created_at, updated_at) VALUES (?, ?, ?, ?, 0, ?, ?, ?, ?)";
             statement = conn.prepareStatement(sql);
 
             statement.setInt(1, product.getCategoryId());
-            statement.setString(2, product.getTitie());
+            statement.setString(2, product.getTitle());
             statement.setFloat(3, product.getPrice());
             statement.setInt(4, product.getQuantity());
 //            statement.setInt(5, product.getSeleableNumber());
@@ -50,7 +52,7 @@ public class ProductEntity extends BaseEntity {
             statement = conn.prepareStatement(sql);
 
             statement.setInt(1, product.getCategoryId());
-            statement.setString(2, product.getTitie());
+            statement.setString(2, product.getTitle());
             statement.setFloat(3, product.getPrice());
             statement.setInt(4, product.getQuantity());
             statement.setString(5, product.getDescription());
@@ -73,10 +75,10 @@ public class ProductEntity extends BaseEntity {
         try {
             String sql = "SELECT * FROM Product WHERE id = ?";
             statement = conn.prepareStatement(sql);
-            
+
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
-            while(resultSet.next()){
+            while (resultSet.next()) {
                 product = new Product(resultSet.getInt("id"), resultSet.getInt("category_id"), resultSet.getString("title"), resultSet.getFloat("price"), resultSet.getInt("quantity"), resultSet.getInt("seleable_number"), resultSet.getString("description"), resultSet.getString("thumbnail"), resultSet.getString("created_at"), resultSet.getString("updated_at"));
             }
         } catch (SQLException ex) {
@@ -84,15 +86,31 @@ public class ProductEntity extends BaseEntity {
         } finally {
             close();
         }
-        
+
         return product;
     }
-//    
-//    public static List<Product> productList(){
-//        List<Product> = new Vector<>();
-//        
-//        open();
-//        
-//        String sql = "SELECT "
-//    }
+
+    public static List<Product> productList() {
+        List<Product>productList = new Vector<>();
+
+        open();
+
+        try {
+            String sql = "SELECT * FROM Product";
+            statement = conn.prepareStatement(sql);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                Product product = new Product(resultSet.getString("title"), resultSet.getFloat("price"), resultSet.getString("thumbnail"));
+                productList.add(product);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductEntity.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            close();
+        }
+        
+        ObservableList<Product> dataList = FXCollections.observableList(productList);
+        
+        return dataList;
+    }
 }

@@ -20,6 +20,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 
 import javafx.scene.control.DatePicker;
@@ -90,43 +91,53 @@ public class EditIncomeController implements Initializable {
     @FXML
     private void save(ActionEvent event) throws IOException {
         int staffId = 0;
-        float salary = Float.parseFloat(txtSalary.getText().toString());
-        float overtimeWages = Float.parseFloat(txtOvertimeWages.getText().toString());
-        float retroactivePay = Float.parseFloat(txtRetroactivePay.getText().toString());
-        float commissions = Float.parseFloat(txtCommissions.getText().toString());
-        float bonus = Float.parseFloat(txtBonus.getText().toString());
-        float tips = Float.parseFloat(txtTips.getText().toString());
-        float penalty = Float.parseFloat(txtPenalty.getText().toString());
-        Date date = Calendar.getInstance().getTime();
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-        String createdAt = dateFormat.format(date);
-        String updatedAt = createdAt;
+        while (true) {
+            try {
+                float salary = Float.parseFloat(txtSalary.getText().toString());
+                float overtimeWages = Float.parseFloat(txtOvertimeWages.getText().toString());
+                float retroactivePay = Float.parseFloat(txtRetroactivePay.getText().toString());
+                float commissions = Float.parseFloat(txtCommissions.getText().toString());
+                float bonus = Float.parseFloat(txtBonus.getText().toString());
+                float tips = Float.parseFloat(txtTips.getText().toString());
+                float penalty = Float.parseFloat(txtPenalty.getText().toString());
+                Date date = Calendar.getInstance().getTime();
+                DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+                String createdAt = dateFormat.format(date);
+                String updatedAt = createdAt;
 
-        List<Staff> staffList = StaffEntity.list();
+                List<Staff> staffList = StaffEntity.list();
 
-        List<Income> incomeListInDataBase = IncomeEntity.incomeListInDataBase();
+                List<Income> incomeListInDataBase = IncomeEntity.incomeListInDataBase();
 //        outsideloop:
-        for (int j = 0; j < incomeListInDataBase.size(); j++) {
-            if (Staff.getEditStaffById() == incomeListInDataBase.get(j).getStaffId()) {
+                for (int j = 0; j < incomeListInDataBase.size(); j++) {
+                    if (Staff.getEditStaffById() == incomeListInDataBase.get(j).getStaffId()) {
+                        for (int i = 0; i < staffList.size(); i++) {
+                            if (staffList.get(i).getFullname().equals(staffName.getValue().toString())) {
+                                staffId = staffList.get(i).getStaffId();
+                                Income income = new Income(staffId, staffName.getValue().toString(), salary, overtimeWages, retroactivePay, commissions, bonus, tips, penalty, createdAt, updatedAt);
+                                IncomeEntity.update(income);
+                                App.setRoot("income");
+                                return;
+                            }
+                        }
+                    }
+                }
+
                 for (int i = 0; i < staffList.size(); i++) {
                     if (staffList.get(i).getFullname().equals(staffName.getValue().toString())) {
                         staffId = staffList.get(i).getStaffId();
                         Income income = new Income(staffId, staffName.getValue().toString(), salary, overtimeWages, retroactivePay, commissions, bonus, tips, penalty, createdAt, updatedAt);
-                        IncomeEntity.update(income);
+                        IncomeEntity.insert(income);
                         App.setRoot("income");
-                        return;
+                        break;
                     }
                 }
-            } 
-        }
-        
-        for (int i = 0; i < staffList.size(); i++) {
-            if (staffList.get(i).getFullname().equals(staffName.getValue().toString())) {
-                staffId = staffList.get(i).getStaffId();
-                Income income = new Income(staffId, staffName.getValue().toString(), salary, overtimeWages, retroactivePay, commissions, bonus, tips, penalty, createdAt, updatedAt);
-                IncomeEntity.insert(income);
-                App.setRoot("income");
                 break;
+            } catch (NumberFormatException ex) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error edit income");
+                alert.setHeaderText("Can not edit income!!!");
+                alert.setContentText("Income must be a float number!!!");
             }
         }
     }

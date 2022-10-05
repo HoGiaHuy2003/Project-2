@@ -4,8 +4,10 @@
  */
 package com.mycompany.project2;
 
+import com.mycompany.entities.ProductEntity;
 import com.mycompany.entities.RoleEntity;
 import com.mycompany.entities.StaffEntity;
+import com.mycompany.models.Product;
 import com.mycompany.models.Role;
 import com.mycompany.models.Staff;
 import java.io.IOException;
@@ -17,6 +19,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.GridPane;
 
 /**
  * FXML Controller class
@@ -48,6 +52,14 @@ public class ProductController implements Initializable {
 
     @FXML
     private Button switchToEmployee;
+    
+    @FXML
+    private ScrollPane scroll;
+    
+    @FXML
+    private GridPane grid;
+    
+    private List<Product> productList = ProductEntity.productList();
 
     /**
      * Initializes the controller class.
@@ -70,6 +82,10 @@ public class ProductController implements Initializable {
         getEmail();
 
         blockManageEmployee();
+        
+        for(int i = 0; i < productList.size(); i++){
+            
+        }
     }
 
     private void getFullname() {
@@ -151,5 +167,9 @@ public class ProductController implements Initializable {
     private void switchToCategory() throws IOException {
         App.setRoot("category");
     }
-
+    
+    @FXML
+    private void newProduct() throws IOException {
+        App.setRoot("newProduct");
+    }
 }

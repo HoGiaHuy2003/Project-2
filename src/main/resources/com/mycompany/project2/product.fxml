@@ -158,7 +158,11 @@
                                     <String fx:value="shadow" />
                                  </styleClass>
                               </VBox>
-                              <Pane prefHeight="57.0" prefWidth="435.0" />
+                              <Pane prefHeight="57.0" prefWidth="435.0">
+                                 <children>
+                                    <Button layoutY="1.0" mnemonicParsing="false" onAction="#newProduct" prefHeight="34.0" prefWidth="147.0" text="New Product" />
+                                    <Button fx:id="newProduct" layoutX="146.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="143.0" text="Edit Product" />
+                                 </children></Pane>
                            </children>
                         </VBox>
                         <HBox alignment="CENTER" prefHeight="642.0" prefWidth="760.0">
