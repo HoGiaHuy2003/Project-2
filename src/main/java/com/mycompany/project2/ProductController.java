@@ -98,7 +98,7 @@ public class ProductController extends ItemController implements Initializable {
                 
                 ItemController itemController = fxmlLoader.getController();
                 itemController.setData(productList.get(i));
-                System.out.println(productList.get(i).getThumbnail());
+//                System.out.println(productList.get(i).getThumbnail());
                 if(column == 3){
                     column = 0;
                     row++;
@@ -195,5 +195,15 @@ public class ProductController extends ItemController implements Initializable {
     @FXML
     private void newProduct() throws IOException {
         App.setRoot("editProduct");
+    }
+    
+    @FXML
+    private void btnUpdate(){
+        
+    }
+    
+    @FXML
+    private void switchToOrder(){
+        
     }
 }
