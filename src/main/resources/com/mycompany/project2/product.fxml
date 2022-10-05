@@ -22,15 +22,15 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="810.0" prefWidth="1515.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.project2.ProductController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="810.0" prefWidth="1515.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.project2.ProductController">
    <children>
       <BorderPane prefHeight="532.0" prefWidth="999.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
-            <VBox prefHeight="200.0" prefWidth="100.0" stylesheets="@style.css" BorderPane.alignment="CENTER">
+            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="810.0" prefWidth="835.0">
                      <children>
-                        <VBox prefHeight="810.0" prefWidth="298.0" styleClass="right-bar" stylesheets="@../../../../../../../../Pro/src/main/resources/com/mycompany/project2/style.css">
+                        <VBox prefHeight="810.0" prefWidth="298.0" styleClass="right-bar">
                            <children>
                               <HBox alignment="CENTER" prefHeight="110.0" prefWidth="200.0">
                                  <children>
@@ -46,7 +46,7 @@
                                     </Label>
                                  </children>
                               </HBox>
-                              <HBox alignment="CENTER" prefHeight="58.0" prefWidth="375.0" stylesheets="@../../../../../../../../Project/src/main/resources/com/mycompany/project2/style.css">
+                              <HBox alignment="CENTER" prefHeight="58.0" prefWidth="375.0">
                                  <children>
                                     <TextField prefHeight="40.0" prefWidth="235.0" promptText="Type here to search" styleClass="transparent">
                                        <HBox.margin>
@@ -64,16 +64,16 @@
                                  </styleClass>
                               </HBox>
                               <Pane prefHeight="56.0" prefWidth="290.0" />
-                              <VBox fx:id="chosenFruitCard" alignment="CENTER" prefHeight="642.0" prefWidth="298.0" stylesheets="@../../../../../../../../Pro/src/main/resources/com/mycompany/project2/style.css">
+                              <VBox fx:id="chosenFruitCard" alignment="CENTER" prefHeight="642.0" prefWidth="298.0">
                                  <children>
                                     <HBox prefHeight="60.0" prefWidth="335.0">
                                        <children>
-                                          <Label fx:id="fruitNameLable" prefHeight="48.0" prefWidth="276.0" text="Name" textFill="WHITE">
+                                          <Label fx:id="Title" prefHeight="44.0" prefWidth="223.0" text="Name" textFill="WHITE">
                                              <font>
                                                 <Font name="Cambria" size="36.0" />
                                              </font>
                                           </Label>
-                                          <Label fx:id="fruitPriceLabel" prefHeight="57.0" prefWidth="171.0" text="Price" textFill="WHITE">
+                                          <Label fx:id="Price" prefHeight="57.0" prefWidth="171.0" text="Price" textFill="WHITE">
                                              <font>
                                                 <Font name="Cambria" size="36.0" />
                                              </font>
@@ -93,12 +93,12 @@
                                     </ImageView>
                                     <HBox alignment="CENTER" prefHeight="53.0" prefWidth="335.0">
                                        <children>
-                                          <Label prefHeight="53.0" prefWidth="167.0" text="Quantity" textFill="WHITE">
+                                          <Label prefHeight="33.0" prefWidth="191.0" text="Quantity" textFill="WHITE">
                                              <font>
                                                 <Font name="Cambria" size="24.0" />
                                              </font>
                                           </Label>
-                                          <TextField alignment="CENTER" prefHeight="26.0" prefWidth="110.0" styleClass="add-btn" />
+                                          <TextField fx:id="Quantity" alignment="CENTER" prefHeight="26.0" prefWidth="82.0" styleClass="add-btn" />
                                        </children>
                                        <VBox.margin>
                                           <Insets top="20.0" />
@@ -106,23 +106,23 @@
                                     </HBox>
                                     <HBox alignment="CENTER" prefHeight="53.0" prefWidth="335.0">
                                        <children>
-                                          <Label prefHeight="53.0" prefWidth="167.0" text="Description" textFill="WHITE">
+                                          <Label prefHeight="33.0" prefWidth="192.0" text="Seleable Number" textFill="WHITE">
                                              <font>
                                                 <Font name="Cambria" size="24.0" />
                                              </font>
                                           </Label>
-                                          <TextArea prefHeight="40.0" prefWidth="166.0" />
+                                          <TextField fx:id="SeleableNumber" prefHeight="26.0" prefWidth="82.0" styleClass="add-btn" />
                                        </children>
                                     </HBox>
                                     <Pane prefHeight="21.0" prefWidth="298.0" />
-                                    <HBox alignment="CENTER" prefHeight="53.0" prefWidth="335.0">
+                                    <HBox alignment="CENTER" prefHeight="102.0" prefWidth="287.0">
                                        <children>
-                                          <Label prefHeight="53.0" prefWidth="167.0" text="Thumbnail" textFill="WHITE">
+                                          <Label prefHeight="54.0" prefWidth="131.0" text="Description" textFill="WHITE">
                                              <font>
                                                 <Font name="Cambria" size="24.0" />
                                              </font>
                                           </Label>
-                                          <TextArea prefHeight="26.0" prefWidth="166.0" />
+                                          <TextArea fx:id="Description" prefHeight="66.0" prefWidth="144.0" />
                                        </children>
                                     </HBox>
                                     <HBox alignment="CENTER" prefHeight="45.0" prefWidth="200.0">
@@ -136,12 +136,12 @@
                                     </HBox>
                                     <HBox alignment="CENTER" prefHeight="53.0" prefWidth="335.0">
                                        <children>
-                                          <Label prefHeight="42.0" prefWidth="188.0" text="Seleable Number" textFill="WHITE">
+                                          <Label prefHeight="34.0" prefWidth="175.0" text="Choose Number" textFill="WHITE">
                                              <font>
                                                 <Font name="Cambria" size="24.0" />
                                              </font>
                                           </Label>
-                                          <ComboBox prefHeight="45.0" prefWidth="130.0" promptText="selected" styleClass="comboBox" />
+                                          <ComboBox prefHeight="34.0" prefWidth="98.0" promptText="selected" styleClass="comboBox" />
                                        </children>
                                     </HBox>
                                     <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" styleClass="add-btn" text="ADD TO ORDER" textFill="#828282">
@@ -158,24 +158,50 @@
                                     <String fx:value="shadow" />
                                  </styleClass>
                               </VBox>
-                              <Pane prefHeight="57.0" prefWidth="435.0">
-                                 <children>
-                                    <Button layoutY="1.0" mnemonicParsing="false" onAction="#newProduct" prefHeight="34.0" prefWidth="147.0" text="New Product" />
-                                    <Button fx:id="newProduct" layoutX="146.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="143.0" text="Edit Product" />
-                                 </children></Pane>
+                              <Pane prefHeight="57.0" prefWidth="435.0" />
                            </children>
                         </VBox>
                         <HBox alignment="CENTER" prefHeight="642.0" prefWidth="760.0">
                            <children>
-                              <ScrollPane fx:id="scroll" prefHeight="642.0" prefWidth="700.0">
-                                 <content>
-                                    <GridPane fx:id="grid" prefHeight="0.0" prefWidth="0.0">
-                                       <rowConstraints>
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" />
-                                       </rowConstraints>
-                                    </GridPane>
-                                 </content>
-                              </ScrollPane>
+                              <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Button fx:id="btnUpdate" mnemonicParsing="false" onAction="#btnUpdate" prefHeight="31.0" prefWidth="189.0" style="-fx-background-color: #89eb34;" styleClass="fruit-item" text="Edit  Product">
+                                             <font>
+                                                <Font name="System Bold" size="15.0" />
+                                             </font>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </Button>
+                                          <Pane prefHeight="100.0" prefWidth="36.0" />
+                                          <Button mnemonicParsing="false" onAction="#newProduct" prefHeight="31.0" prefWidth="173.0" style="-fx-background-color: #f5e942;" styleClass="fruit-item" text="New Product">
+                                             <font>
+                                                <Font name="System Bold" size="15.0" />
+                                             </font>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </Button>
+                                          <Pane prefHeight="100.0" prefWidth="28.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="711.0" prefWidth="749.0">
+                                       <children>
+                                          <ScrollPane fx:id="scroll" prefHeight="729.0" prefWidth="700.0">
+                                             <content>
+                                                <GridPane fx:id="grid" prefHeight="0.0" prefWidth="0.0">
+                                                   <rowConstraints>
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                                                   </rowConstraints>
+                                                </GridPane>
+                                             </content>
+                                          </ScrollPane>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
                            </children>
                         </HBox>
                      </children>
@@ -184,9 +210,9 @@
             </VBox>
          </center>
          <left>
-            <VBox prefHeight="810.0" prefWidth="240.0" style="-fx-background-color: lightblue;" stylesheets="@style.css" BorderPane.alignment="CENTER">
+            <VBox prefHeight="810.0" prefWidth="240.0" style="-fx-background-color: lightblue;" BorderPane.alignment="CENTER">
                <children>
-                  <HBox alignment="CENTER" prefHeight="187.0" prefWidth="240.0" styleClass="search-box" stylesheets="@style.css">
+                  <HBox alignment="CENTER" prefHeight="187.0" prefWidth="240.0" styleClass="search-box">
                      <children>
                         <Label text="img">
                            <font>
@@ -198,7 +224,7 @@
                   <Pane prefHeight="51.0" prefWidth="240.0" />
                   <HBox alignment="CENTER" prefHeight="22.0" prefWidth="240.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="190.0" styleClass="fruit-item" stylesheets="@style.css" text="Product">
+                        <Button fx:id="switchToProduct" mnemonicParsing="false" prefHeight="22.0" prefWidth="190.0" styleClass="fruit-item" text="Product">
                            <font>
                               <Font name="System Bold Italic" size="20.0" />
                            </font>
@@ -211,7 +237,7 @@
                   <Pane prefHeight="23.0" prefWidth="240.0" />
                   <HBox alignment="CENTER" prefHeight="22.0" prefWidth="240.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#switchToCategory" prefHeight="22.0" prefWidth="190.0" styleClass="fruit-item" stylesheets="@style.css" text="Category">
+                        <Button mnemonicParsing="false" onAction="#switchToCategory" prefHeight="22.0" prefWidth="190.0" styleClass="fruit-item" text="Category">
                            <font>
                               <Font name="System Bold Italic" size="20.0" />
                            </font>
@@ -224,7 +250,7 @@
                   <Pane prefHeight="23.0" prefWidth="240.0" />
                   <HBox alignment="CENTER" prefHeight="22.0" prefWidth="240.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#manageCustomer" prefHeight="22.0" prefWidth="190.0" styleClass="fruit-item" stylesheets="@style.css" text="Customer">
+                        <Button mnemonicParsing="false" onAction="#manageCustomer" prefHeight="22.0" prefWidth="190.0" styleClass="fruit-item" text="Customer">
                            <font>
                               <Font name="System Bold Italic" size="20.0" />
                            </font>
@@ -237,7 +263,7 @@
                   <Pane prefHeight="23.0" prefWidth="240.0" />
                   <HBox alignment="CENTER" prefHeight="22.0" prefWidth="240.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="190.0" styleClass="fruit-item" stylesheets="@style.css" text="Order">
+                        <Button mnemonicParsing="false" onAction="#switchToOrder" prefHeight="51.0" prefWidth="190.0" styleClass="fruit-item" text="Order">
                            <font>
                               <Font name="System Bold Italic" size="20.0" />
                            </font>
@@ -250,7 +276,7 @@
                   <Pane prefHeight="23.0" prefWidth="240.0" />
                   <HBox alignment="CENTER" prefHeight="22.0" prefWidth="240.0">
                      <children>
-                        <Button fx:id="switchToEmployee" mnemonicParsing="false" onAction="#switchToEmployee" prefHeight="22.0" prefWidth="190.0" styleClass="fruit-item" stylesheets="@style.css" text="Staff">
+                        <Button fx:id="switchToEmployee" mnemonicParsing="false" onAction="#switchToEmployee" prefHeight="22.0" prefWidth="190.0" styleClass="fruit-item" text="Staff">
                            <font>
                               <Font name="System Bold Italic" size="20.0" />
                            </font>
@@ -263,7 +289,7 @@
                   <Pane prefHeight="23.0" prefWidth="240.0" />
                   <HBox alignment="CENTER" prefHeight="22.0" prefWidth="240.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#showIncome" prefHeight="51.0" prefWidth="190.0" styleClass="fruit-item" stylesheets="@style.css" text="Income">
+                        <Button mnemonicParsing="false" onAction="#showIncome" prefHeight="51.0" prefWidth="190.0" styleClass="fruit-item" text="Income">
                            <font>
                               <Font name="System Bold Italic" size="20.0" />
                            </font>
@@ -276,7 +302,7 @@
                   <Pane prefHeight="23.0" prefWidth="240.0" />
                   <HBox alignment="CENTER" prefHeight="22.0" prefWidth="240.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#logout" prefHeight="51.0" prefWidth="190.0" styleClass="fruit-item" stylesheets="@style.css" text="Logout">
+                        <Button mnemonicParsing="false" onAction="#logout" prefHeight="51.0" prefWidth="190.0" styleClass="fruit-item" text="Logout">
                            <font>
                               <Font name="System Bold Italic" size="20.0" />
                            </font>
