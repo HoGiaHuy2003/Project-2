@@ -8,7 +8,7 @@ create table Category(
 create table Role(
 	id int primary key,
 	name varchar(30), 
-	password varchar(30)
+	password varchar(100)
 );
 
 
@@ -21,7 +21,7 @@ create table Staff(
 	address varchar(50),
 	phone_number int,
 	email varchar(30),
-	password varchar(30),
+	password varchar(100),
 	created_at datetime,
 	updated_at datetime
 );
