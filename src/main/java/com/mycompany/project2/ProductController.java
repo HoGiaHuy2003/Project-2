@@ -14,12 +14,17 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 
 /**
@@ -27,7 +32,7 @@ import javafx.scene.layout.GridPane;
  *
  * @author Admin
  */
-public class ProductController implements Initializable {
+public class ProductController extends ItemController implements Initializable {
 
     @FXML
     private Label yourName;
@@ -52,13 +57,13 @@ public class ProductController implements Initializable {
 
     @FXML
     private Button switchToEmployee;
-    
+
     @FXML
     private ScrollPane scroll;
-    
+
     @FXML
     private GridPane grid;
-    
+
     private List<Product> productList = ProductEntity.productList();
 
     /**
@@ -83,8 +88,27 @@ public class ProductController implements Initializable {
 
         blockManageEmployee();
         
-        for(int i = 0; i < productList.size(); i++){
-            
+        int column = 0;
+        int row = 0;
+        try {
+            for (int i = 0; i < productList.size(); i++) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("item.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+                
+                ItemController itemController = fxmlLoader.getController();
+                itemController.setData(productList.get(i));
+                System.out.println(productList.get(i).getThumbnail());
+                if(column == 3){
+                    column = 0;
+                    row++;
+                }
+                
+                grid.add(anchorPane, column++, row); //(child, column, row)
+                GridPane.setMargin(anchorPane, new Insets(10));
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(ProductController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -167,9 +191,9 @@ public class ProductController implements Initializable {
     private void switchToCategory() throws IOException {
         App.setRoot("category");
     }
-    
+
     @FXML
     private void newProduct() throws IOException {
-        App.setRoot("newProduct");
+        App.setRoot("editProduct");
     }
 }

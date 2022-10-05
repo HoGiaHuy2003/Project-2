@@ -36,7 +36,7 @@ import javafx.scene.input.MouseEvent;
  *
  * @author Admin
  */
-public class NewProductController implements Initializable {
+public class EditProductController implements Initializable {
 
     @FXML
     private Label title;
