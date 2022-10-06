@@ -62,6 +62,19 @@ public class Product extends Category {
         this.updatedAt = updatedAt;
     }
 
+    public Product(int id, String title, float price, int quantity, int seleableNumber, String description, String thumbnail, String createdAt, String updatedAt, int categoryId, String categoryName) {
+        super(categoryId, categoryName);
+        this.id = id;
+        this.title = title;
+        this.price = price;
+        this.quantity = quantity;
+        this.seleableNumber = seleableNumber;
+        this.description = description;
+        this.thumbnail = thumbnail;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+    }
+
     public int getId() {
         return id;
     }
@@ -78,27 +91,27 @@ public class Product extends Category {
         this.title = title;
     }
 
-    public float getPrice() {
+    public Float getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(Float price) {
         this.price = price;
     }
 
-    public int getQuantity() {
+    public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
 
-    public int getSeleableNumber() {
+    public Integer getSeleableNumber() {
         return seleableNumber;
     }
 
-    public void setSeleableNumber(int seleableNumber) {
+    public void setSeleableNumber(Integer seleableNumber) {
         this.seleableNumber = seleableNumber;
     }
 

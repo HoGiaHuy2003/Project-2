@@ -96,11 +96,11 @@ public class ProductEntity extends BaseEntity {
         open();
 
         try {
-            String sql = "SELECT * FROM Product";
+            String sql = "SELECT Product.*, Category.Name 'Category' FROM Product LEFT JOIN Category ON Product.category_id = Category.id";
             statement = conn.prepareStatement(sql);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
-                Product product = new Product(resultSet.getString("title"), resultSet.getFloat("price"), resultSet.getString("thumbnail"));
+                Product product = new Product(resultSet.getInt("id"), resultSet.getString("title"), resultSet.getFloat("price"), resultSet.getInt("quantity"), resultSet.getInt("seleable_number"), resultSet.getString("description"), resultSet.getString("thumbnail"), resultSet.getString("created_at"), resultSet.getString("updated_at"), resultSet.getInt("category_id"), resultSet.getString("Category"));
                 productList.add(product);
             }
         } catch (SQLException ex) {

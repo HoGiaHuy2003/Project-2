@@ -10,6 +10,7 @@ import com.mycompany.entities.StaffEntity;
 import com.mycompany.models.Product;
 import com.mycompany.models.Role;
 import com.mycompany.models.Staff;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -24,15 +25,21 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Region;
+import javafx.scene.layout.VBox;
 
 /**
  * FXML Controller class
  *
  * @author Admin
  */
-public class ProductController extends ItemController implements Initializable {
+public class ProductController implements Initializable {
 
     @FXML
     private Label yourName;
@@ -59,10 +66,52 @@ public class ProductController extends ItemController implements Initializable {
     private Button switchToEmployee;
 
     @FXML
+    private VBox chosenProduct;
+
+    @FXML
+    private Label title;
+
+    @FXML
+    private Label price;
+
+    @FXML
+    private ImageView imageView;
+            
+    @FXML
+    private Label quantity;
+
+    @FXML
+    private Label seleableNumber;
+    
+    @FXML
+    private Label description;
+
+    @FXML
     private ScrollPane scroll;
 
     @FXML
     private GridPane grid;
+
+    private Image image;
+    
+//    private ItemController itemController;
+
+    void setChosenProduct(Product product) {
+        title.setText(product.getTitle());
+        price.setText("$" + product.getPrice().toString());
+        File file = new File(product.getThumbnail());
+        if (file.isFile()) {
+            image = new Image(file.toURI().toString());
+        } else {
+            image = new Image(product.getThumbnail(), true);
+        }
+        imageView.setImage(image);
+        quantity.setText(product.getQuantity().toString());
+        seleableNumber.setText(product.getSeleableNumber().toString());
+        description.setText(product.getDescription());
+        
+//        chosenProduct.setStyle(string);
+    }
 
     private List<Product> productList = ProductEntity.productList();
 
@@ -87,24 +136,37 @@ public class ProductController extends ItemController implements Initializable {
         getEmail();
 
         blockManageEmployee();
-        
+
         int column = 0;
-        int row = 0;
+        int row = 1;
+        if(productList.size() > 0){
+            setChosenProduct(productList.get(0));
+//            itemController = new ItemController()
+        }
         try {
             for (int i = 0; i < productList.size(); i++) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("item.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
-                
+
                 ItemController itemController = fxmlLoader.getController();
                 itemController.setData(productList.get(i));
 //                System.out.println(productList.get(i).getThumbnail());
-                if(column == 3){
+                if (column == 3) {
                     column = 0;
                     row++;
                 }
-                
+
                 grid.add(anchorPane, column++, row); //(child, column, row)
+                //set grid width
+                grid.setMinWidth(Region.USE_COMPUTED_SIZE);
+                grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                grid.setMaxWidth(Region.USE_COMPUTED_SIZE);
+
+                //set grid width
+                grid.setMinHeight(Region.USE_COMPUTED_SIZE);
+                grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                grid.setMaxHeight(Region.USE_COMPUTED_SIZE);
                 GridPane.setMargin(anchorPane, new Insets(10));
             }
         } catch (IOException ex) {
@@ -196,14 +258,14 @@ public class ProductController extends ItemController implements Initializable {
     private void newProduct() throws IOException {
         App.setRoot("editProduct");
     }
-    
+
     @FXML
-    private void btnUpdate(){
-        
+    private void btnUpdate() {
+
     }
-    
+
     @FXML
-    private void switchToOrder(){
-        
+    private void switchToOrder() {
+
     }
 }

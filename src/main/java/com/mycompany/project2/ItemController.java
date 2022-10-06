@@ -8,11 +8,13 @@ import com.mycompany.models.Product;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
@@ -20,7 +22,7 @@ import javafx.scene.image.ImageView;
  * @author Admin
  */
 public class ItemController implements Initializable {
-
+    
     @FXML
     private Label title;
 
@@ -29,6 +31,11 @@ public class ItemController implements Initializable {
 
     @FXML
     private ImageView imageView;
+    
+    @FXML
+    private void click(MouseEvent event){
+//        onClick(product);
+    }
 
     private Product product;
     
