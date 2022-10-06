@@ -4,6 +4,7 @@
  */
 package com.mycompany.project2;
 
+import com.mycompany.entities.ItemEntity;
 import com.mycompany.entities.ProductEntity;
 import com.mycompany.entities.RoleEntity;
 import com.mycompany.entities.StaffEntity;
@@ -94,7 +95,7 @@ public class ProductController implements Initializable {
 
     private Image image;
     
-//    private ItemController itemController;
+    private ItemEntity itemEntity;
 
     void setChosenProduct(Product product) {
         title.setText(product.getTitle());
@@ -141,7 +142,12 @@ public class ProductController implements Initializable {
         int row = 1;
         if(productList.size() > 0){
             setChosenProduct(productList.get(0));
-//            itemController = new ItemController()
+            itemEntity = new ItemEntity() {
+                @Override
+                public void onClick(Product product) {
+                    setChosenProduct(product);
+                }
+            };
         }
         try {
             for (int i = 0; i < productList.size(); i++) {
@@ -150,7 +156,7 @@ public class ProductController implements Initializable {
                 AnchorPane anchorPane = fxmlLoader.load();
 
                 ItemController itemController = fxmlLoader.getController();
-                itemController.setData(productList.get(i));
+                itemController.setData(productList.get(i), itemEntity);
 //                System.out.println(productList.get(i).getThumbnail());
                 if (column == 3) {
                     column = 0;

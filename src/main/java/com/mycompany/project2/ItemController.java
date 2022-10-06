@@ -4,6 +4,7 @@
  */
 package com.mycompany.project2;
 
+import com.mycompany.entities.ItemEntity;
 import com.mycompany.models.Product;
 import java.io.File;
 import java.net.URL;
@@ -34,15 +35,18 @@ public class ItemController implements Initializable {
     
     @FXML
     private void click(MouseEvent event){
-//        onClick(product);
+        itemEntity.onClick(product);
     }
+    
+    private ItemEntity itemEntity;
 
     private Product product;
     
     private Image image;
 
-    void setData(Product product) {
+    void setData(Product product, ItemEntity itemEntity) {
         this.product = product;
+        this.itemEntity = itemEntity;
         title.setText(product.getTitle());
         price.setText("$" + product.getPrice());
         File file = new File(product.getThumbnail());
