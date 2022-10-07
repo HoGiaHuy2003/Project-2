@@ -74,6 +74,7 @@ public class EditProductController implements Initializable {
         // TODO
         setUpComboBox();
         if(Product.getEditProductById() != 0){
+            title.setText("Edit Product");
             cbCategory.setValue(product.getCategoryName());
             txtTitle.setText(product.getTitle());
             txtPrice.setText(product.getPrice().toString());
