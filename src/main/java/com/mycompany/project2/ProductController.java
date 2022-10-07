@@ -66,6 +66,9 @@ public class ProductController implements Initializable {
 
     @FXML
     private Button switchToEmployee;
+    
+    @FXML
+    private Button switchToProduct;
 
     @FXML
     private VBox chosenProduct;
@@ -86,7 +89,7 @@ public class ProductController implements Initializable {
     private Label seleableNumber;
     
     @FXML
-    private Label description;
+    private TextArea description;
 
     @FXML
     private ScrollPane scroll;
@@ -95,8 +98,14 @@ public class ProductController implements Initializable {
     private GridPane grid;
     
     @FXML
-    private ComboBox numberOfProduct;
+    private TextField numberOfProduct;
+    
+    @FXML
+    private Button btnUpdate;
 
+    @FXML
+    private Button btnInsert;
+    
     private Image image;
     
     private ItemEntity itemEntity;
@@ -244,6 +253,9 @@ public class ProductController implements Initializable {
     private void blockManageEmployee() {
         if (Staff.getLoginRoleId() != 1) {
             switchToEmployee.setDisable(true);
+            switchToProduct.setDisable(true);
+            btnUpdate.setDisable(true);
+            btnInsert.setDisable(true);
         }
     }
 
@@ -281,6 +293,11 @@ public class ProductController implements Initializable {
                 return;
             }
         }
+    }
+    
+    @FXML
+    private void btnAdd(){
+        
     }
 
     @FXML

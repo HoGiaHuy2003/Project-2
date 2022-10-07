@@ -89,6 +89,9 @@ public class ManagecustomerController implements Initializable {
 
     @FXML
     private Button switchToEmployee;
+    
+    @FXML
+    private Button switchToProduct;
 
     @FXML
     private void btnUpdate() throws IOException {
@@ -210,6 +213,7 @@ public class ManagecustomerController implements Initializable {
     private void blockManageEmployee() {
         if (Staff.getLoginRoleId() != 1) {
             switchToEmployee.setDisable(true);
+            switchToProduct.setDisable(true);
         }
     }
 
@@ -229,14 +233,18 @@ public class ManagecustomerController implements Initializable {
 
     @FXML
     private void switchToProduct() throws IOException {
-        App.setRoot("product");
+        if (Staff.getLoginRoleId() == 1) {
+            App.setRoot("product");
+        }
     }
 
     @FXML
     private void switchToEmployee() throws IOException {
-        App.setRoot("employee");
+        if (Staff.getLoginRoleId() == 1) {
+            App.setRoot("employee");
+        }
     }
-    
+
     @FXML
     private void switchToCategory() throws IOException {
         App.setRoot("category");

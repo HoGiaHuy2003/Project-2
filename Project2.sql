@@ -87,7 +87,6 @@ create table Order_(
 	id int primary key,
 	customer_id int references Customer(id),
 	staff_id int references Staff(id),
-	order_date datetime,
 	created_at datetime,
 	updated_at datetime
 );
@@ -98,6 +97,7 @@ create table Order_detail(
 	product_id int references Product(id),
 	price float,
 	quantity int,
+	order_date datetime,
 	created_at datetime,
 	updated_at datetime
 );
