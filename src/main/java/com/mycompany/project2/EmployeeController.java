@@ -7,6 +7,7 @@ package com.mycompany.project2;
 import com.mycompany.entities.IncomeEntity;
 import com.mycompany.entities.RoleEntity;
 import com.mycompany.entities.StaffEntity;
+import com.mycompany.models.Customer;
 import com.mycompany.models.Income;
 import com.mycompany.models.Role;
 import com.mycompany.models.Staff;
@@ -48,7 +49,7 @@ public class EmployeeController implements Initializable {
 
     @FXML
     private Label yourRole;
-    
+
     @FXML
     private Label yourBirthday;
 
@@ -90,7 +91,7 @@ public class EmployeeController implements Initializable {
 
     @FXML
     private TableColumn<Staff, String> dateStarted;
-    
+
     @FXML
     private TableColumn<Staff, Float> totalIncome;
 
@@ -99,9 +100,12 @@ public class EmployeeController implements Initializable {
 
     @FXML
     private Button btnDelete;
-    
+
     @FXML
     private Button switchToEmployee;
+
+    @FXML
+    private Button switchToProduct;
 
 //    @FXML
 //    private TreeTableView<Staff> treeTableView;
@@ -141,7 +145,7 @@ public class EmployeeController implements Initializable {
         getFullname();
 
         getRoleName();
-        
+
         getBirthday();
 
         getGender();
@@ -153,7 +157,7 @@ public class EmployeeController implements Initializable {
         getEmail();
 
         setValueForTableView();
-        
+
         blockManageEmployee();
 
     }
@@ -173,7 +177,7 @@ public class EmployeeController implements Initializable {
             }
         }
     }
-    
+
     private void getBirthday() {
         List<Role> roleList = RoleEntity.getRoleList();
         Staff loginId = StaffEntity.findStaffId(Staff.getLoginStaffId());
@@ -183,34 +187,33 @@ public class EmployeeController implements Initializable {
     private void getGender() {
         List<Role> roleList = RoleEntity.getRoleList();
         Staff loginId = StaffEntity.findStaffId(Staff.getLoginStaffId());
-        yourGender.setText("  Gender: " + loginId.getGender());  
+        yourGender.setText("  Gender: " + loginId.getGender());
     }
 
     private void getAddress() {
         List<Role> roleList = RoleEntity.getRoleList();
         Staff loginId = StaffEntity.findStaffId(Staff.getLoginStaffId());
-        yourAddress.setText("  Address: " + loginId.getAddress()); 
+        yourAddress.setText("  Address: " + loginId.getAddress());
     }
 
     private void getPhone() {
         List<Role> roleList = RoleEntity.getRoleList();
         Staff loginId = StaffEntity.findStaffId(Staff.getLoginStaffId());
-        yourPhone.setText("  PhoneNumber: 0" + loginId.getPhonenumber()); 
+        yourPhone.setText("  PhoneNumber: 0" + loginId.getPhonenumber());
     }
 
     private void getEmail() {
         List<Role> roleList = RoleEntity.getRoleList();
         Staff loginId = StaffEntity.findStaffId(Staff.getLoginStaffId());
-        yourEmail.setText("  Email: " + loginId.getEmail()); 
+        yourEmail.setText("  Email: " + loginId.getEmail());
     }
 
     private void setValueForTableView() {
         ObservableList<Staff> employerList = StaffEntity.employerList();
 
         ObservableList<Staff> employeeList = StaffEntity.employeeList();
-        
-//        ObservableList<Staff> total = StaffEntity.totalIncome();
 
+//        ObservableList<Staff> total = StaffEntity.totalIncome();
         role.setCellValueFactory(new PropertyValueFactory<>("roleName"));
         fullname.setCellValueFactory(new PropertyValueFactory<>("fullname"));
         birthday.setCellValueFactory(new PropertyValueFactory<>("birthday"));
@@ -220,15 +223,19 @@ public class EmployeeController implements Initializable {
         email.setCellValueFactory(new PropertyValueFactory<>("email"));
         dateStarted.setCellValueFactory(new PropertyValueFactory<>("createdat"));
 //        totalIncome.setCellValueFactory((Callback<TableColumn.CellDataFeatures<Staff, Float>, ObservableValue<Float>>) total);
-        
+
         tableview.setItems(employerList);
 
         tableview.getItems().addAll(employeeList);
     }
-    
+
     private void blockManageEmployee() {
         if (Staff.getLoginRoleId() != 1) {
             switchToEmployee.setDisable(true);
+        }
+        switchToProduct.setDisable(true);
+        if (Customer.getValueOfCustomerId() != null && Staff.getLoginStaffId() != null) {
+            switchToProduct.setDisable(false);
         }
     }
 
@@ -309,7 +316,7 @@ public class EmployeeController implements Initializable {
     private void logout(ActionEvent event) throws IOException {
         Staff.setLoginStaffId(null);
         Staff.setEditStaffById(0);
-        
+
         App.setRoot("login");
     }
 
@@ -317,7 +324,7 @@ public class EmployeeController implements Initializable {
     private void switchToProduct() throws IOException {
         App.setRoot("product");
     }
-    
+
     @FXML
     private void switchToCategory() throws IOException {
         App.setRoot("category");

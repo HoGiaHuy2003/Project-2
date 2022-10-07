@@ -7,6 +7,7 @@ package com.mycompany.project2;
 import com.mycompany.entities.IncomeEntity;
 import com.mycompany.entities.RoleEntity;
 import com.mycompany.entities.StaffEntity;
+import com.mycompany.models.Customer;
 import com.mycompany.models.Income;
 import com.mycompany.models.Role;
 import com.mycompany.models.Staff;
@@ -35,7 +36,7 @@ public class IncomeController implements Initializable {
     private Label yourName;
     @FXML
     private Label yourRole;
-    
+
     @FXML
     private Label yourBirthday;
 
@@ -75,12 +76,15 @@ public class IncomeController implements Initializable {
 
     @FXML
     private Button btnUpdate;
-    
+
     @FXML
     private Button showAll;
-    
+
     @FXML
     private Button switchToEmployee;
+
+    @FXML
+    private Button switchToProduct;
 
     /**
      * Initializes the controller class.
@@ -91,7 +95,7 @@ public class IncomeController implements Initializable {
         getFullname();
 
         getRoleName();
-        
+
         getBirthday();
 
         getGender();
@@ -105,7 +109,7 @@ public class IncomeController implements Initializable {
         setValueForTableView();
 //
         blockManageEmployee();
-        
+
         disableChangingInformation();
     }
 
@@ -124,8 +128,8 @@ public class IncomeController implements Initializable {
             }
         }
     }
-    
-     private void getBirthday() {
+
+    private void getBirthday() {
         List<Role> roleList = RoleEntity.getRoleList();
         Staff loginId = StaffEntity.findStaffId(Staff.getLoginStaffId());
         yourBirthday.setText("  Birthday: " + loginId.getBirthday());
@@ -134,25 +138,25 @@ public class IncomeController implements Initializable {
     private void getGender() {
         List<Role> roleList = RoleEntity.getRoleList();
         Staff loginId = StaffEntity.findStaffId(Staff.getLoginStaffId());
-        yourGender.setText("  Gender: " + loginId.getGender());  
+        yourGender.setText("  Gender: " + loginId.getGender());
     }
 
     private void getAddress() {
         List<Role> roleList = RoleEntity.getRoleList();
         Staff loginId = StaffEntity.findStaffId(Staff.getLoginStaffId());
-        yourAddress.setText("  Address: " + loginId.getAddress()); 
+        yourAddress.setText("  Address: " + loginId.getAddress());
     }
 
     private void getPhone() {
         List<Role> roleList = RoleEntity.getRoleList();
         Staff loginId = StaffEntity.findStaffId(Staff.getLoginStaffId());
-        yourPhone.setText("  PhoneNumber: 0" + loginId.getPhonenumber()); 
+        yourPhone.setText("  PhoneNumber: 0" + loginId.getPhonenumber());
     }
 
     private void getEmail() {
         List<Role> roleList = RoleEntity.getRoleList();
         Staff loginId = StaffEntity.findStaffId(Staff.getLoginStaffId());
-        yourEmail.setText("  Email: " + loginId.getEmail()); 
+        yourEmail.setText("  Email: " + loginId.getEmail());
     }
 
     private void setValueForTableView() {
@@ -195,7 +199,6 @@ public class IncomeController implements Initializable {
 //                break;
 //            }
 //        }
-
         for (int i = 0; i < incomeList.size(); i++) {
             if (tableview.getSelectionModel().getSelectedItem().getStaffId() == incomeList.get(i).getStaffId()) {
                 Staff.setEditStaffById(incomeList.get(i).getStaffId());
@@ -205,13 +208,17 @@ public class IncomeController implements Initializable {
             }
         }
     }
-    
+
     private void blockManageEmployee() {
         if (Staff.getLoginRoleId() != 1) {
             switchToEmployee.setDisable(true);
+            switchToProduct.setDisable(true);
+            if (Customer.getValueOfCustomerId() != null && Staff.getLoginStaffId() != null) {
+                switchToProduct.setDisable(false);
+            }
         }
     }
-    
+
     private void disableChangingInformation() {
         if (Staff.getLoginRoleId() == 2) {
             btnUpdate.setDisable(true);
@@ -222,7 +229,6 @@ public class IncomeController implements Initializable {
 //    @FXML
 //    private void btnDelete(ActionEvent event) {
 //    }
-
     @FXML
     private void logout(ActionEvent event) throws IOException {
         Staff.setLoginStaffId(null);
@@ -235,6 +241,7 @@ public class IncomeController implements Initializable {
     private void switchToProduct() throws IOException {
         App.setRoot("product");
     }
+
     @FXML
     private void switchToCategory() throws IOException {
         App.setRoot("category");

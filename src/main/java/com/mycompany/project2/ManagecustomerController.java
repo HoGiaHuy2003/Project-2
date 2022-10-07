@@ -89,7 +89,7 @@ public class ManagecustomerController implements Initializable {
 
     @FXML
     private Button switchToEmployee;
-    
+
     @FXML
     private Button switchToProduct;
 
@@ -213,7 +213,10 @@ public class ManagecustomerController implements Initializable {
     private void blockManageEmployee() {
         if (Staff.getLoginRoleId() != 1) {
             switchToEmployee.setDisable(true);
-            switchToProduct.setDisable(true);
+        }
+        switchToProduct.setDisable(true);
+        if (Customer.getValueOfCustomerId() != null && Staff.getLoginStaffId() != null) {
+            switchToProduct.setDisable(false);
         }
     }
 
@@ -233,16 +236,12 @@ public class ManagecustomerController implements Initializable {
 
     @FXML
     private void switchToProduct() throws IOException {
-        if (Staff.getLoginRoleId() == 1) {
-            App.setRoot("product");
-        }
+        App.setRoot("product");
     }
 
     @FXML
     private void switchToEmployee() throws IOException {
-        if (Staff.getLoginRoleId() == 1) {
-            App.setRoot("employee");
-        }
+        App.setRoot("employee");
     }
 
     @FXML

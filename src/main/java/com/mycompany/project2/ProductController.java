@@ -8,6 +8,7 @@ import com.mycompany.entities.ItemEntity;
 import com.mycompany.entities.ProductEntity;
 import com.mycompany.entities.RoleEntity;
 import com.mycompany.entities.StaffEntity;
+import com.mycompany.models.Customer;
 import com.mycompany.models.Product;
 import com.mycompany.models.Role;
 import com.mycompany.models.Staff;
@@ -66,7 +67,7 @@ public class ProductController implements Initializable {
 
     @FXML
     private Button switchToEmployee;
-    
+
     @FXML
     private Button switchToProduct;
 
@@ -81,13 +82,13 @@ public class ProductController implements Initializable {
 
     @FXML
     private ImageView imageView;
-            
+
     @FXML
     private Label quantity;
 
     @FXML
     private Label seleableNumber;
-    
+
     @FXML
     private TextArea description;
 
@@ -96,18 +97,18 @@ public class ProductController implements Initializable {
 
     @FXML
     private GridPane grid;
-    
+
     @FXML
     private TextField numberOfProduct;
-    
+
     @FXML
     private Button btnUpdate;
 
     @FXML
     private Button btnInsert;
-    
+
     private Image image;
-    
+
     private ItemEntity itemEntity;
 
     void setChosenProduct(Product product) {
@@ -123,13 +124,13 @@ public class ProductController implements Initializable {
         quantity.setText(product.getQuantity().toString());
         seleableNumber.setText(product.getSeleableNumber().toString());
         description.setText(product.getDescription());
-        
+
         Product.setEditProductById(product.getId());
 //        chosenProduct.setStyle(string);
     }
 
     private List<Product> productList = ProductEntity.productList();
-    
+
     List<Product> datalist;
 
     /**
@@ -156,7 +157,7 @@ public class ProductController implements Initializable {
 
         int column = 0;
         int row = 1;
-        if(productList.size() > 0){
+        if (productList.size() > 0) {
             setChosenProduct(productList.get(0));
             itemEntity = new ItemEntity() {
                 @Override
@@ -253,9 +254,12 @@ public class ProductController implements Initializable {
     private void blockManageEmployee() {
         if (Staff.getLoginRoleId() != 1) {
             switchToEmployee.setDisable(true);
-            switchToProduct.setDisable(true);
             btnUpdate.setDisable(true);
             btnInsert.setDisable(true);
+        }
+        switchToProduct.setDisable(true);
+        if (Customer.getValueOfCustomerId() != null && Staff.getLoginStaffId() != null) {
+            switchToProduct.setDisable(false);
         }
     }
 
@@ -287,17 +291,17 @@ public class ProductController implements Initializable {
 
     @FXML
     private void btnUpdate() throws IOException {
-        for(int i = 0; i < productList.size(); i++){
-            if(productList.get(i).getId() == Product.getEditProductById()){
+        for (int i = 0; i < productList.size(); i++) {
+            if (productList.get(i).getId() == Product.getEditProductById()) {
                 App.setRoot("editProduct");
                 return;
             }
         }
     }
-    
+
     @FXML
-    private void btnAdd(){
-        
+    private void btnAdd() {
+
     }
 
     @FXML
