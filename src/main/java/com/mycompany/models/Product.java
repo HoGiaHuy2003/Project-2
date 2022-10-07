@@ -51,8 +51,9 @@ public class Product extends Category {
         this.updatedAt = updatedAt;
     }
 
-    public Product(int categoryId, String title, float price, int quantity, String description, String thumbnail, String createdAt, String updatedAt) {
+    public Product(int id, int categoryId, String title, float price, int quantity, String description, String thumbnail, String createdAt, String updatedAt) {
         super(categoryId);
+        this.id = id;
         this.title = title;
         this.price = price;
         this.quantity = quantity;

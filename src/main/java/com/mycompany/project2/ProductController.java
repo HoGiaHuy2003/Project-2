@@ -24,6 +24,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
@@ -92,6 +93,9 @@ public class ProductController implements Initializable {
 
     @FXML
     private GridPane grid;
+    
+    @FXML
+    private ComboBox numberOfProduct;
 
     private Image image;
     
@@ -111,10 +115,13 @@ public class ProductController implements Initializable {
         seleableNumber.setText(product.getSeleableNumber().toString());
         description.setText(product.getDescription());
         
+        Product.setEditProductById(product.getId());
 //        chosenProduct.setStyle(string);
     }
 
     private List<Product> productList = ProductEntity.productList();
+    
+    List<Product> datalist;
 
     /**
      * Initializes the controller class.
@@ -262,12 +269,18 @@ public class ProductController implements Initializable {
 
     @FXML
     private void newProduct() throws IOException {
+        Product.setEditProductById(0);
         App.setRoot("editProduct");
     }
 
     @FXML
-    private void btnUpdate() {
-
+    private void btnUpdate() throws IOException {
+        for(int i = 0; i < productList.size(); i++){
+            if(productList.get(i).getId() == Product.getEditProductById()){
+                App.setRoot("editProduct");
+                return;
+            }
+        }
     }
 
     @FXML

@@ -63,6 +63,8 @@ public class EditProductController implements Initializable {
     private ImageView thumbnail;
 
     private Image image;
+    
+    private Product product = ProductEntity.findProduct(Product.getEditProductById());
 
     /**
      * Initializes the controller class.
@@ -71,6 +73,14 @@ public class EditProductController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         setUpComboBox();
+        if(Product.getEditProductById() != 0){
+            cbCategory.setValue(product.getCategoryName());
+            txtTitle.setText(product.getTitle());
+            txtPrice.setText(product.getPrice().toString());
+            txtQuantity.setText(product.getQuantity().toString());
+            txtDescription.setText(product.getDescription());
+            txtThumbnail.setText(product.getThumbnail());
+        }
     }
 
     @FXML
@@ -135,10 +145,20 @@ public class EditProductController implements Initializable {
                 for (int i = 0; i < categoryList.size(); i++) {
                     if (categoryList.get(i).getCategoryName().equals(cbCategory.getValue())) {
                         int categoryId = categoryList.get(i).getCategoryId();
-                        Product product = new Product(categoryId, title, price, quantity, description, thumbnail, createdAt, updatedAt);
+                        Product product = new Product(Product.getEditProductById(), categoryId, title, price, quantity, description, thumbnail, createdAt, updatedAt);
                         ProductEntity.insert(product);
                         App.setRoot("product");
-                        return;
+                        break;
+                    }
+                }
+            } else {
+                for (int i = 0; i < categoryList.size(); i++) {
+                    if (categoryList.get(i).getCategoryName().equals(cbCategory.getValue())) {
+                        int categoryId = categoryList.get(i).getCategoryId();
+                        Product product = new Product(Product.getEditProductById() ,categoryId, title, price, quantity, description, thumbnail, createdAt, updatedAt);
+                        ProductEntity.update(product);
+                        App.setRoot("product");
+                        break;
                     }
                 }
             }
