@@ -17,10 +17,12 @@ public class Order {
     private int customerId;
     private int staffId;
     private int orderId;
+    private String staffName;
     private String customerName;
     private String customerPhoneNumber;
     private Integer productId;
     private String productName;
+    private String categoryName;
     private Integer numberOfProduct;
     private Float priceOfProduct;
     private Float totalPrice;
@@ -59,8 +61,26 @@ public class Order {
     public void setOrderdate(String orderdate) {
         this.orderdate = orderdate;
     }
-    
-    
+
+    public Order(int orderId, String staffName, String customerName, String productName, String categoryName, String orderdate, Float priceOfProduct, Integer numberOfProduct, Float totalPrice) {
+        this.orderId = orderId;
+        this.staffName = staffName;
+        this.customerName = customerName;
+        this.productName = productName;
+        this.categoryName = categoryName;
+        this.numberOfProduct = numberOfProduct;
+        this.priceOfProduct = priceOfProduct;
+        this.totalPrice = totalPrice;
+        this.orderdate = orderdate;
+    }
+
+    public Order(int orderId, String staffName, String customerName, String orderdate, Float totalPrice) {
+        this.orderId = orderId;
+        this.staffName = staffName;
+        this.customerName = customerName;
+        this.totalPrice = totalPrice;
+        this.orderdate = orderdate;
+    }
 
     public Order() {
     }
