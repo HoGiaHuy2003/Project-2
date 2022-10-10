@@ -4,9 +4,12 @@
  */
 package com.mycompany.project2;
 
+import com.mycompany.entities.CategoryEntity;
+import com.mycompany.entities.ProductEntity;
 import com.mycompany.entities.RoleEntity;
 import com.mycompany.entities.StaffEntity;
 import com.mycompany.models.Category;
+import com.mycompany.models.Product;
 import com.mycompany.models.Role;
 import com.mycompany.models.Staff;
 import java.io.IOException;
@@ -21,9 +24,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.HBox;
 /**
  * FXML Controller class
  *
@@ -32,19 +37,17 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class CategoryController implements Initializable {
 
     @FXML
-    private TableView<Category> tableview;
+    private TableView<Product> tableview;
     @FXML
     private Button switchToEmployee;
     @FXML
-    private TableColumn<Category, Integer> columnID;
+    private TableColumn<Product, Integer> columnID;
     @FXML
-    private TableColumn<Category, String> columnTiltle;
+    private TableColumn<Product, String> columnTiltle;
     @FXML
-    private TableColumn<Category, Float> columnPrice;
+    private TableColumn<Product, Integer> columnQuantity;
     @FXML
-    private TableColumn<Category, Integer> columnQuantity;
-    @FXML
-    private TableColumn<Category, Integer> columnSeleable;
+    private TableColumn<Product, String> columnDescription;
    
     @FXML
     private Label yourRole;
@@ -63,13 +66,18 @@ public class CategoryController implements Initializable {
     
     @FXML
     private ComboBox cbCategory;
-    
+  
+    @FXML
+    private Button switchToProduct;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        setUpComboBox();
+        
         getFullname();
 
         getRoleName();
@@ -83,6 +91,9 @@ public class CategoryController implements Initializable {
         getPhone();
 
         getEmail();
+        
+        setValueForTableView();
+        
         blockManageEmployee();
     }    
     
@@ -133,6 +144,25 @@ public class CategoryController implements Initializable {
         yourEmail.setText("  Email: " + loginId.getEmail());
     }
     
+    private void setUpComboBox() {
+        ObservableList<Category> list = (ObservableList<Category>) CategoryEntity.getCategoryList();
+        for (int i = 0; i < list.size(); i++) {
+            cbCategory.getItems().addAll(list.get(i).getCategoryName());
+            cbCategory.setValue(list.get(i).getCategoryName());
+            cbCategory.getSelectionModel().select(null);
+        }
+       
+    }
+    private void setValueForTableView() {
+        ObservableList<Product> productList = (ObservableList<Product>) ProductEntity.productList();
+        columnID.setCellValueFactory(new PropertyValueFactory<>("id"));
+        columnTiltle.setCellValueFactory(new PropertyValueFactory<>("title"));
+        columnDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
+        columnQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+
+        tableview.setItems(productList);
+    }
+    
     @FXML
     private void manageCustomer(ActionEvent event) throws IOException {
         App.setRoot("managecustomer");
@@ -141,6 +171,7 @@ public class CategoryController implements Initializable {
     private void blockManageEmployee() {
         if (Staff.getLoginRoleId() != 1) {
             switchToEmployee.setDisable(true);
+            switchToProduct.setDisable(true);
         }
     }
     @FXML
@@ -159,6 +190,11 @@ public class CategoryController implements Initializable {
     @FXML
     private void switchToEmployee() throws IOException {
         App.setRoot("employee");
+    }
+    
+    @FXML
+    private void switchToOrder() throws IOException {
+        App.setRoot("order");
     }
     
      @FXML
