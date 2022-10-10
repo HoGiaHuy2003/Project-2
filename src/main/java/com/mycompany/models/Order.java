@@ -29,6 +29,7 @@ public class Order {
     private static String orderDate;
     private String orderdate;
     private static List<Order> orderList = new Vector<>();
+    private Float totalprice;
 
     public int getOrderId() {
         return orderId;
@@ -103,7 +104,7 @@ public class Order {
         this.priceOfProduct = priceOfProduct;
         this.orderdate = orderdate;
     }
-    
+
     public Order(int customerId, int staffId, String customerName, String customerPhoneNumber, Integer productId, String productName, Integer numberOfProduct, Float priceOfProduct) {
         this.customerId = customerId;
         this.staffId = staffId;
@@ -171,15 +172,43 @@ public class Order {
         this.priceOfProduct = priceOfProduct;
     }
 
-    public Float getTotalPriceOfProduct() {
-        totalPrice = numberOfProduct * priceOfProduct;
-        return totalPrice;
+    public String getStaffName() {
+        return staffName;
     }
-    
-    public static Float getTotalPrice(){
+
+    public void setStaffName(String staffName) {
+        this.staffName = staffName;
+    }
+
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
+    }
+
+    public Float getTotalPrice() {
+        return totalPrice;
+    } // Total Price of product in tableview orderRevenue, showorder
+
+    public void setTotalPrice(Float totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    public Float getTotalprice() { 
+        totalprice = numberOfProduct * priceOfProduct;
+        return totalprice;
+    } // Total price of product in order
+
+    public void setTotalprice(Float totalprice) {
+        this.totalprice = totalprice;
+    }
+
+    public static Float getTotalPriceOfProduct() {
         float totalPrice = 0;
-        for(int i = 0; i < Order.getOrderList().size(); i++){
-            totalPrice += Order.getOrderList().get(i).getTotalPriceOfProduct();
+        for (int i = 0; i < Order.getOrderList().size(); i++) {
+            totalPrice += Order.getOrderList().get(i).getTotalprice();
         }
         return totalPrice;
     }

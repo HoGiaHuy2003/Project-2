@@ -13,13 +13,13 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="810.0" prefWidth="1515.0" style="-fx-background-color: #02e5f5;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.project2.ManagecustomerController">
-    <children>
-      <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+<AnchorPane id="AnchorPane" prefHeight="810.0" prefWidth="1515.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.project2.OrderRevenueController">
+   <children>
+      <BorderPane layoutX="-23.0" layoutY="-13.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
-            <VBox prefHeight="810.0" prefWidth="240.0" style="-fx-background-color: lightblue;" stylesheets="@style.css" BorderPane.alignment="CENTER">
+            <VBox prefHeight="200.0" prefWidth="240.0" style="-fx-background-color: lightblue;" BorderPane.alignment="CENTER">
                <children>
-                  <HBox alignment="CENTER" prefHeight="187.0" prefWidth="240.0" styleClass="add-btn">
+                  <HBox alignment="CENTER" prefHeight="187.0" prefWidth="240.0" styleClass="search-box">
                      <children>
                         <Label text="img">
                            <font>
@@ -31,7 +31,7 @@
                   <Pane prefHeight="51.0" prefWidth="240.0" />
                   <HBox alignment="CENTER" prefHeight="22.0" prefWidth="240.0">
                      <children>
-                        <Button fx:id="switchToProduct" mnemonicParsing="false" onAction="#switchToProduct" prefHeight="22.0" prefWidth="190.0" styleClass="add-btn" text="Product">
+                        <Button fx:id="switchToProduct" mnemonicParsing="false" onAction="#switchToProduct" prefHeight="22.0" prefWidth="190.0" styleClass="fruit-item" text="Product">
                            <font>
                               <Font name="System Bold Italic" size="20.0" />
                            </font>
@@ -44,7 +44,7 @@
                   <Pane prefHeight="23.0" prefWidth="240.0" />
                   <HBox alignment="CENTER" prefHeight="22.0" prefWidth="240.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#switchToCategory" prefHeight="22.0" prefWidth="190.0" styleClass="add-btn" text="Category">
+                        <Button mnemonicParsing="false" onAction="#switchToCategory" prefHeight="22.0" prefWidth="190.0" styleClass="fruit-item" text="Category">
                            <font>
                               <Font name="System Bold Italic" size="20.0" />
                            </font>
@@ -57,7 +57,7 @@
                   <Pane prefHeight="23.0" prefWidth="240.0" />
                   <HBox alignment="CENTER" prefHeight="22.0" prefWidth="240.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="190.0" styleClass="add-btn" text="Customer">
+                        <Button mnemonicParsing="false" onAction="#manageCustomer" prefHeight="22.0" prefWidth="190.0" styleClass="fruit-item" text="Customer">
                            <font>
                               <Font name="System Bold Italic" size="20.0" />
                            </font>
@@ -70,7 +70,7 @@
                   <Pane prefHeight="23.0" prefWidth="240.0" />
                   <HBox alignment="CENTER" prefHeight="22.0" prefWidth="240.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="190.0" styleClass="add-btn" text="Order">
+                        <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="190.0" styleClass="fruit-item" text="Order">
                            <font>
                               <Font name="System Bold Italic" size="20.0" />
                            </font>
@@ -83,7 +83,7 @@
                   <Pane prefHeight="23.0" prefWidth="240.0" />
                   <HBox alignment="CENTER" prefHeight="22.0" prefWidth="240.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#orderDetail" prefHeight="51.0" prefWidth="190.0" styleClass="fruit-item" text="Order Detail">
+                        <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="190.0" styleClass="fruit-item" text="Order Detail">
                            <font>
                               <Font name="System Bold Italic" size="20.0" />
                            </font>
@@ -96,7 +96,7 @@
                   <Pane prefHeight="23.0" prefWidth="240.0" />
                   <HBox alignment="CENTER" prefHeight="22.0" prefWidth="240.0">
                      <children>
-                        <Button fx:id="switchToEmployee" mnemonicParsing="false" onAction="#switchToEmployee" prefHeight="22.0" prefWidth="190.0" styleClass="add-btn" text="Staff">
+                        <Button fx:id="switchToEmployee" mnemonicParsing="false" onAction="#switchToEmployee" prefHeight="22.0" prefWidth="190.0" styleClass="fruit-item" text="Staff">
                            <font>
                               <Font name="System Bold Italic" size="20.0" />
                            </font>
@@ -109,7 +109,7 @@
                   <Pane prefHeight="23.0" prefWidth="240.0" />
                   <HBox alignment="CENTER" prefHeight="22.0" prefWidth="240.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#showIncome" prefHeight="51.0" prefWidth="190.0" styleClass="add-btn" text="Income">
+                        <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="190.0" styleClass="fruit-item" text="Income">
                            <font>
                               <Font name="System Bold Italic" size="20.0" />
                            </font>
@@ -122,7 +122,7 @@
                   <Pane prefHeight="23.0" prefWidth="240.0" />
                   <HBox alignment="CENTER" prefHeight="22.0" prefWidth="240.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#logout" prefHeight="22.0" prefWidth="190.0" styleClass="add-btn" text="Logout">
+                        <Button mnemonicParsing="false" onAction="#logout" prefHeight="22.0" prefWidth="190.0" styleClass="fruit-item" text="Logout">
                            <font>
                               <Font name="System Bold Italic" size="20.0" />
                            </font>
@@ -136,7 +136,7 @@
             </VBox>
          </left>
          <right>
-            <VBox prefHeight="810.0" prefWidth="240.0" style="-fx-background-color: lightblue;" stylesheets="@style.css" BorderPane.alignment="CENTER">
+            <VBox prefHeight="200.0" prefWidth="240.0" style="-fx-background-color: lightblue;" BorderPane.alignment="CENTER">
                <children>
                   <Pane prefHeight="51.0" prefWidth="240.0" />
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -156,7 +156,7 @@
                   </HBox>
                   <HBox prefHeight="46.0" prefWidth="240.0">
                      <children>
-                        <Label fx:id="yourName" prefHeight="34.0" prefWidth="283.0" text="  Fullname: ">
+                        <Label fx:id="yourName" prefHeight="34.0" prefWidth="283.0" text="  Fullname:">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -214,113 +214,31 @@
          <center>
             <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                <children>
-                  <Pane prefHeight="126.0" prefWidth="835.0" />
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="882.0" stylesheets="@style.css">
+                  <Pane prefHeight="200.0" prefWidth="200.0" />
+                  <HBox alignment="CENTER" prefHeight="332.0" prefWidth="1035.0">
                      <children>
-                        <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="485.0">
-                           <children>
-                              <Button mnemonicParsing="false" onAction="#chooseCustomer" prefHeight="31.0" prefWidth="150.0" style="-fx-background-color: #f2f542;" styleClass="add-btn" text="Choose Customer">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <font>
-                                    <Font name="System Bold" size="15.0" />
-                                 </font>
-                              </Button>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="170.0">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                           <children>
-                              <Button fx:id="btnUpdate" mnemonicParsing="false" onAction="#btnUpdate" prefHeight="34.0" prefWidth="150.0" style="-fx-background-color: #89eb34;" styleClass="add-btn" text="Edit Customer">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <font>
-                                    <Font name="System Bold" size="15.0" />
-                                 </font>
-                              </Button>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="168.0">
-                           <children>
-                              <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#btnDelete" prefHeight="34.0" prefWidth="150.0" style="-fx-background-color: #f54842;" styleClass="add-btn" text="Delete Customer">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <font>
-                                    <Font name="System Bold" size="15.0" />
-                                 </font>
-                              </Button>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="170.0">
-                           <children>
-                              <Button mnemonicParsing="false" onAction="#newCustomer" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #427bf5;" styleClass="add-btn" text="New Customer">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <font>
-                                    <Font name="System Bold" size="15.0" />
-                                 </font>
-                              </Button>
-                           </children>
-                        </HBox>
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER" prefHeight="300.0" prefWidth="835.0">
-                     <children>
-                        <TableView fx:id="tableview" editable="true" prefHeight="300.0" prefWidth="1000.0" tableMenuButtonVisible="true">
+                        <TableView fx:id="tableView" prefHeight="200.0" prefWidth="1000.0">
                            <columns>
-                              <TableColumn fx:id="fullname" prefWidth="147.2000274658203" text="Fullname" />
-                              <TableColumn fx:id="birthday" prefWidth="144.0" text="Birthday" />
-                              <TableColumn fx:id="gender" prefWidth="110.4000244140625" text="Gender" />
-                              <TableColumn fx:id="address" prefWidth="181.60003662109375" text="Address" />
-                              <TableColumn fx:id="phoneNumber" prefWidth="115.199951171875" text="Phone Number" />
-                              <TableColumn fx:id="email" prefWidth="140.0" text="Email" />
-                              <TableColumn fx:id="dateStarted" prefWidth="140.0" text="Date Started" />
+                              <TableColumn fx:id="columnId" prefWidth="34.0" text="ID" />
+                              <TableColumn fx:id="columnStaffName" prefWidth="230.0" text="Staff" />
+                              <TableColumn fx:id="columnCustomerName" prefWidth="240.0" text="Custormer" />
+                              <TableColumn fx:id="columnOrderDate" prefWidth="309.0" text="Order Date" />
+                              <TableColumn fx:id="columnTotalPrice" prefWidth="186.0" text="Total Price" />
                            </columns>
                         </TableView>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="882.0" stylesheets="@style.css">
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="166.0">
-                           <children>
-                              <Button mnemonicParsing="false" onAction="#btnUpdateAccount" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #89eb34;" styleClass="add-btn" text="Edit Your Account">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <font>
-                                    <Font name="System Bold" size="15.0" />
-                                 </font>
-                              </Button>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="180.0">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                           <children>
-                              <Button mnemonicParsing="false" onAction="#btnDeleteAccount" prefHeight="31.0" prefWidth="173.0" style="-fx-background-color: #f54842;" styleClass="add-btn" text="Delete Your Account">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <font>
-                                    <Font name="System Bold" size="15.0" />
-                                 </font>
-                              </Button>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="196.0" />
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="462.0" />
-                     </children>
-                  </HBox>
+                        <Label fx:id="totalRevenue" prefHeight="27.0" prefWidth="262.0" text="Total Renenue:">
+                           <font>
+                              <Font name="System Bold Italic" size="18.0" />
+                           </font>
+                        </Label>
+                     </children></HBox>
                </children>
             </VBox>
          </center>
       </BorderPane>
-    </children>
+   </children>
 </AnchorPane>

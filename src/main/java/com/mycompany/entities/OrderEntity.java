@@ -104,11 +104,11 @@ public class OrderEntity extends BaseEntity {
         }
     }
 
-    public static List<Order> order() {
+    public static List<Order> orderDetail() {
         List<Order> orderList = new Vector<>();
         open();
         try {
-            String sql = "SELECT order_.id, staff.fullname 'Staff', customer.fullname 'Customer', product.title 'Product', category.name 'Category', order_detail.order_date 'Order date', order_detail.price 'Price', order_detail.quantity 'Amount', order_detail.price * order_detail.quantity 'Total Price' FROM order_, staff, customer, order_detail, product, category WHERE customer.id = order_.customer_id AND staff.id = order_.staff_id AND order_detail.product_id = product.id AND product.category_id = category.id;";
+            String sql = "SELECT order_.id, staff.fullname 'Staff', customer.fullname 'Customer', product.title 'Product', category.name 'Category', order_detail.order_date 'Order date', order_detail.price 'Price', order_detail.quantity 'Amount', order_detail.price * order_detail.quantity 'Total Price' FROM order_, staff, customer, order_detail, product, category WHERE customer.id = order_.customer_id AND staff.id = order_.staff_id AND order_detail.product_id = product.id AND product.category_id = category.id AND order_.id = order_detail.order_id;";
             statement = conn.prepareStatement(sql);
 
             ResultSet resultSet = statement.executeQuery();
@@ -153,7 +153,10 @@ public class OrderEntity extends BaseEntity {
             String sql = "SELECT SUM(order_detail.price * order_detail.quantity) 'Total Revenue' FROM order_, order_detail WHERE order_.id = order_detail.order_id";
             statement = conn.prepareStatement(sql);
             ResultSet resultSet = statement.executeQuery();
-            totalRevenue = resultSet.getFloat("Total Revenue");
+            while (resultSet.next()) {
+                totalRevenue = resultSet.getFloat("Total Revenue");
+                break;
+            }
         } catch (SQLException ex) {
             Logger.getLogger(OrderEntity.class.getName()).log(Level.SEVERE, null, ex);
         } finally {

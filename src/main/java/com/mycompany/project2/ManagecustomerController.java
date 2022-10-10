@@ -313,4 +313,9 @@ public class ManagecustomerController implements Initializable {
     private void showIncome() throws IOException {
         App.setRoot("income");
     }
+
+    @FXML
+    private void orderDetail() throws IOException {
+        App.setRoot("showorder");
+    }
 }

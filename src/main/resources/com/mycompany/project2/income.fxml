@@ -153,7 +153,7 @@
          <left>
             <VBox prefHeight="810.0" prefWidth="240.0" style="-fx-background-color: lightblue;" stylesheets="@style.css" BorderPane.alignment="CENTER">
                <children>
-                  <HBox alignment="CENTER" prefHeight="187.0" prefWidth="240.0" styleClass="search-box" stylesheets="@../../../../../../../../Project/src/main/resources/com/mycompany/project2/style.css">
+                  <HBox alignment="CENTER" prefHeight="187.0" prefWidth="240.0" styleClass="search-box">
                      <children>
                         <Label text="img">
                            <font>
