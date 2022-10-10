@@ -151,7 +151,7 @@
                                           <TextField fx:id="numberOfProduct" prefHeight="25.0" prefWidth="83.0" />
                                        </children>
                                     </HBox>
-                                    <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" styleClass="add-btn" text="ADD TO ORDER" textFill="#828282">
+                                    <Button mnemonicParsing="false" onAction="#btnAdd" prefHeight="50.0" prefWidth="270.0" styleClass="add-btn" text="ADD TO ORDER" textFill="#828282">
                                        <VBox.margin>
                                           <Insets bottom="20.0" top="30.0" />
                                        </VBox.margin>

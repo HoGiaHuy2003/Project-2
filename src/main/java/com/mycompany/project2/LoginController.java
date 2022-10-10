@@ -8,6 +8,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
@@ -27,9 +28,9 @@ public class LoginController {
     private void switchToRegister() throws IOException {
         App.setRoot("register");
     }
-    
+
     @FXML
-    private void switchToManageCustomer() throws IOException{
+    private void switchToManageCustomer() throws IOException {
         App.setRoot("managecustomer");
     }
 
@@ -55,9 +56,9 @@ public class LoginController {
             Staff.setLoginStaffId(StaffEntity.login(staff).getStaffId());
             Staff.setLoginRoleId(StaffEntity.login(staff).getRoleId());
 //            if(Staff.getLoginRoleId() == 2){
-                Staff.setEditStaffById(Staff.getLoginStaffId());
+            Staff.setEditStaffById(Staff.getLoginStaffId());
 //            }
             switchToManageCustomer();
-        }
+        } 
     }
 }

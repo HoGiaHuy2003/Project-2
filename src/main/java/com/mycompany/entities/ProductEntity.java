@@ -4,6 +4,7 @@
  */
 package com.mycompany.entities;
 
+import com.mycompany.models.Order;
 import com.mycompany.models.Product;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -38,6 +39,25 @@ public class ProductEntity extends BaseEntity {
             statement.setString(8, product.getUpdatedAt());
 
             statement.execute();
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductEntity.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            close();
+        }
+    }
+
+    public static void updateQuantityAndSeleableNumber(Order order) {
+        open();
+        try {
+            String sql = "UPDATE Product SET quantity = quantity - ?, seleable_number = seleable_number + ? WHERE id = ?";
+            statement = conn.prepareStatement(sql);
+            
+            statement.setInt(1, order.getNumberOfProduct());
+            statement.setInt(2, order.getNumberOfProduct());
+            statement.setInt(3, order.getProductId());
+            
+            statement.execute();
+
         } catch (SQLException ex) {
             Logger.getLogger(ProductEntity.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
@@ -91,7 +111,7 @@ public class ProductEntity extends BaseEntity {
     }
 
     public static List<Product> productList() {
-        List<Product>productList = new Vector<>();
+        List<Product> productList = new Vector<>();
 
         open();
 
@@ -108,9 +128,9 @@ public class ProductEntity extends BaseEntity {
         } finally {
             close();
         }
-        
+
         ObservableList<Product> dataList = FXCollections.observableList(productList);
-        
+
         return dataList;
     }
 }

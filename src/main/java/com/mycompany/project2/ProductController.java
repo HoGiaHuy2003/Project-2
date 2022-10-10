@@ -4,19 +4,26 @@
  */
 package com.mycompany.project2;
 
+import com.mycompany.entities.CustomerEntity;
 import com.mycompany.entities.ItemEntity;
 import com.mycompany.entities.ProductEntity;
 import com.mycompany.entities.RoleEntity;
 import com.mycompany.entities.StaffEntity;
 import com.mycompany.models.Customer;
+import com.mycompany.models.Order;
 import com.mycompany.models.Product;
 import com.mycompany.models.Role;
 import com.mycompany.models.Staff;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
@@ -24,6 +31,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -130,8 +138,6 @@ public class ProductController implements Initializable {
     }
 
     private List<Product> productList = ProductEntity.productList();
-
-    List<Product> datalist;
 
     /**
      * Initializes the controller class.
@@ -301,11 +307,48 @@ public class ProductController implements Initializable {
 
     @FXML
     private void btnAdd() {
-
+        try {
+            Customer customer = CustomerEntity.findCustomerId(Customer.getValueOfCustomerId());
+            String customerName = customer.getFullname();
+            String customerPhoneNumber = customer.getPhoneNumber();
+            String productName = ProductEntity.findProduct(Product.getEditProductById()).getTitle();
+            Integer productNumber = Integer.parseInt(numberOfProduct.getText());
+            Date date = Calendar.getInstance().getTime();
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            Order.setOrderDate(dateFormat.format(date));
+            if (Integer.parseInt(numberOfProduct.getText()) > ProductEntity.findProduct(Product.getEditProductById()).getQuantity()) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("Not enough product");
+                alert.setContentText("Quantity supply is smaller than your demand!");
+                alert.showAndWait();
+                return;
+            }
+            Float productPrice = ProductEntity.findProduct(Product.getEditProductById()).getPrice();
+            Order order = new Order(Customer.getValueOfCustomerId(), Staff.getLoginStaffId(), customerName, customerPhoneNumber, Product.getEditProductById(), productName, productNumber, productPrice);
+            for (int i = 0; i < Order.getOrderList().size(); i++) {
+                if (Order.getOrderList().get(i).getProductName().equals(productName)) {
+                    Order.getOrderList().get(i).setNumberOfProduct(productNumber + 1);
+                    return;
+                }
+            }
+            Order.getOrderList().add(order);
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Successfully!!!");
+            alert.setHeaderText("Buy successfully");
+            alert.setContentText("Click to order to show your order and complete buying!");
+            alert.showAndWait();
+        } catch (NumberFormatException ex) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Number of product");
+            alert.setContentText("Number of product must be an integer number!!!");
+            alert.showAndWait();
+        }
     }
 
     @FXML
-    private void switchToOrder() {
-
+    private void switchToOrder() throws IOException {
+        App.setRoot("order");
     }
 }

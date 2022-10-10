@@ -47,9 +47,9 @@ public class OrderEntity extends BaseEntity {
         try {
             String sql = "SELECT * FROM Order_";
             statement = conn.prepareStatement(sql);
-            
+
             ResultSet resultSet = statement.executeQuery();
-            while(resultSet.next()){
+            while (resultSet.next()) {
                 Order order = new Order(resultSet.getInt("customer_id"), resultSet.getInt("staff_id"));
                 orderList.add(order);
             }
@@ -58,6 +58,49 @@ public class OrderEntity extends BaseEntity {
         } finally {
             close();
         }
-         return orderList;
+        return orderList;
+    }
+
+    public static Order findOrderId() {
+        Order order = null;
+        open();
+        try {
+            String sql = "SELECT * FROM Order_ WHERE customer_id = ? AND staff_id = ?";
+            statement = conn.prepareStatement(sql);
+            statement.setInt(1, Customer.getValueOfCustomerId());
+            statement.setInt(2, Staff.getLoginStaffId());
+
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                order = new Order();
+                order.setOrderId(resultSet.getInt("id"));
+                break;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(OrderEntity.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            close();
+        }
+
+        return order;
+    }
+
+    public static void insertOrder(Order order) {
+        open();
+        try {
+            String sql = "INSERT INTO order_detail(order_id, product_id, price, quantity, order_date) VALUES (?, ?, ?, ?, ?)";
+            statement = conn.prepareStatement(sql); 
+            statement.setInt(1, order.getOrderId());
+            statement.setInt(2, order.getProductId());
+            statement.setFloat(3, order.getPriceOfProduct());
+            statement.setInt(4, order.getNumberOfProduct());
+            statement.setString(5, order.getOrderdate());
+            
+            statement.execute();
+        } catch (SQLException ex) {
+            Logger.getLogger(OrderEntity.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            close();
+        }
     }
 }
