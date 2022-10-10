@@ -25,6 +25,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -54,7 +55,7 @@ public class EditProductController implements Initializable {
     private TextField txtQuantity;
 
     @FXML
-    private TextField txtDescription;
+    private TextArea txtDescription;
 
     @FXML
     private TextField txtThumbnail;

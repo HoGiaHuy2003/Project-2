@@ -161,7 +161,7 @@ public class OrderController implements Initializable {
 
     private void getCustomerPhoneNumber() {
         Customer customer = CustomerEntity.findCustomerId(Customer.getValueOfCustomerId());
-        customerPhoneNumber.setText("Phone Number: " + customer.getPhoneNumber());
+        customerPhoneNumber.setText("Phone Number: 0" + customer.getPhoneNumber());
     }
 
     private void setValueForTableView() {
@@ -184,6 +184,9 @@ public class OrderController implements Initializable {
         if (Staff.getLoginRoleId() != 1) {
             switchToEmployee.setDisable(true);
             switchToProduct.setDisable(true);
+        if (Customer.getValueOfCustomerId() != null && Staff.getLoginStaffId() != null) {
+            switchToProduct.setDisable(false);
+        }
         }
     }
 

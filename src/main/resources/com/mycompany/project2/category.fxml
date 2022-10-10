@@ -32,7 +32,7 @@
                   <Pane prefHeight="51.0" prefWidth="240.0" />
                   <HBox alignment="CENTER" prefHeight="22.0" prefWidth="240.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#switchToProduct" prefHeight="22.0" prefWidth="190.0" styleClass="fruit-item" stylesheets="@style.css" text="Product">
+                        <Button fx:id="switchToProduct" mnemonicParsing="false" onAction="#switchToProduct" prefHeight="22.0" prefWidth="190.0" styleClass="fruit-item" stylesheets="@style.css" text="Product">
                            <font>
                               <Font name="System Bold Italic" size="20.0" />
                            </font>
@@ -224,10 +224,9 @@
                         <TableView fx:id="tableview" prefHeight="200.0" prefWidth="1000.0">
                           <columns>
                             <TableColumn fx:id="columnID" editable="false" prefWidth="63.199981689453125" text="ID" />
-                              <TableColumn fx:id="columnTiltle" editable="false" prefWidth="194.4000244140625" text="Title" />
-                              <TableColumn fx:id="columnThumbnail" editable="false" prefWidth="252.79998779296875" text="Thumbnail" />
-                              <TableColumn fx:id="columnDescription" editable="false" minWidth="0.0" prefWidth="220.00006103515625" text="Description" />
-                              <TableColumn fx:id="columnQuantity" editable="false" prefWidth="262.4000244140625" text="Quantity" />
+                              <TableColumn fx:id="columnTiltle" editable="false" prefWidth="367.99996185302734" text="Title" />
+                              <TableColumn fx:id="columnDescription" editable="false" minWidth="0.0" prefWidth="396.8000793457031" text="Description" />
+                              <TableColumn fx:id="columnQuantity" editable="false" prefWidth="172.0001220703125" text="Quantity" />
                           </columns>
                         </TableView>
                      </children>

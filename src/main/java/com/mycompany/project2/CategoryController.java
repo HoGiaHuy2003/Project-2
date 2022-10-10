@@ -9,6 +9,7 @@ import com.mycompany.entities.ProductEntity;
 import com.mycompany.entities.RoleEntity;
 import com.mycompany.entities.StaffEntity;
 import com.mycompany.models.Category;
+import com.mycompany.models.Customer;
 import com.mycompany.models.Product;
 import com.mycompany.models.Role;
 import com.mycompany.models.Staff;
@@ -171,7 +172,10 @@ public class CategoryController implements Initializable {
     private void blockManageEmployee() {
         if (Staff.getLoginRoleId() != 1) {
             switchToEmployee.setDisable(true);
-            switchToProduct.setDisable(true);
+        }
+        switchToProduct.setDisable(true);
+        if (Customer.getValueOfCustomerId() != null && Staff.getLoginStaffId() != null) {
+            switchToProduct.setDisable(false);
         }
     }
     @FXML

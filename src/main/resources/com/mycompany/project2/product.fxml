@@ -29,7 +29,7 @@
                <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="810.0" prefWidth="835.0">
                      <children>
-                        <VBox prefHeight="810.0" prefWidth="298.0" styleClass="right-bar">
+                        <VBox prefHeight="810.0" prefWidth="350.0" styleClass="right-bar">
                            <children>
                               <HBox alignment="CENTER" prefHeight="110.0" prefWidth="200.0">
                                  <children>
@@ -69,12 +69,12 @@
                                        <children>
                                           <Label fx:id="title" prefHeight="44.0" prefWidth="223.0" text="Title" textFill="WHITE">
                                              <font>
-                                                <Font name="Cambria" size="36.0" />
+                                                <Font name="Cambria" size="24.0" />
                                              </font>
                                           </Label>
                                           <Label fx:id="price" prefHeight="57.0" prefWidth="171.0" text="Price" textFill="WHITE">
                                              <font>
-                                                <Font name="Cambria" size="36.0" />
+                                                <Font name="Cambria" size="24.0" />
                                              </font>
                                           </Label>
                                        </children>
@@ -158,6 +158,9 @@
                                        <font>
                                           <Font name="System Bold" size="18.0" />
                                        </font>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
                                     </Button>
                                  </children>
                                  <styleClass>
@@ -196,7 +199,7 @@
                                     </HBox>
                                     <HBox alignment="CENTER" prefHeight="711.0" prefWidth="749.0" VBox.vgrow="ALWAYS">
                                        <children>
-                                          <ScrollPane fx:id="scroll" prefHeight="729.0" prefWidth="662.0" styleClass="transparent" stylesheets="@style.css">
+                                          <ScrollPane fx:id="scroll" prefHeight="711.0" prefWidth="691.0" styleClass="transparent" stylesheets="@style.css">
                                              <content>
                                                 <GridPane fx:id="grid">
                                                    <rowConstraints>
