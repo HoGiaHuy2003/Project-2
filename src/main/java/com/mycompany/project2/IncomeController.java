@@ -210,12 +210,12 @@ public class IncomeController implements Initializable {
     }
 
     private void blockManageEmployee() {
-        if (Staff.getLoginRoleId() != 1) {
+         if (Staff.getLoginRoleId() != 1) {
             switchToEmployee.setDisable(true);
-            switchToProduct.setDisable(true);
-            if (Customer.getValueOfCustomerId() != null && Staff.getLoginStaffId() != null) {
-                switchToProduct.setDisable(false);
-            }
+        }
+        switchToProduct.setDisable(true);
+        if (Customer.getValueOfCustomerId() != null && Staff.getLoginStaffId() != null) {
+            switchToProduct.setDisable(false);
         }
     }
 
