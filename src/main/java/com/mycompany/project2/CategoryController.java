@@ -94,7 +94,7 @@ public class CategoryController implements Initializable {
 
         getEmail();
 
-//        setValueForTableView();
+        setValueForTableView();
         blockManageEmployee();
 
     }
@@ -148,11 +148,18 @@ public class CategoryController implements Initializable {
     @FXML
     private void getselect(ActionEvent event) throws IOException {
         String select = cbCategory.getSelectionModel().getSelectedItem().toString();
-          if ("food".equals(select)) {
-            setValueForTableView();
+//          if ("food".equals(select)) {
+//            setValueForTableView();
+//        }
+        List<Category> categoryList = CategoryEntity.getCategoryList();
+        for (int i = 0; i < categoryList.size(); i++) {
+            if (categoryList.get(i).getCategoryName().equals(select)) {
+                setValueForTableViewShowProductByCategory();
+                break;
+            }
         }
-          
-    }        
+    }
+
     private void setUpComboBox() {
         ObservableList<Category> list = (ObservableList<Category>) CategoryEntity.getCategoryList();
         for (int i = 0; i < list.size(); i++) {
@@ -163,8 +170,19 @@ public class CategoryController implements Initializable {
 
     }
 
+    private void setValueForTableViewShowProductByCategory() {
+        ObservableList<Product> productList = (ObservableList<Product>) ProductEntity.findProductByCategory(cbCategory.getSelectionModel().getSelectedItem().toString());
+        columnID.setCellValueFactory(new PropertyValueFactory<>("id"));
+        columnTiltle.setCellValueFactory(new PropertyValueFactory<>("title"));
+        columnDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
+        columnQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+
+        tableview.setItems(productList);
+    }
+
     private void setValueForTableView() {
         ObservableList<Product> productList = (ObservableList<Product>) ProductEntity.productList();
+        
         columnID.setCellValueFactory(new PropertyValueFactory<>("id"));
         columnTiltle.setCellValueFactory(new PropertyValueFactory<>("title"));
         columnDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
@@ -215,7 +233,7 @@ public class CategoryController implements Initializable {
     private void showIncome() throws IOException {
         App.setRoot("income");
     }
-    
+
     @FXML
     private void orderDetail() throws IOException {
         App.setRoot("showorder");
