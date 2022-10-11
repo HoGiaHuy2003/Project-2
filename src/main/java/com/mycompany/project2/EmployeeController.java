@@ -334,6 +334,11 @@ public class EmployeeController implements Initializable {
     private void manageCustomer() throws IOException {
         App.setRoot("managecustomer");
     }
+    
+    @FXML
+    private void orderDetail() throws IOException {
+        App.setRoot("showorder");
+    }
 
 //    private void setValueForTreeTableView() {
 //        role.setCellValueFactory(new TreeItemPropertyValueFactory<Staff, String>("rolename"));

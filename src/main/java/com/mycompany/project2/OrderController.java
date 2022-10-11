@@ -136,6 +136,7 @@ public class OrderController implements Initializable {
         Staff.setLoginStaffId(null);
         App.setRoot("login");
     }
+    
 
     @FXML
     private void confirmOrder() throws IOException {
@@ -235,6 +236,10 @@ public class OrderController implements Initializable {
         List<Role> roleList = RoleEntity.getRoleList();
         Staff loginId = StaffEntity.findStaffId(Staff.getLoginStaffId());
         yourEmail.setText("  Email: " + loginId.getEmail());
+    }
+    @FXML
+    private void orderDetail() throws IOException {
+        App.setRoot("showorder");
     }
 
 }

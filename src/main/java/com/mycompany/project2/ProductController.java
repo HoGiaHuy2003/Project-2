@@ -351,4 +351,9 @@ public class ProductController implements Initializable {
     private void switchToOrder() throws IOException {
         App.setRoot("order");
     }
+    
+    @FXML
+    private void orderDetail() throws IOException {
+        App.setRoot("showorder");
+    }
 }

@@ -109,7 +109,7 @@
                   <Pane prefHeight="23.0" prefWidth="240.0" />
                   <HBox alignment="CENTER" prefHeight="22.0" prefWidth="240.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="190.0" styleClass="fruit-item" text="Income">
+                        <Button mnemonicParsing="false" onAction="#showIncome" prefHeight="51.0" prefWidth="190.0" styleClass="fruit-item" text="Income">
                            <font>
                               <Font name="System Bold Italic" size="20.0" />
                            </font>

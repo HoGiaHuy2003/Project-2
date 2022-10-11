@@ -256,5 +256,10 @@ public class IncomeController implements Initializable {
     private void manageCustomer() throws IOException {
         App.setRoot("managecustomer");
     }
+    
+    @FXML
+    private void orderDetail() throws IOException {
+        App.setRoot("showorder");
+    }
 
 }

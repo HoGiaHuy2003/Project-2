@@ -151,5 +151,10 @@ public class CustomerController implements Initializable {
         
         App.setRoot("login");
     }
+    
+    @FXML
+    private void orderDetail() throws IOException {
+        App.setRoot("showorder");
+    }
 
 }
