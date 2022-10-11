@@ -30,6 +30,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
+
 /**
  * FXML Controller class
  *
@@ -49,7 +50,7 @@ public class CategoryController implements Initializable {
     private TableColumn<Product, Integer> columnQuantity;
     @FXML
     private TableColumn<Product, String> columnDescription;
-   
+
     @FXML
     private Label yourRole;
     @FXML
@@ -64,10 +65,10 @@ public class CategoryController implements Initializable {
     private Label yourPhone;
     @FXML
     private Label yourEmail;
-    
+
     @FXML
     private ComboBox cbCategory;
-  
+
     @FXML
     private Button switchToProduct;
 
@@ -78,7 +79,7 @@ public class CategoryController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         setUpComboBox();
-        
+
         getFullname();
 
         getRoleName();
@@ -92,13 +93,12 @@ public class CategoryController implements Initializable {
         getPhone();
 
         getEmail();
-        
-        setValueForTableView();
-        
+
+//        setValueForTableView();
         blockManageEmployee();
-    }    
-    
-    
+
+    }
+
     private void getFullname() {
         List<Role> roleList = RoleEntity.getRoleList();
         Staff loginId = StaffEntity.findStaffId(Staff.getLoginStaffId());
@@ -144,7 +144,15 @@ public class CategoryController implements Initializable {
         Staff loginId = StaffEntity.findStaffId(Staff.getLoginStaffId());
         yourEmail.setText("  Email: " + loginId.getEmail());
     }
-    
+
+    @FXML
+    private void getselect(ActionEvent event) throws IOException {
+        String select = cbCategory.getSelectionModel().getSelectedItem().toString();
+          if ("food".equals(select)) {
+            setValueForTableView();
+        }
+          
+    }        
     private void setUpComboBox() {
         ObservableList<Category> list = (ObservableList<Category>) CategoryEntity.getCategoryList();
         for (int i = 0; i < list.size(); i++) {
@@ -152,8 +160,9 @@ public class CategoryController implements Initializable {
             cbCategory.setValue(list.get(i).getCategoryName());
             cbCategory.getSelectionModel().select(null);
         }
-       
+
     }
+
     private void setValueForTableView() {
         ObservableList<Product> productList = (ObservableList<Product>) ProductEntity.productList();
         columnID.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -163,12 +172,12 @@ public class CategoryController implements Initializable {
 
         tableview.setItems(productList);
     }
-    
+
     @FXML
     private void manageCustomer(ActionEvent event) throws IOException {
         App.setRoot("managecustomer");
     }
-    
+
     private void blockManageEmployee() {
         if (Staff.getLoginRoleId() != 1) {
             switchToEmployee.setDisable(true);
@@ -178,14 +187,15 @@ public class CategoryController implements Initializable {
             switchToProduct.setDisable(false);
         }
     }
+
     @FXML
     private void logout(ActionEvent event) throws IOException {
         Staff.setLoginStaffId(null);
         Staff.setEditStaffById(0);
-        
+
         App.setRoot("login");
     }
-    
+
     @FXML
     private void switchToProduct() throws IOException {
         App.setRoot("product");
@@ -195,15 +205,20 @@ public class CategoryController implements Initializable {
     private void switchToEmployee() throws IOException {
         App.setRoot("employee");
     }
-    
+
     @FXML
     private void switchToOrder() throws IOException {
         App.setRoot("order");
     }
-    
-     @FXML
+
+    @FXML
     private void showIncome() throws IOException {
         App.setRoot("income");
+    }
+    
+    @FXML
+    private void orderDetail() throws IOException {
+        App.setRoot("showorder");
     }
 
 }

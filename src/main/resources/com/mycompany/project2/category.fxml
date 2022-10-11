@@ -84,6 +84,19 @@
                   <Pane prefHeight="23.0" prefWidth="240.0" />
                   <HBox alignment="CENTER" prefHeight="22.0" prefWidth="240.0">
                      <children>
+                        <Button mnemonicParsing="false" onAction="#orderDetail" prefHeight="51.0" prefWidth="190.0" styleClass="fruit-item" text="Order Detail">
+                           <font>
+                              <Font name="System Bold Italic" size="20.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <Pane prefHeight="23.0" prefWidth="240.0" />
+                  <HBox alignment="CENTER" prefHeight="22.0" prefWidth="240.0">
+                     <children>
                         <Button fx:id="switchToEmployee" mnemonicParsing="false" onAction="#switchToEmployee" prefHeight="22.0" prefWidth="190.0" styleClass="fruit-item" stylesheets="@style.css" text="Staff">
                            <font>
                               <Font name="System Bold Italic" size="20.0" />
@@ -215,6 +228,10 @@
                               <ComboBox fx:id="cbCategory" layoutX="160.0" layoutY="33.0" prefHeight="25.0" prefWidth="364.0" style="-fx-background-color: #fcf003;" styleClass="comboBox" stylesheets="@style.css">
              
             </ComboBox>
+                              <Button layoutX="625.0" layoutY="33.0" mnemonicParsing="false" onAction="#getselect" prefHeight="31.0" prefWidth="109.0" style="-fx-background-color: #89eb34;" styleClass="fruit-item" text="Show">
+                                 <font>
+                                    <Font name="System Bold Italic" size="15.0" />
+                                 </font></Button>
                            </children>
                         </Pane>
                      </children>
@@ -224,9 +241,9 @@
                         <TableView fx:id="tableview" prefHeight="200.0" prefWidth="1000.0">
                           <columns>
                             <TableColumn fx:id="columnID" editable="false" prefWidth="63.199981689453125" text="ID" />
-                              <TableColumn fx:id="columnTiltle" editable="false" prefWidth="367.99996185302734" text="Title" />
-                              <TableColumn fx:id="columnDescription" editable="false" minWidth="0.0" prefWidth="396.8000793457031" text="Description" />
-                              <TableColumn fx:id="columnQuantity" editable="false" prefWidth="172.0001220703125" text="Quantity" />
+                              <TableColumn fx:id="columnTiltle" editable="false" prefWidth="256.7999801635742" text="Title" />
+                              <TableColumn fx:id="columnDescription" editable="false" minWidth="0.0" prefWidth="508.8000183105469" text="Description" />
+                              <TableColumn fx:id="columnQuantity" editable="false" prefWidth="164.7999267578125" text="Quantity" />
                           </columns>
                         </TableView>
                      </children>
