@@ -7,6 +7,7 @@ package com.mycompany.project2;
 import com.mycompany.entities.ItemEntity;
 import com.mycompany.models.Product;
 import java.io.File;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -23,7 +24,7 @@ import javafx.scene.input.MouseEvent;
  * @author Admin
  */
 public class ItemController implements Initializable {
-    
+
     @FXML
     private Label title;
 
@@ -32,16 +33,16 @@ public class ItemController implements Initializable {
 
     @FXML
     private ImageView imageView;
-    
+
     @FXML
-    private void click(MouseEvent event){
+    private void click(MouseEvent event) {
         itemEntity.onClick(product);
     }
-    
+
     private ItemEntity itemEntity;
 
     private Product product;
-    
+
     private Image image;
 
     void setData(Product product, ItemEntity itemEntity) {
@@ -49,13 +50,14 @@ public class ItemController implements Initializable {
         this.itemEntity = itemEntity;
         title.setText(product.getTitle());
         price.setText("$" + product.getPrice());
-        File file = new File(product.getThumbnail());
-        if (file.isFile()) {
-            image = new Image(file.toURI().toString());
-        } else {
-            image = new Image(product.getThumbnail(), true);
-        }
-        imageView.setImage(image);
+//        try {
+            File file = new File(product.getThumbnail());
+            if (file.isFile()) {
+                image = new Image(file.toURI().toString());
+            } else {
+//                image = new Image(product.getThumbnail(), true);
+            }
+            imageView.setImage(image); 
     }
 
     /**

@@ -212,8 +212,8 @@
                      <children>
                         <TableView fx:id="tableView" prefHeight="200.0" prefWidth="1000.0">
                            <columns>
-                              <TableColumn fx:id="columnId" prefWidth="34.0" text="ID" />
-                              <TableColumn fx:id="columnStaffName" prefWidth="230.0" text="Staff" />
+                              <TableColumn fx:id="columnId" prefWidth="60.7999302148819" text="Order ID" />
+                              <TableColumn fx:id="columnStaffName" prefWidth="204.0000514984131" text="Staff" />
                               <TableColumn fx:id="columnCustomerName" prefWidth="240.0" text="Custormer" />
                               <TableColumn fx:id="columnOrderDate" prefWidth="309.0" text="Order Date" />
                               <TableColumn fx:id="columnTotalPrice" prefWidth="186.0" text="Total Price" />

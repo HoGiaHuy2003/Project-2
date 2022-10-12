@@ -1,8 +1,8 @@
 create table Category(
 	id int primary key,
 	name varchar(15),
-	created_at datetime,
-	updated_at datetime
+--	created_at datetime,
+--	updated_at datetime
 ); 
 
 create table Role(
@@ -15,7 +15,7 @@ create table Role(
 create table Staff(
 	id int primary key,
 	role_id int references Role(id),
-	fullname varchar(15),
+	fullname varchar(50),
 	birthday date,
 	gender varchar(16),
 	address varchar(50),
@@ -65,30 +65,30 @@ create table Product(
 	updated_at datetime
 );
 
-create table sale_off(
-	product_id int references product(id),
-	quantity int,
-	price float,
-	date_start datetime,
-	date_end datetime
-);
+--create table sale_off(
+--	product_id int references product(id),
+--	quantity int,
+--	price float,
+--	date_start datetime,
+--	date_end datetime
+--);
 
-create table Comment( 
-	id int primary key,
-	customer_id int references Customer(id),
-	product_id int references Product(id),
-	rate int,
-	evaluate varchar(100),
-	created_at datetime,
-	updated_at datetime
-);
+--create table Comment( 
+--	id int primary key,
+--	customer_id int references Customer(id),
+--	product_id int references Product(id),
+--	rate int,
+--	evaluate varchar(100),
+--	created_at datetime,
+--	updated_at datetime
+--);
 
 create table Order_(
 	id int primary key,
 	customer_id int references Customer(id),
 	staff_id int references Staff(id),
-	created_at datetime,
-	updated_at datetime
+--	created_at datetime,
+--	updated_at datetime
 );
 
 create table Order_detail(
@@ -98,10 +98,6 @@ create table Order_detail(
 	price float,
 	quantity int,
 	order_date datetime,
-	created_at datetime,
-	updated_at datetime
+--	created_at datetime,
+--	updated_at datetime
 );
-
-alter table sale_off add date_end datetime
-
-

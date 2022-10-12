@@ -65,9 +65,11 @@
                      <children>
                         <TableView fx:id="tableView" prefHeight="320.0" prefWidth="522.0">
                           <columns>
+
                             <TableColumn fx:id="productName" prefWidth="232.79992371797562" text="Product Name" />
                               <TableColumn fx:id="numberOfProduct" prefWidth="145.59999084472656" text="Number" />
                               <TableColumn fx:id="priceOfProduct" prefWidth="141.60003662109375" text="Price" />
+
                           </columns>
                         </TableView>
                      </children>
