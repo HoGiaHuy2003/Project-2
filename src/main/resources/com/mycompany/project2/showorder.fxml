@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -19,13 +22,16 @@
          <left>
             <VBox prefHeight="200.0" prefWidth="240.0" style="-fx-background-color: lightblue;" BorderPane.alignment="CENTER">
                <children>
-                  <HBox alignment="CENTER" prefHeight="187.0" prefWidth="240.0" styleClass="search-box">
+                  <HBox alignment="CENTER" prefHeight="223.0" prefWidth="240.0" styleClass="img">
                      <children>
-                        <Label text="img">
-                           <font>
-                              <Font name="System Bold Italic" size="36.0" />
-                           </font>
-                        </Label>
+                        <ImageView fitHeight="167.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+                           <image>
+                              <Image url="@../img/logo.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </ImageView>
                      </children>
                   </HBox>
                   <Pane prefHeight="51.0" prefWidth="240.0" />
@@ -70,20 +76,7 @@
                   <Pane prefHeight="23.0" prefWidth="240.0" />
                   <HBox alignment="CENTER" prefHeight="22.0" prefWidth="240.0">
                      <children>
-                        <Button fx:id="switchToOrder" mnemonicParsing="false" onAction="#switchToOrder" prefHeight="51.0" prefWidth="190.0" styleClass="fruit-item" text="Order">
-                           <font>
-                              <Font name="System Bold Italic" size="20.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
-                     </children>
-                  </HBox>
-                  <Pane prefHeight="23.0" prefWidth="240.0" />
-                  <HBox alignment="CENTER" prefHeight="22.0" prefWidth="240.0">
-                     <children>
-                        <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="190.0" styleClass="fruit-item" text="Order Detail">
+                        <Button fx:id="switchToOrder" mnemonicParsing="false" prefHeight="51.0" prefWidth="190.0" styleClass="fruit-item" text="Order">
                            <font>
                               <Font name="System Bold Italic" size="20.0" />
                            </font>
@@ -232,11 +225,11 @@
                      <children>
                         <TableView fx:id="tableView" prefHeight="309.0" prefWidth="986.0">
                           <columns>
-                            <TableColumn fx:id="columnId" prefWidth="34.0" text="ID" />
-                            <TableColumn fx:id="columnStaffName" prefWidth="116.0" text="Staff" />
-                              <TableColumn fx:id="columnCustomerName" prefWidth="116.0" text="Custormer" />
-                              <TableColumn fx:id="columnProductName" prefWidth="135.0" text="Product" />
-                              <TableColumn fx:id="columnCategoryName" prefWidth="149.0" text="Category" />
+                            <TableColumn fx:id="columnId" prefWidth="54.39996415376663" text="Order ID" />
+                            <TableColumn fx:id="columnStaffName" prefWidth="100.80004501342773" text="Staff" />
+                              <TableColumn fx:id="columnCustomerName" prefWidth="128.79994201660156" text="Custormer" />
+                              <TableColumn fx:id="columnProductName" prefWidth="136.7999267578125" text="Product" />
+                              <TableColumn fx:id="columnCategoryName" prefWidth="131.20001220703125" text="Category" />
                               <TableColumn fx:id="columnOrderDate" prefWidth="132.0" text="Order Date" />
                               <TableColumn fx:id="columnPrice" prefWidth="115.0" text="Price" />
                               <TableColumn fx:id="columnAmount" minWidth="0.0" prefWidth="83.0" text="Amount" />

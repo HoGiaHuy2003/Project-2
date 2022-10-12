@@ -323,9 +323,4 @@ public class ManagecustomerController implements Initializable {
     private void orderDetail() throws IOException {
         App.setRoot("showorder");
     }
-
-    @FXML
-    private void switchToOrder() throws IOException {
-        App.setRoot("order");
-    }
 }

@@ -110,7 +110,7 @@ public class IncomeController implements Initializable {
         getEmail();
 
         setValueForTableView();
-//
+
         blockManageEmployee();
 
         disableChangingInformation();
@@ -191,21 +191,9 @@ public class IncomeController implements Initializable {
     @FXML
     private void btnUpdate(ActionEvent event) throws IOException {
         ObservableList<Income> incomeList = IncomeEntity.incomeListShowAll();
-
-//        ObservableList<Income> incomeListInDataBase = IncomeEntity.incomeListInDataBase();
-//
-//        for (int i = 0; i < incomeListInDataBase.size(); i++) {
-//            if (tableview.getSelectionModel().getSelectedItem().getStaffId() == incomeListInDataBase.get(i).getStaffId()) {
-//                Staff.setEditStaffById(incomeList.get(i).getStaffId());
-////                System.out.println(Staff.getEditStaffById());
-//                App.setRoot("editIncome");
-//                break;
-//            }
-//        }
         for (int i = 0; i < incomeList.size(); i++) {
             if (tableview.getSelectionModel().getSelectedItem().getStaffId() == incomeList.get(i).getStaffId()) {
                 Staff.setEditStaffById(incomeList.get(i).getStaffId());
-//                System.out.println(Staff.getEditStaffById());
                 App.setRoot("editIncome");
                 break;
             }
@@ -231,9 +219,6 @@ public class IncomeController implements Initializable {
         }
     }
 
-//    @FXML
-//    private void btnDelete(ActionEvent event) {
-//    }
     @FXML
     private void logout(ActionEvent event) throws IOException {
         Staff.setLoginStaffId(null);
@@ -267,8 +252,4 @@ public class IncomeController implements Initializable {
         App.setRoot("showorder");
     }
     
-    @FXML
-    private void switchToOrder() throws IOException {
-        App.setRoot("order");
-    }
 }
