@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  * @author Admin
  */
 public class BaseEntity {
-
+    
     private static final String DATABASE = "project2";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "";

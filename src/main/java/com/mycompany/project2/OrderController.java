@@ -136,7 +136,6 @@ public class OrderController implements Initializable {
         Staff.setLoginStaffId(null);
         App.setRoot("login");
     }
-    
 
     @FXML
     private void confirmOrder() throws IOException {
@@ -185,9 +184,9 @@ public class OrderController implements Initializable {
         if (Staff.getLoginRoleId() != 1) {
             switchToEmployee.setDisable(true);
             switchToProduct.setDisable(true);
-        if (Customer.getValueOfCustomerId() != null && Staff.getLoginStaffId() != null) {
-            switchToProduct.setDisable(false);
-        }
+            if (Customer.getValueOfCustomerId() != null && Staff.getLoginStaffId() != null) {
+                switchToProduct.setDisable(false);
+            }
         }
     }
 
@@ -237,6 +236,7 @@ public class OrderController implements Initializable {
         Staff loginId = StaffEntity.findStaffId(Staff.getLoginStaffId());
         yourEmail.setText("  Email: " + loginId.getEmail());
     }
+
     @FXML
     private void orderDetail() throws IOException {
         App.setRoot("showorder");

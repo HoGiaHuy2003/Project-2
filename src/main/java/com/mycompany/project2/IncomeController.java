@@ -86,6 +86,9 @@ public class IncomeController implements Initializable {
     @FXML
     private Button switchToProduct;
 
+    @FXML
+    private Button switchToOrder;
+
     /**
      * Initializes the controller class.
      */
@@ -210,12 +213,14 @@ public class IncomeController implements Initializable {
     }
 
     private void blockManageEmployee() {
-         if (Staff.getLoginRoleId() != 1) {
+        if (Staff.getLoginRoleId() != 1) {
             switchToEmployee.setDisable(true);
         }
         switchToProduct.setDisable(true);
+        switchToOrder.setDisable(true);
         if (Customer.getValueOfCustomerId() != null && Staff.getLoginStaffId() != null) {
             switchToProduct.setDisable(false);
+            switchToOrder.setDisable(false);
         }
     }
 
@@ -256,10 +261,14 @@ public class IncomeController implements Initializable {
     private void manageCustomer() throws IOException {
         App.setRoot("managecustomer");
     }
-    
+
     @FXML
     private void orderDetail() throws IOException {
         App.setRoot("showorder");
     }
-
+    
+    @FXML
+    private void switchToOrder() throws IOException {
+        App.setRoot("order");
+    }
 }

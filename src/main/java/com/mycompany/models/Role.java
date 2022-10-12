@@ -58,4 +58,8 @@ public class Role {
     public void setPassword(String password) {
         this.password = password;
     }
+//    
+//    public abstract String getFullname();
+//    public abstract void setFullname(String fullname);
+//    public abstract 
 }

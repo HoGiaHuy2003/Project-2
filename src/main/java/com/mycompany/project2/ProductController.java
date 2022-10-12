@@ -115,6 +115,9 @@ public class ProductController implements Initializable {
     @FXML
     private Button btnInsert;
 
+    @FXML
+    private Button switchToOrder;
+
     private Image image;
 
     private ItemEntity itemEntity;
@@ -260,12 +263,12 @@ public class ProductController implements Initializable {
     private void blockManageEmployee() {
         if (Staff.getLoginRoleId() != 1) {
             switchToEmployee.setDisable(true);
-            btnUpdate.setDisable(true);
-            btnInsert.setDisable(true);
         }
         switchToProduct.setDisable(true);
+        switchToOrder.setDisable(true);
         if (Customer.getValueOfCustomerId() != null && Staff.getLoginStaffId() != null) {
             switchToProduct.setDisable(false);
+            switchToOrder.setDisable(false);
         }
     }
 
@@ -351,7 +354,7 @@ public class ProductController implements Initializable {
     private void switchToOrder() throws IOException {
         App.setRoot("order");
     }
-    
+
     @FXML
     private void orderDetail() throws IOException {
         App.setRoot("showorder");

@@ -107,6 +107,8 @@ public class EmployeeController implements Initializable {
     @FXML
     private Button switchToProduct;
 
+    @FXML
+    private Button switchToOrder;
 //    @FXML
 //    private TreeTableView<Staff> treeTableView;
 //
@@ -234,17 +236,19 @@ public class EmployeeController implements Initializable {
             switchToEmployee.setDisable(true);
         }
         switchToProduct.setDisable(true);
+        switchToOrder.setDisable(true);
         if (Customer.getValueOfCustomerId() != null && Staff.getLoginStaffId() != null) {
             switchToProduct.setDisable(false);
+            switchToOrder.setDisable(false);
         }
     }
-
 //    @FXML
 //    private void setNullForSelectionModel(){
 //        if(tableview.getSelectionModel().getSelectedItem() != null){
 //            tableview.setSelectionModel(null);
 //        }
 //    }
+
     @FXML
     private void btnUpdate(ActionEvent event) throws IOException {
         ObservableList<Staff> employerList = StaffEntity.employerList();
@@ -334,10 +338,15 @@ public class EmployeeController implements Initializable {
     private void manageCustomer() throws IOException {
         App.setRoot("managecustomer");
     }
-    
+
     @FXML
     private void orderDetail() throws IOException {
         App.setRoot("showorder");
+    }
+
+    @FXML
+    private void switchToOrder() throws IOException {
+        App.setRoot("order");
     }
 
 //    private void setValueForTreeTableView() {

@@ -43,6 +43,8 @@ public class CategoryController implements Initializable {
     @FXML
     private Button switchToEmployee;
     @FXML
+    private Button switchToOrder;
+    @FXML
     private TableColumn<Product, Integer> columnID;
     @FXML
     private TableColumn<Product, String> columnTiltle;
@@ -201,8 +203,10 @@ public class CategoryController implements Initializable {
             switchToEmployee.setDisable(true);
         }
         switchToProduct.setDisable(true);
+        switchToOrder.setDisable(true);
         if (Customer.getValueOfCustomerId() != null && Staff.getLoginStaffId() != null) {
             switchToProduct.setDisable(false);
+            switchToOrder.setDisable(false);
         }
     }
 

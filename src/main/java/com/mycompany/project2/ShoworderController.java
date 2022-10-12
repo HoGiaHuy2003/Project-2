@@ -26,17 +26,20 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+
 /**
  * FXML Controller class
  *
  * @author Admin
  */
 public class ShoworderController implements Initializable {
-    
+
     @FXML
     private Button switchToProduct;
     @FXML
     private Button switchToEmployee;
+    @FXML
+    private Button switchToOrder;
     @FXML
     private Label yourRole;
     @FXML
@@ -71,6 +74,7 @@ public class ShoworderController implements Initializable {
     private TableColumn<Order, Integer> columnAmount;
     @FXML
     private TableColumn<Order, Float> columnTotalPrice;
+
     /**
      * Initializes the controller class.
      */
@@ -92,7 +96,7 @@ public class ShoworderController implements Initializable {
         getEmail();
 
         blockManageEmployee();
-        
+
         setValueForTableView();
     }
 
@@ -155,14 +159,16 @@ public class ShoworderController implements Initializable {
             switchToEmployee.setDisable(true);
         }
         switchToProduct.setDisable(true);
+        switchToOrder.setDisable(true);
         if (Customer.getValueOfCustomerId() != null && Staff.getLoginStaffId() != null) {
             switchToProduct.setDisable(false);
+            switchToOrder.setDisable(false);
         }
     }
-    
-    private void setValueForTableView(){
+
+    private void setValueForTableView() {
         ObservableList<Order> orderDetail = FXCollections.observableList(OrderEntity.orderDetail());
-        
+
         columnId.setCellValueFactory(new PropertyValueFactory<>("orderId"));
         columnStaffName.setCellValueFactory(new PropertyValueFactory<>("staffName"));
         columnCustomerName.setCellValueFactory(new PropertyValueFactory<>("customerName"));
@@ -172,7 +178,7 @@ public class ShoworderController implements Initializable {
         columnPrice.setCellValueFactory(new PropertyValueFactory<>("priceOfProduct"));
         columnAmount.setCellValueFactory(new PropertyValueFactory<>("numberOfProduct"));
         columnTotalPrice.setCellValueFactory(new PropertyValueFactory<>("totalPrice"));
-        
+
         tableView.setItems(orderDetail);
     }
 
@@ -195,14 +201,19 @@ public class ShoworderController implements Initializable {
     private void switchToCategory() throws IOException {
         App.setRoot("category");
     }
-    
+
     @FXML
-    private void switchToProduct() throws IOException{
+    private void switchToProduct() throws IOException {
         App.setRoot("product");
     }
-    
+
     @FXML
-    private void orderRevenue() throws IOException{
+    private void orderRevenue() throws IOException {
         App.setRoot("orderRevenue");
+    }
+
+    @FXML
+    private void switchToOrder() throws IOException {
+        App.setRoot("order");
     }
 }

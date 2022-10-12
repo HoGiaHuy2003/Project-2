@@ -70,7 +70,7 @@
                   <Pane prefHeight="23.0" prefWidth="240.0" />
                   <HBox alignment="CENTER" prefHeight="22.0" prefWidth="240.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="190.0" styleClass="add-btn" text="Order">
+                        <Button fx:id="switchToOrder" mnemonicParsing="false" onAction="#switchToOrder" prefHeight="51.0" prefWidth="190.0" styleClass="add-btn" text="Order">
                            <font>
                               <Font name="System Bold Italic" size="20.0" />
                            </font>

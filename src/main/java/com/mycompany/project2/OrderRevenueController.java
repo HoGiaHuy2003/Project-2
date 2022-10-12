@@ -48,6 +48,8 @@ public class OrderRevenueController implements Initializable {
     @FXML
     private Button switchToEmployee;
     @FXML
+    private Button switchToOrder;
+    @FXML
     private Label yourRole;
     @FXML
     private Label yourName;
@@ -97,7 +99,7 @@ public class OrderRevenueController implements Initializable {
         getEmail();
 
         blockManageEmployee();
-        
+
         setValueForTableView();
     }
 
@@ -160,22 +162,24 @@ public class OrderRevenueController implements Initializable {
             switchToEmployee.setDisable(true);
         }
         switchToProduct.setDisable(true);
+        switchToOrder.setDisable(true);
         if (Customer.getValueOfCustomerId() != null && Staff.getLoginStaffId() != null) {
             switchToProduct.setDisable(false);
+            switchToOrder.setDisable(false);
         }
     }
 
     private void setValueForTableView() {
         ObservableList<Order> orderRevenue = FXCollections.observableList(OrderEntity.revenueList());
-        
+
         columnId.setCellValueFactory(new PropertyValueFactory<>("orderId"));
         columnStaffName.setCellValueFactory(new PropertyValueFactory<>("staffName"));
         columnCustomerName.setCellValueFactory(new PropertyValueFactory<>("customerName"));
         columnOrderDate.setCellValueFactory(new PropertyValueFactory<>("orderdate"));
         columnTotalPrice.setCellValueFactory(new PropertyValueFactory<>("totalPrice"));
-        
+
         tableView.setItems(orderRevenue);
-        
+
         totalRevenue.setText("Total Revenue: " + OrderEntity.totalRevenue());
     }
 
@@ -200,7 +204,12 @@ public class OrderRevenueController implements Initializable {
     }
 
     @FXML
-    private void switchToProduct() throws IOException{
+    private void switchToProduct() throws IOException {
         App.setRoot("product");
+    }
+
+    @FXML
+    private void switchToOrder() throws IOException {
+        App.setRoot("order");
     }
 }
