@@ -62,10 +62,9 @@
                      <children>
                         <TableView fx:id="tableView" prefHeight="320.0" prefWidth="522.0">
                           <columns>
-                            <TableColumn prefWidth="56.79995805025101" text="STT" />
                             <TableColumn fx:id="productName" prefWidth="217.60004806518555" text="Product Name" />
                               <TableColumn fx:id="numberOfProduct" prefWidth="126.39996337890625" text="Number" />
-                              <TableColumn fx:id="priceOfProduct" prefWidth="121.60003662109375" text="Price" />
+                              <TableColumn fx:id="priceOfProduct" prefWidth="176.0" text="Price" />
                           </columns>
                         </TableView>
                      </children>

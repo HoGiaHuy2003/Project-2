@@ -196,7 +196,7 @@ public class Order {
         this.totalPrice = totalPrice;
     }
 
-    public Float getTotalprice() { 
+    public Float getTotalprice() {
         totalprice = numberOfProduct * priceOfProduct;
         return totalprice;
     } // Total price of product in order
