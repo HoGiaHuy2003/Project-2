@@ -194,7 +194,16 @@
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
                                           </Button>
-                                          <Pane prefHeight="100.0" prefWidth="28.0" />
+                                          <Pane prefHeight="100.0" prefWidth="69.0" />
+                                          <ImageView fx:id="switchToOrder" fitHeight="61.0" fitWidth="74.0" onMouseClicked="#switchToOrder" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../img/ic_cart.png" />
+                                             </image>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </ImageView>
+                                          <Pane prefHeight="100.0" prefWidth="42.0" />
                                        </children>
                                     </HBox>
                                     <HBox alignment="CENTER" prefHeight="711.0" prefWidth="749.0" VBox.vgrow="ALWAYS">
@@ -222,13 +231,16 @@
          <left>
             <VBox prefHeight="810.0" prefWidth="240.0" style="-fx-background-color: lightblue;" BorderPane.alignment="CENTER">
                <children>
-                  <HBox alignment="CENTER" prefHeight="187.0" prefWidth="240.0" styleClass="search-box">
+                  <HBox alignment="CENTER" prefHeight="223.0" prefWidth="240.0" styleClass="img">
                      <children>
-                        <Label text="img">
-                           <font>
-                              <Font name="System Bold Italic" size="36.0" />
-                           </font>
-                        </Label>
+                        <ImageView fitHeight="171.0" fitWidth="153.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+                           <image>
+                              <Image url="@../img/logo.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </ImageView>
                      </children>
                   </HBox>
                   <Pane prefHeight="51.0" prefWidth="240.0" />
@@ -260,7 +272,7 @@
                   <Pane prefHeight="23.0" prefWidth="240.0" />
                   <HBox alignment="CENTER" prefHeight="22.0" prefWidth="240.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#manageCustomer" prefHeight="22.0" prefWidth="190.0" styleClass="fruit-item" text="Customer">
+                        <Button mnemonicParsing="false" onAction="#switchToManageCustomer" prefHeight="22.0" prefWidth="190.0" styleClass="fruit-item" text="Customer">
                            <font>
                               <Font name="System Bold Italic" size="20.0" />
                            </font>
@@ -273,20 +285,7 @@
                   <Pane prefHeight="23.0" prefWidth="240.0" />
                   <HBox alignment="CENTER" prefHeight="22.0" prefWidth="240.0">
                      <children>
-                        <Button fx:id="switchToOrder" mnemonicParsing="false" onAction="#switchToOrder" prefHeight="51.0" prefWidth="190.0" styleClass="fruit-item" text="Order">
-                           <font>
-                              <Font name="System Bold Italic" size="20.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
-                     </children>
-                  </HBox>
-                  <Pane prefHeight="23.0" prefWidth="240.0" />
-                  <HBox alignment="CENTER" prefHeight="22.0" prefWidth="240.0">
-                     <children>
-                        <Button mnemonicParsing="false" onAction="#orderDetail" prefHeight="51.0" prefWidth="190.0" styleClass="fruit-item" text="Order Detail">
+                        <Button mnemonicParsing="false" onAction="#orderDetail" prefHeight="51.0" prefWidth="190.0" styleClass="fruit-item" text="Order">
                            <font>
                               <Font name="System Bold Italic" size="20.0" />
                            </font>
@@ -325,7 +324,7 @@
                   <Pane prefHeight="23.0" prefWidth="240.0" />
                   <HBox alignment="CENTER" prefHeight="22.0" prefWidth="240.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#logout" prefHeight="51.0" prefWidth="190.0" styleClass="fruit-item" text="Logout">
+                        <Button mnemonicParsing="false" onAction="#logout" prefHeight="22.0" prefWidth="190.0" styleClass="fruit-item" text="Logout">
                            <font>
                               <Font name="System Bold Italic" size="20.0" />
                            </font>

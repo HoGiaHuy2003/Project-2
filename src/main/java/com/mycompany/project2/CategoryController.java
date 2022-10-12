@@ -45,8 +45,6 @@ public class CategoryController implements Initializable {
     @FXML
     private Button switchToOrder;
     @FXML
-    private TableColumn<Product, Integer> columnID;
-    @FXML
     private TableColumn<Product, String> columnTiltle;
     @FXML
     private TableColumn<Product, Integer> columnQuantity;
@@ -150,9 +148,6 @@ public class CategoryController implements Initializable {
     @FXML
     private void getselect(ActionEvent event) throws IOException {
         String select = cbCategory.getSelectionModel().getSelectedItem().toString();
-//          if ("food".equals(select)) {
-//            setValueForTableView();
-//        }
         List<Category> categoryList = CategoryEntity.getCategoryList();
         for (int i = 0; i < categoryList.size(); i++) {
             if (categoryList.get(i).getCategoryName().equals(select)) {
@@ -174,7 +169,6 @@ public class CategoryController implements Initializable {
 
     private void setValueForTableViewShowProductByCategory() {
         ObservableList<Product> productList = (ObservableList<Product>) ProductEntity.findProductByCategory(cbCategory.getSelectionModel().getSelectedItem().toString());
-        columnID.setCellValueFactory(new PropertyValueFactory<>("id"));
         columnTiltle.setCellValueFactory(new PropertyValueFactory<>("title"));
         columnDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
         columnQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
@@ -184,8 +178,6 @@ public class CategoryController implements Initializable {
 
     private void setValueForTableView() {
         ObservableList<Product> productList = (ObservableList<Product>) ProductEntity.productList();
-        
-        columnID.setCellValueFactory(new PropertyValueFactory<>("id"));
         columnTiltle.setCellValueFactory(new PropertyValueFactory<>("title"));
         columnDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
         columnQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
@@ -226,11 +218,6 @@ public class CategoryController implements Initializable {
     @FXML
     private void switchToEmployee() throws IOException {
         App.setRoot("employee");
-    }
-
-    @FXML
-    private void switchToOrder() throws IOException {
-        App.setRoot("order");
     }
 
     @FXML

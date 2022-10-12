@@ -42,6 +42,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 
@@ -116,7 +117,7 @@ public class ProductController implements Initializable {
     private Button btnInsert;
 
     @FXML
-    private Button switchToOrder;
+    private ImageView switchToOrder;
 
     private Image image;
 
@@ -281,12 +282,7 @@ public class ProductController implements Initializable {
     private void showIncome() throws IOException {
         App.setRoot("income");
     }
-
-    @FXML
-    private void manageCustomer() throws IOException {
-        App.setRoot("managecustomer");
-    }
-
+    
     @FXML
     private void switchToCategory() throws IOException {
         App.setRoot("category");
@@ -358,5 +354,10 @@ public class ProductController implements Initializable {
     @FXML
     private void orderDetail() throws IOException {
         App.setRoot("showorder");
+    }
+
+    @FXML
+    private void switchToManageCustomer(ActionEvent event) throws IOException {
+        App.setRoot("managecustomer");
     }
 }

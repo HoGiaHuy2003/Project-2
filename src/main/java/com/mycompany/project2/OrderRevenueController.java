@@ -209,7 +209,7 @@ public class OrderRevenueController implements Initializable {
     }
 
     @FXML
-    private void switchToOrder() throws IOException {
-        App.setRoot("order");
+    private void orderDetail() throws IOException {
+        App.setRoot("showorder");
     }
 }
