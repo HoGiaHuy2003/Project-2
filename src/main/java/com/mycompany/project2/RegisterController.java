@@ -74,20 +74,20 @@ public class RegisterController implements Initializable {
 
     @FXML
     private PasswordField txtRolePassword;
-    
+
     @FXML
     private Label forgotPassword;
-    
+
     @FXML
     private Label cancelOrSwitchToLogin;
-    
+
     @FXML
     private Button btnSave;
 
     private RadioButton button;
 
     private Staff getEditStaff = StaffEntity.findStaffId(Staff.getEditStaffById());
-    
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setUpComboBox();
@@ -117,53 +117,6 @@ public class RegisterController implements Initializable {
         }
     }
 
-//    @FXML
-//    private void setEditValueForTxtFullName(ActionEvent event) {
-//
-////        txtAddress.setText(getEditStaff);
-//    }
-//
-//    @FXML
-//    private void setEditValueForTxtBirthday(ActionEvent event) {
-//    }
-//
-//    @FXML
-//    private void setEditValueForTxtAddress() {
-//
-//    }
-//
-//    @FXML
-//    private void setEditValueForTxtPhoneNumber(ActionEvent event) {
-//
-//    }
-//
-//    @FXML
-//    private void setEditValueForTxtEmail(ActionEvent event) {
-//
-//    }
-//    @FXML
-//    private void comboBoxRole() {
-//        ObservableList<Role> list = RoleEntity.getRoleList();
-//
-//        for (int i = 0; i < list.size(); i++) {
-//            cbRole.getItems().addAll(list.get(i).getName());
-//            cbRole.getSelectionModel().select(null);
-//        }
-//    }
-//    @FXML
-//    private void radioButton() {
-//        btnMale = new RadioButton("Male");
-//        btnFemale = new RadioButton("Female");
-//
-//        btnMale.setToggleGroup(group);
-//
-//        btnFemale.setToggleGroup(group);
-//        if (group.getSelectedToggle() == btnMale) {
-//            button = btnMale;
-//        } else if (group.getSelectedToggle() == btnFemale) {
-//            button = btnFemale;
-//        }
-//    }
     @FXML
     private void getBtnMale() {
         button = btnMale;
@@ -242,11 +195,5 @@ public class RegisterController implements Initializable {
                 }
             }
         }
-//            cbRole.setValue(getEditStaff.getRolename());
-//            txtFullname.setText(getEditStaff.getFullname());
-//            txtBirthday.setValue(LocalDate.parse(getEditStaff.getBirthday()));
-//            txtAddress.setText(getEditStaff.getAddress());
-//            txtPhoneNumber.setText(getEditStaff.getPhonenumber());
-//            txtEmail.setText(getEditStaff.getEmail());
     }
 }

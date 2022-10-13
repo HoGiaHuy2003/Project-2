@@ -10,15 +10,15 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane onMousePressed="#click" stylesheets="@../values/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.project2.ItemController">
+<AnchorPane onMousePressed="#click" prefHeight="192.0" prefWidth="190.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.project2.ItemController">
    <children>
       <VBox alignment="TOP_CENTER" layoutX="63.0" layoutY="8.0" prefHeight="215.0" prefWidth="225.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <HBox prefHeight="51.0" prefWidth="185.0">
+            <HBox prefHeight="51.0" prefWidth="261.0">
                <children>
-                  <Label fx:id="title" prefHeight="49.0" prefWidth="137.0" text="Cherry">
+                  <Label fx:id="title" prefHeight="50.0" prefWidth="147.0" text="Cherry">
                      <font>
-                        <Font name="Cambria" size="24.0" />
+                        <Font name="Cambria" size="20.0" />
                      </font>
                   </Label>
                   <Label fx:id="price" prefHeight="49.0" prefWidth="101.0" text="\$0.99">
@@ -31,7 +31,7 @@
                   <Insets left="20.0" top="20.0" />
                </VBox.margin>
             </HBox>
-            <ImageView fx:id="imageView" fitHeight="115.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imageView" fitHeight="95.0" fitWidth="146.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </VBox>
    </children>

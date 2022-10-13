@@ -50,14 +50,12 @@ public class ItemController implements Initializable {
         this.itemEntity = itemEntity;
         title.setText(product.getTitle());
         price.setText("$" + product.getPrice());
-//        try {
-            File file = new File(product.getThumbnail());
-            if (file.isFile()) {
-                image = new Image(file.toURI().toString());
-            } else {
-//                image = new Image(product.getThumbnail(), true);
-            }
-            imageView.setImage(image); 
+        File file = new File(product.getThumbnail());
+        if (file.isFile()) {
+            image = new Image(file.toURI().toString());
+        } else {
+        }
+        imageView.setImage(image);
     }
 
     /**

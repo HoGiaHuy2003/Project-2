@@ -251,5 +251,5 @@ public class IncomeController implements Initializable {
     private void orderDetail() throws IOException {
         App.setRoot("showorder");
     }
-    
+
 }

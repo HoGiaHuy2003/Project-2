@@ -32,7 +32,6 @@ public class ProductEntity extends BaseEntity {
             statement.setString(2, product.getTitle());
             statement.setFloat(3, product.getPrice());
             statement.setInt(4, product.getQuantity());
-//            statement.setInt(5, product.getSeleableNumber());
             statement.setString(5, product.getDescription());
             statement.setString(6, product.getThumbnail());
             statement.setString(7, product.getCreatedAt());

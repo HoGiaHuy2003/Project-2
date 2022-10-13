@@ -108,7 +108,6 @@ public class EditIncomeController implements Initializable {
                 List<Staff> staffList = StaffEntity.list();
 
                 List<Income> incomeListInDataBase = IncomeEntity.incomeListInDataBase();
-//        outsideloop:
                 for (int j = 0; j < incomeListInDataBase.size(); j++) {
                     if (Staff.getEditStaffById() == incomeListInDataBase.get(j).getStaffId()) {
                         for (int i = 0; i < staffList.size(); i++) {

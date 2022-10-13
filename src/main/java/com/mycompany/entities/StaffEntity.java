@@ -144,7 +144,6 @@ public class StaffEntity extends BaseEntity {
     }
 
     public static ObservableList<Staff> list() {
-//        List<Staff> list = new Vector();
         ObservableList<Staff> list = FXCollections.observableArrayList();
         open();
 
@@ -156,14 +155,6 @@ public class StaffEntity extends BaseEntity {
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 Staff staff = new Staff(resultSet.getString("role"), resultSet.getString("fullname"), resultSet.getString("birthday"), resultSet.getString("gender"), resultSet.getString("address"), resultSet.getString("phone_number"), resultSet.getString("email"), resultSet.getString("created_at"));
-//                staff.setFullname(resultSet.getString("fullname"));
-//                staff.setBirthday(resultSet.getString("birthday"));
-//                staff.setGender(resultSet.getString("gender"));
-//                staff.setAddress(resultSet.getString("address"));
-//                staff.setPhoneNumber(resultSet.getString("phone_number"));
-//                staff.setEmail(resultSet.getString("email"));
-//                staff.setCreatedAt(resultSet.getString("created_at"));
-//                staff.setRoleName(resultSet.getString("role"));
                 staff.setStaffId(resultSet.getInt("id"));
                 list.add(staff);
             }
@@ -173,12 +164,10 @@ public class StaffEntity extends BaseEntity {
             close();
         }
 
-//        ObservableList<Staff> dataList = FXCollections.observableList(list);
         return list;
     }
 
     public static ObservableList<Staff> employerList() {
-//        List<Staff> list = new Vector<>();
         ObservableList<Staff> list = FXCollections.observableArrayList();
         open();
 
@@ -190,14 +179,6 @@ public class StaffEntity extends BaseEntity {
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 Staff staff = new Staff(resultSet.getString("role"), resultSet.getString("fullname"), resultSet.getString("birthday"), resultSet.getString("gender"), resultSet.getString("address"), resultSet.getString("phone_number"), resultSet.getString("email"), resultSet.getString("created_at"));
-//                staff.setFullname(resultSet.getString("fullname"));
-//                staff.setBirthday(resultSet.getString("birthday"));
-//                staff.setGender(resultSet.getString("gender"));
-//                staff.setAddress(resultSet.getString("address"));
-//                staff.setPhoneNumber(resultSet.getString("phone_number"));
-//                staff.setEmail(resultSet.getString("email"));
-//                staff.setCreatedAt(resultSet.getString("created_at"));
-//                staff.setRoleName(resultSet.getString("role"));
                 staff.setStaffId(resultSet.getInt("id"));
                 list.add(staff);
             }
@@ -207,12 +188,10 @@ public class StaffEntity extends BaseEntity {
             close();
         }
 
-//        ObservableList<Staff> dataList = FXCollections.observableList(list);
         return list;
     }
 
     public static ObservableList<Staff> employeeList() {
-//        List<Staff> list = new Vector<>();
         ObservableList<Staff> list = FXCollections.observableArrayList();
         open();
 
@@ -224,14 +203,6 @@ public class StaffEntity extends BaseEntity {
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 Staff staff = new Staff(resultSet.getString("role"), resultSet.getString("fullname"), resultSet.getString("birthday"), resultSet.getString("gender"), resultSet.getString("address"), resultSet.getString("phone_number"), resultSet.getString("email"), resultSet.getString("created_at"));
-//                staff.setFullname(resultSet.getString("fullname"));
-//                staff.setBirthday(resultSet.getString("birthday"));
-//                staff.setGender(resultSet.getString("gender"));
-//                staff.setAddress(resultSet.getString("address"));
-//                staff.setPhoneNumber(resultSet.getString("phone_number"));
-//                staff.setEmail(resultSet.getString("email"));
-//                staff.setCreatedAt(resultSet.getString("created_at"));
-//                staff.setRoleName(resultSet.getString("role"));
                 staff.setStaffId(resultSet.getInt("id"));
                 list.add(staff);
             }
@@ -241,53 +212,7 @@ public class StaffEntity extends BaseEntity {
             close();
         }
 
-//        ObservableList<Staff> dataList = FXCollections.observableList(list);
         return list;
     }
-    
-    
-//    public static ObservableList<Staff> totalIncome() {
-//        List<Staff> totalIncome = new Vector<>();
-//        open();
-//
-//        try {
-//            String sql = "SELECT staff.fullname, (salary_wages) + (overtime_wages) + (retroactive_pay) + (commissions) + (bonus) + (tips) - (penalty) 'total income' FROM staff LEFT JOIN income ON staff.id = income.staff_id;";
-//            statement = conn.prepareStatement(sql);
-//
-//            ResultSet resultSet = statement.executeQuery();
-//            while (resultSet.next()) {
-//                Staff income = new Staff(resultSet.getFloat("total income"));
-//                totalIncome.add(income);
-//            }
-//        } catch (SQLException ex) {
-//            Logger.getLogger(IncomeEntity.class.getName()).log(Level.SEVERE, null, ex);
-//        } finally {
-//            close();
-//        }
-//
-//        ObservableList<Staff> dataList = FXCollections.observableList(totalIncome);
-//        return dataList;
-//    }
-
-//    public static Staff findByEmailOrPhoneNumber(String email, String phoneNumber) {
-//        Staff staff = null;
-//        open();
-//
-//        String sql = "SELECT Staff.*, Role.name 'role' FROM Staff LEFT JOIN Role ON Staff.role_id = Role.id WHERE email = ? OR phone_number = ?";
-//        try {
-//            statement = conn.prepareStatement(sql);
-//            statement.setString(1, email);
-//            statement.setString(2, phoneNumber);
-//
-//            ResultSet resultSet = statement.executeQuery();
-//            while (resultSet.next()) {
-//                staff = new Staff(resultSet.getInt("id"), resultSet.getInt("role_id"), resultSet.getString("role"), resultSet.getString("fullname"), resultSet.getString("birthday"), resultSet.getString("gender"), resultSet.getString("address"), resultSet.getString("phone_number"), resultSet.getString("email"), resultSet.getString("updated_at"));
-//            }
-//        } catch (SQLException ex) {
-//            Logger.getLogger(StaffEntity.class.getName()).log(Level.SEVERE, null, ex);
-//        } finally {
-//            close();
-//        }
-//        return staff;
-//    }
+  
 }

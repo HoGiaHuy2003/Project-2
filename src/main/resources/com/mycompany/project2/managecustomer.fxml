@@ -296,16 +296,6 @@
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
-                           <children>
-                              <Button mnemonicParsing="false" onAction="#btnDeleteAccount" prefHeight="31.0" prefWidth="173.0" style="-fx-background-color: #f54842;" styleClass="add-btn" text="Delete Your Account">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <font>
-                                    <Font name="System Bold" size="15.0" />
-                                 </font>
-                              </Button>
-                           </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="196.0" />
                         <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="462.0" />

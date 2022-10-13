@@ -138,7 +138,6 @@ public class ProductController implements Initializable {
         description.setText(product.getDescription());
 
         Product.setEditProductById(product.getId());
-//        chosenProduct.setStyle(string);
     }
 
     private List<Product> productList = ProductEntity.productList();
@@ -184,7 +183,6 @@ public class ProductController implements Initializable {
 
                 ItemController itemController = fxmlLoader.getController();
                 itemController.setData(productList.get(i), itemEntity);
-//                System.out.println(productList.get(i).getThumbnail());
                 if (column == 3) {
                     column = 0;
                     row++;

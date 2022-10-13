@@ -224,6 +224,7 @@ public class ManagecustomerController implements Initializable {
     private void blockManageEmployee() {
         if (Staff.getLoginRoleId() != 1) {
             switchToEmployee.setDisable(true);
+            switchToProduct.setDisable(true);
         }
         switchToProduct.setDisable(true);
         switchToOrder.setDisable(true);
@@ -286,32 +287,6 @@ public class ManagecustomerController implements Initializable {
     private void btnUpdateAccount(ActionEvent event) throws IOException {
         Staff.setEditStaffById(Staff.getLoginStaffId());
         App.setRoot("register");
-    }
-
-    @FXML
-    private void btnDeleteAccount(ActionEvent event) throws IOException {
-        Staff.setEditStaffById(Staff.getLoginStaffId());
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Delete this staff: ");
-        alert.setHeaderText("Are you sure want to delete this staff?");
-
-        Optional<ButtonType> option = alert.showAndWait();
-
-        if (option.get() == null) {
-
-        } else if (option.get() == ButtonType.OK) {
-            StaffEntity.delete(Staff.getEditStaffById());
-            if (Staff.getEditStaffById() == Staff.getLoginStaffId()) {
-                Staff.setLoginStaffId(null);
-                Staff.setEditStaffById(0);
-            }
-            tableview.getItems().remove(tableview.getSelectionModel().getSelectedItem());
-            if (Staff.getLoginStaffId() == null) {
-                App.setRoot("login");
-            }
-        } else if (option.get() == ButtonType.OK) {
-
-        }
     }
 
     @FXML

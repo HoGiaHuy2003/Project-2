@@ -92,9 +92,6 @@ public class EditProductController implements Initializable {
             if (file.isFile()) {
                 image = new Image(file.toURI().toString());
             }
-//             else {
-//                image = new Image(txtThumbnail.getText(), true);
-//            }
             if (!image.isError()) {
                 thumbnail.setImage(image);
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);

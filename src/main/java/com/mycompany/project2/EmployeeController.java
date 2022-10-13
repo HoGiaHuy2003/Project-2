@@ -109,32 +109,6 @@ public class EmployeeController implements Initializable {
 
     @FXML
     private Button switchToOrder;
-//    @FXML
-//    private TreeTableView<Staff> treeTableView;
-//
-//    @FXML
-//    private TreeTableColumn<Staff, String> role;
-//
-//    @FXML
-//    private TreeTableColumn<Staff, String> fullname;
-//
-//    @FXML
-//    private TreeTableColumn<Staff, String> birthday;
-//
-//    @FXML
-//    private TreeTableColumn<Staff, String> gender;
-//
-//    @FXML
-//    private TreeTableColumn<Staff, String> address;
-//
-//    @FXML
-//    private TreeTableColumn<Staff, String> phoneNumber;
-//
-//    @FXML
-//    private TreeTableColumn<Staff, String> email;
-//
-//    @FXML
-//    private TreeTableColumn<Staff, String> dateStarted;
     private TreeItem<Staff> item;
 
     /**
@@ -215,7 +189,6 @@ public class EmployeeController implements Initializable {
 
         ObservableList<Staff> employeeList = StaffEntity.employeeList();
 
-//        ObservableList<Staff> total = StaffEntity.totalIncome();
         role.setCellValueFactory(new PropertyValueFactory<>("roleName"));
         fullname.setCellValueFactory(new PropertyValueFactory<>("fullname"));
         birthday.setCellValueFactory(new PropertyValueFactory<>("birthday"));
@@ -224,8 +197,6 @@ public class EmployeeController implements Initializable {
         phoneNumber.setCellValueFactory(new PropertyValueFactory<>("phonenumber"));
         email.setCellValueFactory(new PropertyValueFactory<>("email"));
         dateStarted.setCellValueFactory(new PropertyValueFactory<>("createdat"));
-//        totalIncome.setCellValueFactory((Callback<TableColumn.CellDataFeatures<Staff, Float>, ObservableValue<Float>>) total);
-
         tableview.setItems(employerList);
 
         tableview.getItems().addAll(employeeList);
@@ -242,12 +213,6 @@ public class EmployeeController implements Initializable {
             switchToOrder.setDisable(false);
         }
     }
-//    @FXML
-//    private void setNullForSelectionModel(){
-//        if(tableview.getSelectionModel().getSelectedItem() != null){
-//            tableview.setSelectionModel(null);
-//        }
-//    }
 
     @FXML
     private void btnUpdate(ActionEvent event) throws IOException {
@@ -259,7 +224,6 @@ public class EmployeeController implements Initializable {
         for (int i = 0; i < staffList.size(); i++) {
             if (tableview.getSelectionModel().getSelectedItem().getStaffId() == staffList.get(i).getStaffId()) {
                 Staff.setEditStaffById(staffList.get(i).getStaffId());
-//                System.out.println(Staff.getEditStaffById());
                 App.setRoot("register");
                 break;
             }
@@ -309,7 +273,6 @@ public class EmployeeController implements Initializable {
             }
             if (tableview.getSelectionModel().getSelectedItem().getStaffId() == staffList.get(i).getStaffId()) {
                 Staff.setEditStaffById(staffList.get(i).getStaffId());
-//                System.out.println(Staff.getEditStaffById());
                 App.setRoot("income");
                 break;
             }
@@ -348,26 +311,4 @@ public class EmployeeController implements Initializable {
     private void switchToOrder() throws IOException {
         App.setRoot("order");
     }
-
-//    private void setValueForTreeTableView() {
-//        role.setCellValueFactory(new TreeItemPropertyValueFactory<Staff, String>("rolename"));
-//        fullname.setCellValueFactory(new TreeItemPropertyValueFactory<Staff, String>("fullname"));
-//        birthday.setCellValueFactory(new TreeItemPropertyValueFactory<Staff, String>("birthday"));
-//        gender.setCellValueFactory(new TreeItemPropertyValueFactory<Staff, String>("gender"));
-//        address.setCellValueFactory(new TreeItemPropertyValueFactory<Staff, String>("address"));
-//        phoneNumber.setCellValueFactory(new TreeItemPropertyValueFactory<Staff, String>("phonenumber"));
-//        email.setCellValueFactory(new TreeItemPropertyValueFactory<Staff, String>("email"));
-//        dateStarted.setCellValueFactory(new TreeItemPropertyValueFactory<Staff, String>("createdat"));
-//        treeTableView.getColumns().addAll(role, fullname, birthday, gender, address, phoneNumber, email, dateStarted);
-//        item = new TreeItem<Staff>(dataList.get(0));
-//        for (int i = 0; i < dataList.size(); i++) {
-//            TreeItem<Staff> items = new TreeItem<Staff>(dataList.get(i));
-////
-//            item.getChildren().addAll(items);
-//            item = new TreeItem<Staff>(dataList.get(i));
-//
-//        }
-//            treeTableView.setRoot(item);
-//        }
-//    }
 }
