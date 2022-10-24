@@ -262,6 +262,8 @@ public class ProductController implements Initializable {
     private void blockManageEmployee() {
         if (Staff.getLoginRoleId() != 1) {
             switchToEmployee.setDisable(true);
+            btnUpdate.setDisable(true);
+            btnInsert.setDisable(true);
         }
         switchToProduct.setDisable(true);
         switchToOrder.setDisable(true);
