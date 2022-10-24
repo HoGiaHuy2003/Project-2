@@ -9,6 +9,7 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -165,9 +166,7 @@ public class RegisterController implements Initializable {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         String createdAt = dateFormat.format(date);
         String updatedAt = createdAt;
-
         List<Role> getRoleList = RoleEntity.getRoleList();
-
         if (Staff.getEditStaffById() == 0) {
             for (int i = 0; i < getRoleList.size(); i++) {
                 if (getRoleList.get(i).getRoleName().equals(cbRole.getValue())) {

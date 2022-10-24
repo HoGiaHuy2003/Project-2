@@ -20,7 +20,7 @@ public class BaseEntity {
     private static final String DATABASE = "project2";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "";
-
+    
     static Connection conn = null;
     static PreparedStatement statement = null;
 
