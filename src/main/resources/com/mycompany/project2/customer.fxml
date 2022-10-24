@@ -55,35 +55,36 @@
                   </HBox>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="62.0" prefWidth="762.0">
+            <HBox alignment="CENTER" prefHeight="45.0" prefWidth="839.0">
                <children>
-                  <Label prefHeight="30.0" prefWidth="294.0" text="Gender: ">
+                  <Label prefHeight="30.0" prefWidth="290.0" text="Gender: ">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <RadioButton fx:id="btnMale" mnemonicParsing="false" onAction="#getBtnMale" onMouseClicked="#getBtnMale" prefHeight="30.0" prefWidth="178.0" selected="true" text="Male">
-                     <font>
-                        <Font name="System Bold" size="20.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <toggleGroup>
-                        <ToggleGroup fx:id="group" />
-                     </toggleGroup>
-                  </RadioButton>
-                  <RadioButton fx:id="btnFemale" mnemonicParsing="false" onAction="#getBtnFemale" onMouseClicked="#getBtnFemale" prefHeight="30.0" prefWidth="170.0" text="Female">
-                     <toggleGroup>
-                        <ToggleGroup fx:id="group" />
-                     </toggleGroup>
-                     <font>
-                        <Font name="System Bold" size="20.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </RadioButton>
+                  <HBox alignment="CENTER" prefHeight="46.0" prefWidth="352.0">
+                     <children>
+                        <RadioButton fx:id="btnMale" mnemonicParsing="false" onAction="#getBtnMale" onMouseClicked="#getBtnMale" prefHeight="30.0" prefWidth="180.0" selected="true" text="Male">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="group" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="btnFemale" mnemonicParsing="false" onAction="#getBtnFemale" onMouseClicked="#getBtnFemale" prefHeight="30.0" prefWidth="170.0" text="Female" toggleGroup="$group">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </RadioButton>
+                     </children>
+                  </HBox>
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="62.0" prefWidth="762.0">
@@ -98,12 +99,12 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="62.0" prefWidth="762.0">
                <children>
-                  <Label prefHeight="30.0" prefWidth="302.0" text="Phone number: ">
+                  <Label prefHeight="30.0" prefWidth="304.0" text="Phone number: ">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtPhoneNumber" prefHeight="30.0" prefWidth="353.0" styleClass="add-btn" />
+                  <TextField fx:id="txtPhoneNumber" prefHeight="30.0" prefWidth="350.0" styleClass="add-btn" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="62.0" prefWidth="762.0">
