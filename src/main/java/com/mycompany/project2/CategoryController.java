@@ -206,6 +206,7 @@ public class CategoryController implements Initializable {
     private void logout(ActionEvent event) throws IOException {
         Staff.setLoginStaffId(null);
         Staff.setEditStaffById(0);
+        Customer.setValueOfCustomerId(null);
 
         App.setRoot("login");
     }
