@@ -159,13 +159,6 @@ public class ManagecustomerController implements Initializable {
             List<Role> roleList = RoleEntity.getRoleList();
             Staff loginId = StaffEntity.findStaffId(Staff.getLoginStaffId());
             yourName.setText("  Fullname: " + loginId.getFullname()); // Find name by id from database to insert into textfield
-//        } catch (NullPointerException ex) {
-//            Alert alert = new Alert(Alert.AlertType.ERROR);
-//            alert.setTitle("Error!!!");
-//            alert.setHeaderText("Cannot login!!!");
-//            alert.setContentText("Username and password are incorrect, please check again!!!");
-//            alert.showAndWait();
-//        }
     }
 
     private void getRoleName() {
