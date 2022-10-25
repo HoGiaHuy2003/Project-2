@@ -51,11 +51,24 @@ public class LoginController {
         staff.setEmail(txtUsername.getText().toString());
         staff.setPhonenumber(txtUsername.getText().toString());
         staff.setPassword(md5Password(txtPassword.getText().toString()));
-        if (StaffEntity.login(staff).getEmail().equals(staff.getEmail()) || StaffEntity.login(staff).getPhonenumber().equals(staff.getPhonenumber()) && StaffEntity.login(staff).getPassword().equals(staff.getPassword())) {
+//        if (StaffEntity.login(staff).getEmail().equals(staff.getEmail()) || StaffEntity.login(staff).getPhonenumber().equals(staff.getPhonenumber()) && StaffEntity.login(staff).getPassword().equals(staff.getPassword())) {
+//            Staff.setLoginStaffId(StaffEntity.login(staff).getStaffId());
+//            Staff.setLoginRoleId(StaffEntity.login(staff).getRoleId());
+//            Staff.setEditStaffById(Staff.getLoginStaffId());
+//            switchToManageCustomer();
+//        }
+        Staff login = StaffEntity.login(staff);
+        if (login != null) {
             Staff.setLoginStaffId(StaffEntity.login(staff).getStaffId());
             Staff.setLoginRoleId(StaffEntity.login(staff).getRoleId());
             Staff.setEditStaffById(Staff.getLoginStaffId());
             switchToManageCustomer();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error!!!");
+            alert.setHeaderText("Cannot login!!!");
+            alert.setContentText("Username and password are incorrect, please check again!!!");
+            alert.showAndWait();
         }
     }
 }

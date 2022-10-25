@@ -120,7 +120,7 @@ public class StaffEntity extends BaseEntity {
     public static Staff login(Staff staff) throws NoSuchAlgorithmException {
         open();
 
-        String sql = "SELECT * FROM Staff WHERE email = ? OR phone_number = ? AND password = ?";
+        String sql = "SELECT * FROM Staff WHERE (email = ? OR phone_number = ?) AND password = ?;";
         try {
             statement = conn.prepareStatement(sql);
             statement.setString(1, staff.getEmail());
@@ -128,11 +128,47 @@ public class StaffEntity extends BaseEntity {
             statement.setString(3, staff.getPassword());
 
             ResultSet resultSet = statement.executeQuery();
-            while (resultSet.next()) {
+//            if(resultSet.next() == false) {
+//                return null;
+//            }
+            if (resultSet.next()) {
                 staff = new Staff(resultSet.getString("phone_number"), resultSet.getString("email"), resultSet.getString("password"));
                 staff.setStaffId(resultSet.getInt("id"));
                 staff.setRoleId(resultSet.getInt("role_id"));
-                break;
+//                break;
+            } else {
+                return null;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(StaffEntity.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            close();
+        }
+
+        return staff;
+    }
+
+    public static Staff checkAccount(Staff staff) throws NoSuchAlgorithmException {
+        open();
+
+        String sql = "SELECT * FROM Staff WHERE email = ? OR phone_number = ?;";
+        try {
+            statement = conn.prepareStatement(sql);
+            statement.setString(1, staff.getEmail());
+            statement.setString(2, staff.getPhonenumber());
+//            statement.setString(3, staff.getPassword());
+
+            ResultSet resultSet = statement.executeQuery();
+//            if (resultSet.next() == false) {
+//                return null;
+//            }
+            if (resultSet.next()) {
+                staff = new Staff(resultSet.getString("phone_number"), resultSet.getString("email"), resultSet.getString("password"));
+//                staff.setStaffId(resultSet.getInt("id"));
+//                staff.setRoleId(resultSet.getInt("role_id"));
+//                break;
+            } else {
+                return null;
             }
         } catch (SQLException ex) {
             Logger.getLogger(StaffEntity.class.getName()).log(Level.SEVERE, null, ex);
@@ -214,5 +250,5 @@ public class StaffEntity extends BaseEntity {
 
         return list;
     }
-  
+
 }

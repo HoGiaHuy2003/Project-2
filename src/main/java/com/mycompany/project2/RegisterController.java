@@ -27,6 +27,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
@@ -103,7 +104,7 @@ public class RegisterController implements Initializable {
             txtFullname.setText(getEditStaff.getFullname());
             txtBirthday.setValue(LocalDate.parse(getEditStaff.getBirthday()));
             txtAddress.setText(getEditStaff.getAddress());
-            txtPhoneNumber.setText(getEditStaff.getPhonenumber());
+            txtPhoneNumber.setText(getEditStaff.getPhonenumber().toString());
             txtEmail.setText(getEditStaff.getEmail());
             btnSave.setText("Save");
         }
@@ -158,8 +159,37 @@ public class RegisterController implements Initializable {
         String birthday = txtBirthday.getValue().toString();
         String gender = getValueOfRadioButton();
         String address = txtAddress.getText().toString();
-        String phoneNumber = txtPhoneNumber.getText().toString();
-        String email = txtEmail.getText().toString();
+        Integer phoneNumber = null;
+        try {
+            if (!txtPhoneNumber.getText().equals("")) {
+                phoneNumber = Integer.parseInt(txtPhoneNumber.getText().toString());
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error!!!");
+                alert.setHeaderText("Cannot login!!!");
+                alert.setContentText("Phone number must not be null, please check again!!!");
+                alert.showAndWait();
+                return;
+            }
+        } catch (NumberFormatException ex) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error!!!");
+            alert.setHeaderText("Cannot login!!!");
+            alert.setContentText("Phone number must be an integer number, please check again!!!");
+            alert.showAndWait();
+            return;
+        }
+        String email = null;
+        if (!txtEmail.getText().equals("") && txtEmail.getText().contains("@")) {
+            email = txtEmail.getText().toString();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error!!!");
+            alert.setHeaderText("Cannot login!!!");
+            alert.setContentText("Email is wrong format, please check again!!!");
+            alert.showAndWait();
+            return;
+        }
         String password = md5Password(txtPassword.getText().toString());
         String rollPassword = md5Password(txtRolePassword.getText().toString());
         Date date = Calendar.getInstance().getTime();
@@ -171,7 +201,16 @@ public class RegisterController implements Initializable {
             for (int i = 0; i < getRoleList.size(); i++) {
                 if (getRoleList.get(i).getRoleName().equals(cbRole.getValue())) {
                     int role_id = getRoleList.get(i).getRoleId();
-                    Staff register = new Staff(role_id, fullname, birthday, gender, address, phoneNumber, email, password, createdAt, updatedAt);
+                    Staff register = new Staff(role_id, fullname, birthday, gender, address, phoneNumber.toString(), email, password, createdAt, updatedAt);
+                    Staff checkAccount = StaffEntity.checkAccount(register);
+                    if (checkAccount != null) {
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("Error!!!");
+                        alert.setHeaderText("Cannot login!!!");
+                        alert.setContentText("Email or phone number is already existed!!!");
+                        alert.showAndWait();
+                        return;
+                    }
                     if (getRoleList.get(i).getPassword().equals(rollPassword)) {
                         StaffEntity.insert(register);
                         switchToLoginOrManageCustomer();
@@ -183,7 +222,16 @@ public class RegisterController implements Initializable {
             for (int i = 0; i < getRoleList.size(); i++) {
                 if (getRoleList.get(i).getRoleName().equals(cbRole.getValue())) {
                     int role_id = getRoleList.get(i).getRoleId();
-                    Staff update = new Staff(role_id, fullname, birthday, gender, address, phoneNumber, email, password, createdAt, updatedAt);
+                    Staff update = new Staff(role_id, fullname, birthday, gender, address, phoneNumber.toString(), email, password, createdAt, updatedAt);
+                    Staff checkAccount = StaffEntity.checkAccount(update);
+                    if (checkAccount != null) {
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("Error!!!");
+                        alert.setHeaderText("Cannot login!!!");
+                        alert.setContentText("Email or phone number is already existed!!!");
+                        alert.showAndWait();
+                        return;
+                    }
                     update.setStaffId(Staff.getEditStaffById());
                     if (getRoleList.get(i).getPassword().equals(rollPassword)) {
                         StaffEntity.update(update);

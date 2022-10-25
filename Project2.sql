@@ -19,8 +19,8 @@ create table Staff(
 	birthday date,
 	gender varchar(16),
 	address varchar(50),
-	phone_number int,
-	email varchar(30),
+	phone_number int unique not null,
+	email varchar(30) unique not null,
 	password varchar(100),
 	created_at datetime,
 	updated_at datetime
