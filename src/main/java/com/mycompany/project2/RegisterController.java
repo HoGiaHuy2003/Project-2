@@ -228,7 +228,7 @@ public class RegisterController implements Initializable {
                         Alert alert = new Alert(Alert.AlertType.ERROR);
                         alert.setTitle("Error!!!");
                         alert.setHeaderText("Cannot login!!!");
-                        alert.setContentText("Email or phone number is already existed!!!");
+                        alert.setContentText("Email or Phone Number is already existed!!!");
                         alert.showAndWait();
                         return;
                     }
