@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="810.0" prefWidth="1515.0" style="-fx-background-color: #02e5f5;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.project2.EmployeeController">
+    <children>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <VBox prefHeight="200.0" prefWidth="240.0" style="-fx-background-color: lightblue;" stylesheets="@style.css" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="223.0" prefWidth="240.0" styleClass="img">
+                     <children>
+                        <ImageView fitHeight="167.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+                           <image>
+                              <Image url="@../img/logo.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <Pane prefHeight="51.0" prefWidth="240.0" />
+                  <HBox alignment="CENTER" prefHeight="22.0" prefWidth="240.0">
+                     <children>
+                        <Button fx:id="switchToProduct" mnemonicParsing="false" onAction="#switchToProduct" prefHeight="22.0" prefWidth="190.0" styleClass="fruit-item" stylesheets="@style.css" text="Product">
+                           <font>
+                              <Font name="System Bold Italic" size="20.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <Pane prefHeight="23.0" prefWidth="240.0" />
+                  <HBox alignment="CENTER" prefHeight="22.0" prefWidth="240.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#switchToCategory" prefHeight="22.0" prefWidth="190.0" styleClass="fruit-item" text="Category">
+                           <font>
+                              <Font name="System Bold Italic" size="20.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <Pane prefHeight="23.0" prefWidth="240.0" />
+                  <HBox alignment="CENTER" prefHeight="22.0" prefWidth="240.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#manageCustomer" prefHeight="22.0" prefWidth="190.0" styleClass="fruit-item" stylesheets="@style.css" text="Customer">
+                           <font>
+                              <Font name="System Bold Italic" size="20.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <Pane prefHeight="23.0" prefWidth="240.0" />
+                  <HBox alignment="CENTER" prefHeight="22.0" prefWidth="240.0">
+                     <children>
+                        <Button fx:id="switchToOrder" mnemonicParsing="false" onAction="#orderDetail" prefHeight="51.0" prefWidth="190.0" styleClass="fruit-item" text="Order">
+                           <font>
+                              <Font name="System Bold Italic" size="20.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <Pane prefHeight="23.0" prefWidth="240.0" />
+                  <HBox alignment="CENTER" prefHeight="22.0" prefWidth="240.0">
+                     <children>
+                        <Button fx:id="switchToEmployee" mnemonicParsing="false" prefHeight="22.0" prefWidth="190.0" styleClass="fruit-item" text="Staff">
+                           <font>
+                              <Font name="System Bold Italic" size="20.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <Pane prefHeight="23.0" prefWidth="240.0" />
+                  <HBox alignment="CENTER" prefHeight="22.0" prefWidth="240.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#showIncome" prefHeight="51.0" prefWidth="190.0" styleClass="fruit-item" text="Income">
+                           <font>
+                              <Font name="System Bold Italic" size="20.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <Pane prefHeight="23.0" prefWidth="240.0" />
+                  <HBox alignment="CENTER" prefHeight="22.0" prefWidth="240.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#logout" prefHeight="43.0" prefWidth="190.0" styleClass="fruit-item" stylesheets="@style.css" text="Logout">
+                           <font>
+                              <Font name="System Bold Italic" size="20.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </left>
+         <right>
+            <VBox prefHeight="810.0" prefWidth="240.0" style="-fx-background-color: lightblue;" stylesheets="@style.css" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane prefHeight="51.0" prefWidth="240.0" />
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Circle fill="DODGERBLUE" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
+                     </children>
+                  </HBox>
+                  <Pane prefHeight="51.0" prefWidth="240.0" />
+                  <HBox fx:id="yourRole1" alignment="CENTER" prefHeight="46.0" prefWidth="240.0">
+                     <children>
+                        <Label fx:id="yourRole" alignment="CENTER" prefHeight="34.0" prefWidth="283.0" text="Role:">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="46.0" prefWidth="240.0">
+                     <children>
+                        <Label fx:id="yourName" prefHeight="34.0" prefWidth="283.0" text="  Fullname:">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="42.0" prefWidth="240.0">
+                     <children>
+                        <Label fx:id="yourBirthday" prefHeight="34.0" prefWidth="278.0" text="  Birthday:">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="42.0" prefWidth="240.0">
+                     <children>
+                        <Label fx:id="yourGender" prefHeight="34.0" prefWidth="278.0" text="  Gender:">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="42.0" prefWidth="240.0">
+                     <children>
+                        <Label fx:id="yourAddress" prefHeight="34.0" prefWidth="278.0" text="  Address:">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="42.0" prefWidth="240.0">
+                     <children>
+                        <Label fx:id="yourPhone" prefHeight="34.0" prefWidth="278.0" text="  PhoneNumber:">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="42.0" prefWidth="240.0">
+                     <children>
+                        <Label fx:id="yourEmail" prefHeight="34.0" prefWidth="278.0" text="  Email:">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </right>
+         <center>
+            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane prefHeight="200.0" prefWidth="200.0" />
+                  <HBox alignment="CENTER" prefHeight="335.0" prefWidth="835.0">
+                     <children>
+                        <TableView fx:id="tableview" editable="true" prefHeight="196.0" prefWidth="1000.0" tableMenuButtonVisible="true">
+                           <columns>
+                              <TableColumn fx:id="role" prefWidth="108.0" text="Role" />
+                              <TableColumn fx:id="fullname" prefWidth="82.0" text="Fullname" />
+                              <TableColumn fx:id="birthday" prefWidth="88.0" text="Birthday" />
+                              <TableColumn fx:id="gender" prefWidth="103.0" text="Gender" />
+                              <TableColumn fx:id="address" prefWidth="142.0" text="Address" />
+                              <TableColumn fx:id="phoneNumber" prefWidth="148.0" text="Phone Number" />
+                              <TableColumn fx:id="email" prefWidth="134.0" text="Email" />
+                              <TableColumn fx:id="dateStarted" prefWidth="176.800048828125" text="Date Started" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" stylesheets="@style.css">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="92.0" prefWidth="214.0">
+                           <children>
+                              <Button fx:id="btnUpdate" mnemonicParsing="false" onAction="#btnUpdate" prefHeight="31.0" prefWidth="194.0" style="-fx-background-color: #89eb34;" styleClass="fruit-item" text="Edit Information">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="214.0">
+                           <children>
+                              <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#btnDelete" prefHeight="31.0" prefWidth="194.0" style="-fx-background-color: #f54842;" styleClass="fruit-item" text="Delete Acccout">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="565.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#showIncome" prefHeight="31.0" prefWidth="194.0" style="-fx-background-color: #f5e942;" styleClass="fruit-item" text="Show Income">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+    </children>
+</AnchorPane>
