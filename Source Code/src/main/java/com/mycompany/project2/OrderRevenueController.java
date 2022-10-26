@@ -166,10 +166,10 @@ public class OrderRevenueController implements Initializable {
             orderDetail.setDisable(true);
         }
         switchToProduct.setDisable(true);
-        switchToOrder.setDisable(true);
+//        switchToOrder.setDisable(true);
         if (Customer.getValueOfCustomerId() != null && Staff.getLoginStaffId() != null) {
             switchToProduct.setDisable(false);
-            switchToOrder.setDisable(false);
+//            switchToOrder.setDisable(false);
         }
     }
 
