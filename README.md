@@ -9,4 +9,4 @@
 
 For Developer And Admin:
 + Open IDE to install and run project
-+ Register an account. The password for employer account is 'Employer' and the password for employee account is 'Employee'
++ Register an account. The password of registration for employer account is 'Employer' and the password for employee account is 'Employee'
