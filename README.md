@@ -1,3 +1,5 @@
+# Canteen Management System
+
 1. Technical we use
 - Frontend: CSS and FXML JavaFX for design
 - Backend: Java with JDBC and MySQL for code and database.
