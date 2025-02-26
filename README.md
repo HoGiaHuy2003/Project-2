@@ -8,6 +8,6 @@
 2. Installation:
 
 For Developer And Admin:
-+ Open IDE to install and run project
-+ Register an account. The password of registration for employer account is 'Employer' and the password for employee account is 'Employee'
++ Open IDE to install and run project, create database and table in mysql
++ Register an account. If you want to authorize, insert into table role. The value are Employer and Employee. The password for them is the password needed to create account for Employer and Employee. 
 + Login And Try
